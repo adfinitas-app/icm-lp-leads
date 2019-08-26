@@ -63,6 +63,7 @@ var questionBg = ["../assets/bgQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.pn
 var questionIndex = 1;
 var questionContainer = document.getElementById("question" + questionIndex);
 var answerContainer = document.getElementById("answer");
+var thanksContainer = document.getElementById("thanks");
 var answerText = document.getElementById("answerText");
 var questionText = document.getElementById("questionText");
 var questionNb = document.getElementById("questionNb");
@@ -111,8 +112,11 @@ function changeQuestion(answer) {
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
     console.log("apres");
-    if (questionIndex > 3)
+    if (questionIndex === 4) {
+        questionContainer.style.display = "none";
+        thanksContainer.style.display = "block";
         return;
+    }
     if (checkAnswer() === false && questionIndex > 1 && answer === false) {
         setErrorMsg();
         return;
@@ -148,6 +152,7 @@ function checkYesNoButtons(nb, type) {
         }
     }
 }
+
 function resetYesNoBtn() {
     var all = document.getElementsByClassName("yesNoButton");
     all[0].setAttribute("selected", "false");
