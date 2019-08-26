@@ -23,7 +23,13 @@
       </div>
       <div class="grid-x hPaddding50">
         <div class="cell small-12 large-9 large-offset-3">
-          <p class="fs44 blueColor lh140 bBold">
+          <p class="fs44 blueColor lh140 bBold hide-for-small-only">
+            Que pensez-vous de <br class="show-for-large">
+            la recherche sur le cerveau&nbsp;?<br class="show-for-large">
+            <span class="orangeColor">Votre avis nous intéresse&nbsp;!</span>
+            <br><br>
+          </p>
+          <p class="show-for-small-only fs34 blueColor lh140 bBold">
             Que pensez-vous de <br class="show-for-large">
             la recherche sur le cerveau&nbsp;?<br class="show-for-large">
             <span class="orangeColor">Votre avis nous intéresse&nbsp;!</span>
@@ -496,6 +502,29 @@
         </div>
       </div>
     </div>
+    <div class="socialContainer">
+      <div class="grid-x align-right">
+        <a href="https://www.facebook.com/icminstitute/" target="_blank">
+        <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+          <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+          <p class="noHMargin text-center">
+            <i class="float-center fab fa-facebook-f noHMargin"></i>
+          </p>
+        </div>
+        </a>
+      </div>
+      <div class="grid-x align-right">
+        <a href="https://twitter.com/icm_institute" target="_blank">
+        <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+          <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+          <p class="noHMargin text-center">
+            <i class="float-center fab fa-twitter noHMargin"></i>
+          </p>
+        </div>
+        </a>
+      </div>
+    </div>
   </div>
 </div>
 <div id="question1" class="questionsContainer full" style="display: none;">
@@ -548,6 +577,29 @@
       </div>
     </div>
   </div>
+  <div class="socialContainer">
+    <div class="grid-x align-right">
+      <a href="https://www.facebook.com/icminstitute/" target="_blank">
+        <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+          <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+          <p class="noHMargin text-center">
+            <i class="float-center fab fa-facebook-f noHMargin"></i>
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="grid-x align-right">
+      <a href="https://twitter.com/icm_institute" target="_blank">
+        <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+          <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+          <p class="noHMargin text-center">
+            <i class="float-center fab fa-twitter noHMargin"></i>
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
 </div>
 <div id="answer" class="answersContainer full lightBG" style="display: none;">
   <div class="grid-y" style="height: 100vh;">
@@ -597,10 +649,33 @@
         </div>
       </div>
     </div>
+    <div class="socialContainer">
+      <div class="grid-x align-right">
+        <a href="https://www.facebook.com/icminstitute/" target="_blank">
+          <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+            <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+            <p class="noHMargin text-center">
+              <i class="float-center fab fa-facebook-f noHMargin"></i>
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="grid-x align-right">
+        <a href="https://twitter.com/icm_institute" target="_blank">
+          <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+            <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+            <p class="noHMargin text-center">
+              <i class="float-center fab fa-twitter noHMargin"></i>
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
   <div id="why" class="answersContainer full lightBG" style="">
-    <div class="grid-y" style="height: 100vh;" id="whyPart">
-      <div class="cell auto">
+    <div class="grid-y align-center" style="height: 100vh;" id="whyPart">
+      <div class="cell small-8">
         <div class="grid-x hPaddding50 align-center">
           <div class="cell small-12  medium-10 large-8">
             <p class="fs38 blueColor lh140 text-center show-for-large" id="whyText">
@@ -618,7 +693,7 @@
           </div>
         </div>
       </div>
-      <div class="cell small-2 medium-3">
+      <div class="cell auto">
         <div class="grid-x align-center">
           <div class="cell small-12 large-4 medium-8">
             <div class="grid-x align-center">
@@ -663,6 +738,29 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="socialContainer">
+    <div class="grid-x align-right">
+      <a href="https://www.facebook.com/icminstitute/" target="_blank">
+        <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+          <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+          <p class="noHMargin text-center">
+            <i class="float-center fab fa-facebook-f noHMargin"></i>
+          </p>
+        </div>
+      </a>
+    </div>
+    <div class="grid-x align-right">
+      <a href="https://twitter.com/icm_institute" target="_blank">
+        <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+          <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+          <p class="noHMargin text-center">
+            <i class="float-center fab fa-twitter noHMargin"></i>
+          </p>
+        </div>
+      </a>
     </div>
   </div>
 </div>

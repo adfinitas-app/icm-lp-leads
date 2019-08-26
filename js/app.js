@@ -8,13 +8,17 @@ var cbTrue = document.getElementById("cbTrue");
 var checkBox = false;
 
 
+function hideOverflow() {
+    document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
+}
+
 function openForm() {
     if (formOpened === true)
         return;
     form.style.display = "block";
     form.style.paddingLeft = "74px !important";
     formOpened = true;
-    $('#formHeaderButton').attr("onclick", "showQuestions()");
+    $('#formHeaderButton').attr("onclick", "hideOverflow(); showQuestions();");
 }
 
 function checkForm() {
@@ -105,30 +109,26 @@ function hideAnswer() {
     answerContainer.style.display = "none";
 }
 function changeQuestion(answer) {
+    if (checkAnswer() === false && questionIndex > 1 && answer === false) {
+        setErrorMsg();
+        return;
+    }
     if (questionIndex === 2 && answer === false) {
-        console.log("test");
         setAnswer();
         return;
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
-    console.log("apres");
     if (questionIndex === 4) {
         questionContainer.style.display = "none";
         thanksContainer.style.display = "block";
         return;
     }
-    if (checkAnswer() === false && questionIndex > 1 && answer === false) {
-        setErrorMsg();
-        return;
-    } else {
-        console.log("apres2");
-        if (questionIndex === 2)
-            $("#questionText").parent().addClass('large-8 medium-10');
-        questionText.innerHTML = questionTexts[questionIndex - 1];
-        questionNb.innerText = questionIndex;
-        questionContainer.setAttribute("id", "question" + questionIndex);
-        questionIndex++;
-    }
+    if (questionIndex === 2)
+        $("#questionText").parent().addClass('large-8 medium-10');
+    questionText.innerHTML = questionTexts[questionIndex - 1];
+    questionNb.innerText = questionIndex;
+    questionContainer.setAttribute("id", "question" + questionIndex);
+    questionIndex++;
 }
 
 function checkYesNoButtons(nb, type) {
@@ -181,7 +181,7 @@ function scrollWhy() {
         aTxt.style.top = parseInt(aTxt.style.top) - 10 + 'px';
         aTxt.style.transform = "scale(" + scale - 0.01 + ")";
         aArr.style.top = parseInt(aArr.style.top) - 10 + 'px';
-        if (parseInt(wPart.style.top) > check.offsetHeight - 150) {
+        if (parseInt(wPart.style.top) > check.offsetHeight - 50) {
             wPart.style.top = parseInt(wPart.style.top) - 10 + 'px';
         }
     }, 8);

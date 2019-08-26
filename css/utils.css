@@ -1,6 +1,5 @@
 html {
     scroll-behavior: smooth;
-    overflow: hidden;
 }
 
 .iti__flag {background-image: url("../intl-tel-input-16.0.0/build/img/flags.png");}

@@ -104,3 +104,61 @@ div#formHeaderContainer {
     background-size: cover;
     scroll-behavior: unset;
 }
+
+#thanks {
+    overflow: hidden;
+    background-color: #E4EAEE;
+    background-repeat: no-repeat;
+    background-size: cover;
+    scroll-behavior: unset;
+}
+
+.social {
+    background-color: #BFBFBF;
+    border-radius: 50%;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    padding-top: 12px;
+    transition-duration: 0.2s;
+}
+
+.social:hover {
+    background-color: #EB6909;
+    transition-duration: 0.2s;
+    border-radius: 50%;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    padding-top: 12px;
+}
+
+.social i {
+    margin-top: 10px;
+    font-size: 24px;
+    margin: 5px;
+    color: #fff;
+}
+
+.socialContainer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+}
+
+.socialText {
+    position: absolute;
+    bottom: 30px !important;
+    right: 70px;
+}
+
+.fbTxt {
+    bottom: 55px !important;
+    right: 70px;
+}
+
+.ttTxt {
+    bottom: 0px !important;
+    right: 70px;
+}
