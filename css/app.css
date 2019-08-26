@@ -1,0 +1,106 @@
+div#header {
+    background-image: url("../assets/bg1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#formHeaderContainer>div {
+    background-color: #fff;
+}
+
+div#formHeaderContainer {
+    padding: 20% 30px 30px 30px;
+}
+
+.orangeButton {
+    background-color: #EB6909;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    transform: scale(1);
+    transition: ease-in-out 0.4s;
+}
+
+.orangeButton:hover {
+    transform: scale(1.1);
+    transition: ease-in-out 0.4s;
+}
+
+.yesNoButton {
+    opacity: 0.3;
+    transition: ease-in-out 0.2s;
+    background-color: #001941;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 0 30px;
+}
+
+.yesNoButton:hover {
+    opacity: 0.7;
+    transition: ease-in-out 0.2s;
+}
+
+.yesNoButton[selected = true] {
+    background-color: #001941;
+    opacity: 1;
+}
+
+.yesNoButton[selected = true]:hover {
+    background-color: #001941;
+    opacity: 1;
+}
+
+.yesNoButton p {
+    opacity: 1;
+}
+.orangeButton p {
+    color: #fff;
+    font-size: 22px;
+    padding: 10px 0;
+}
+
+#phone {
+    width: 100%;
+}
+
+#question1 {
+    background-image: url("../assets/bgQ1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#question2 {
+    background-image: url("../assets/bgQ2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#question3 {
+    background-image: url("../assets/bgQ3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.reveal h4, .reveal h3, .reveal ul, td, table {
+    padding-bottom: 10px;
+}
+
+.reveal p {
+    padding-bottom: 20px;
+}
+
+#answer{
+    overflow: hidden;
+    background-color: #E4EAEE;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#why {
+    overflow: hidden;
+    background-color: #E4EAEE;
+    background-repeat: no-repeat;
+    background-size: cover;
+    scroll-behavior: unset;
+}
