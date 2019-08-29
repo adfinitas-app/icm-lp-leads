@@ -2,25 +2,56 @@ $(document).foundation();
 
 
 // FORMHEADER
-var formOpened = false;
+var sending = false;
 var form = document.getElementById("formHeader");
 var cbFalse = document.getElementById("cbFalse");
 var cbTrue = document.getElementById("cbTrue");
 var checkBox = false;
+var userData = {};
 
 
 function checkForm() {
-    var civ = document.getElementById("civilite");
-    var nom = document.getElementById("nom");
-    var prenom = document.getElementById("prenom");
-    var email = document.getElementById("email");
-    var cbTrue = document.getElementById("cbTrue");
-    if (civ && civ.value && nom && nom.value && prenom && prenom.value && email && email.value && cbTrue.style.display === "block" && checkMark() === true)
+    if (sending === true)
+        return;
+    var phone = getData("phone");
+    var civ = getData("civilite");
+    var nom = getData("nom");
+    var prenom = getData("prenom");
+    var email = getData("email");
+    var cbTrue = getData("cbTrue");
+
+//    console.log("start");
+//    console.log("phone = [" + phone + "]");
+//    console.log("civ = [" + civ + "]");
+//    console.log("nom = [" + nom + "]");
+//    console.log("prenom = [" + prenom + "]");
+//    console.log("email = [" + email + "]");
+//    console.log("cbTrue = [" + cbTrue + "]");
+    if (civ && nom && prenom && email && cbTrue === true && checkMark() === true) {
+        if (validateEmail(email) === false) {
+            document.getElementById("formErrorMsg").innerText = "Addresse E-mail incorrecte";
+            return false;
+        }
+        if (phone && !iti.isValidNumber()) {
+            document.getElementById("formErrorMsg").innerText = "Numéro de téléphone incorrect";
+            return false;
+        }
+        $("#formHeaderButton").addClass("disabled");
+        sending = true;
+        userData.civ = civ;
+        userData.nom = nom;
+        userData.prenom = prenom;
+        userData.phone = phone;
+        userData.email = email;
+        userData.mark = getMark();
+        console.log(userData);
         return true;
+    }
     else {
+
         if (checkMark() === false)
             document.getElementById("formErrorMsg").innerText = "Veuillez mettre une note";
-        else if (civ && civ.value && nom && nom.value && prenom && prenom.value && email && email.value)
+        else if (civ && nom && prenom && email)
             document.getElementById("formErrorMsg").innerText = "Veuillez cocher les conditions";
         else
             document.getElementById("formErrorMsg").innerText = "Veuillez remplir les champs";
@@ -38,6 +69,16 @@ function headerCheckBox(arg) {
         cbTrue.style.display = "none";
         checkBox = false;
     }
+}
+
+function getMark() {
+    var all = document.getElementsByClassName("number");
+
+    for (var i = 0; i <= 9; i++) {
+        if (all[i].getAttribute("selected") === "true")
+            return (i + 1);
+    }
+    return ""
 }
 
 function setMark(nb) {
@@ -72,8 +113,5 @@ function checkMark() {
 }
 
 function validateForm() {
-    if (checkForm() === false) {
-        return false;
-    } else {
-    }
+    return checkForm() !== false;
 }
