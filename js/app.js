@@ -6,11 +6,8 @@ var form = document.getElementById("formHeader");
 var cbFalse = document.getElementById("cbFalse");
 var cbTrue = document.getElementById("cbTrue");
 var checkBox = false;
-
-
-function hideOverflow() {
-    document.getElementsByTagName("BODY")[0].style.overflow = "hidden";
-}
+var userData = {};
+userData.questions = ["", "", ""];
 
 function openForm() {
     if (formOpened === true)
@@ -22,15 +19,39 @@ function openForm() {
 }
 
 function checkForm() {
-    var civ = document.getElementById("civilite");
-    var nom = document.getElementById("nom");
-    var prenom = document.getElementById("prenom");
-    var email = document.getElementById("email");
-    var cbTrue = document.getElementById("cbTrue");
-    if (civ && civ.value && nom && nom.value && prenom && prenom.value && email && email.value && cbTrue.style.display === "block")
+    var phone = getData("phone");
+    var civ = getData("civilite");
+    var nom = getData("nom");
+    var prenom = getData("prenom");
+    var email = getData("email");
+    var cbTrue = getData("cbTrue");
+
+//    console.log("start");
+//    console.log("phone = [" + phone + "]");
+//    console.log("civ = [" + civ + "]");
+//    console.log("nom = [" + nom + "]");
+//    console.log("prenom = [" + prenom + "]");
+//    console.log("email = [" + email + "]");
+//    console.log("cbTrue = [" + cbTrue + "]");
+    if (civ && nom && prenom && email && cbTrue === true) {
+        if (validateEmail(email) === false) {
+            document.getElementById("formErrorMsg").innerText = "Addresse E-mail incorrecte";
+            return false;
+        }
+        if (phone && !iti.isValidNumber()) {
+            document.getElementById("formErrorMsg").innerText = "Numéro de téléphone incorrect";
+            return false;
+        }
+        userData.civ = civ;
+        userData.nom = nom;
+        userData.prenom = prenom;
+        userData.phone = phone;
+        userData.email = email;
+        console.log(userData);
         return true;
+    }
     else {
-        if (civ && civ.value && nom && nom.value && prenom && prenom.value && email && email.value)
+        if (civ && nom && prenom && email)
             document.getElementById("formErrorMsg").innerText = "Veuillez cocher les conditions";
         else
             document.getElementById("formErrorMsg").innerText = "Veuillez remplir les champs";
@@ -108,6 +129,21 @@ function hideAnswer() {
     questionContainer.style.display = "block";
     answerContainer.style.display = "none";
 }
+
+function getQAnswer() {
+    var button = document.getElementsByClassName("yesNoButton");
+
+    if (button[1].getAttribute("selected") === "true")
+        return "non";
+    else
+        return "oui";
+}
+
+function fillUserData() {
+    var value = getQAnswer();
+    userData.questions[questionIndex - 2] = value;
+}
+
 function changeQuestion(answer) {
     if (checkAnswer() === false && questionIndex > 1 && answer === false) {
         setErrorMsg();
