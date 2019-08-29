@@ -13,6 +13,11 @@ html {
     margin-bottom: 20px;
 }
 
+
+.disabled {
+    cursor: not-allowed !important;
+}
+
 #phone {
 }
 

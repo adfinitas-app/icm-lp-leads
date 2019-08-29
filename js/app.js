@@ -1,6 +1,7 @@
 $(document).foundation();
 
 // FORMHEADER
+var sending = false;
 var formOpened = false;
 var form = document.getElementById("formHeader");
 var cbFalse = document.getElementById("cbFalse");
@@ -19,6 +20,8 @@ function openForm() {
 }
 
 function checkForm() {
+    if (sending === true)
+        return;
     var phone = getData("phone");
     var civ = getData("civilite");
     var nom = getData("nom");
@@ -42,6 +45,7 @@ function checkForm() {
             document.getElementById("formErrorMsg").innerText = "Numéro de téléphone incorrect";
             return false;
         }
+        $("#formHeaderButton").addClass("disabled");
         userData.civ = civ;
         userData.nom = nom;
         userData.prenom = prenom;
