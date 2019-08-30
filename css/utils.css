@@ -110,6 +110,10 @@ p h1 h2 h3 h4 h5 h6 {
     font-weight: bold;
 }
 
+.bBold {
+    font-weight: 900;
+}
+
 .underline {
     text-decoration: underline;
 }

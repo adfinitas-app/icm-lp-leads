@@ -122,5 +122,9 @@ function validateForm() {
 }
 
 function setThanks() {
+    var thanks = document.getElementById("thanks");
+    var header = document.getElementById("header");
 
+    header.style.display = "none";
+    thanks.style.display = "block";
 }
