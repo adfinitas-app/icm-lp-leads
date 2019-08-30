@@ -112,6 +112,15 @@ function checkMark() {
     return false;
 }
 
+function sendRequest() {}
+
 function validateForm() {
-    return checkForm() !== false;
+    if (checkForm() === true) {
+        sendRequest();
+        setThanks();
+    }
+}
+
+function setThanks() {
+
 }
