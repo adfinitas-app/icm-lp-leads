@@ -9,33 +9,34 @@
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/utils.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/css/intlTelInput.css">
+  <link href="https://fonts.googleapis.com/css?family=Muli:300,400,900|Open+Sans:300,400,800&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/5adcadefca.js"></script>
 
 </head>
 <body>
 <div style="display: block;" id="header" class="full">
   <div class="grid-x">
-    <div class="cell small-12 large-7">
+    <div class="cell small-12 medium-7">
       <div class="grid-x">
         <div class="cell small-4 large-3 padding30">
-          <img src="assets/logoICM.png" alt="Logo ICM" class="float-center transparent">
+          <a target="_blank"  href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=LP&utm_content=SITE">
+          <img src="assets/logoICM.png" alt="Logo ICM" class="float-center transparent" style="max-width: 150px">
+          </a>
         </div>
       </div>
       <div class="grid-x hPaddding50">
-        <div class="cell small-12 large-9 large-offset-3">
-          <p class="fs44 blueColor lh140 bBold hide-for-small-only">
+        <div class="cell small-12 medium-11 medium-offset-1 large-10 large-offset-2">
+          <p class="fs44 blueColor lh130 bBold hide-for-small-only title">
             Que pensez-vous de <br class="show-for-large">
             la recherche sur le cerveau&nbsp;?<br class="show-for-large">
             <span class="orangeColor">Votre avis nous intéresse&nbsp;!</span>
-            <br><br>
           </p>
-          <p class="show-for-small-only fs34 blueColor lh140 bBold">
+          <p class="show-for-small-only fs28 blueColor lh140 bBold">
             Que pensez-vous de <br class="show-for-large">
             la recherche sur le cerveau&nbsp;?<br class="show-for-large">
             <span class="orangeColor">Votre avis nous intéresse&nbsp;!</span>
-            <br><br>
           </p>
-          <p class="textColor fs22">
+          <p class="textColor fs22 text">
             À l’Institut du Cerveau et de la Moelle épinière (ICM), 700 experts se mobilisent chaque jour pour résoudre la grande énigme du fonctionnement de notre cerveau.
             Pensez-vous qu’il sera bientôt possible d’en percer les mystères et de guérir la maladie d’Alzheimer, la maladie de Parkinson, la dépression, l’épilepsie, les tumeurs cérébrales,
             la sclérose en plaques... et toutes les pathologies qui peuvent toucher notre cerveau&nbsp;?
@@ -43,12 +44,12 @@
         </div>
       </div>
     </div>
-    <div class="cell small-12 large-5">
+    <div class="cell small-12 medium-5">
       <div class="grid-x" id="formHeaderContainer">
-        <div class="cell small-12 large-6 large-offset-2 padding30">
-          <p class="textColor fs18 noHMargin">
-            Merci de prendre <span class="orangeColor">2 minutes </span><br>
-            pour répondre à <span class="orangeColor">3 questions&nbsp;!</span>
+        <div class="cell small-12 large-8 large-offset-2 padding30">
+          <p class="greyColor fs18 noHMargin smallText">
+            Merci de prendre <span class="orangeColor bold">2 minutes </span><br>
+            pour répondre à <span class="orangeColor bold">3 questions&nbsp;</span>!
             <br><br>
           </p>
           <div id="formHeader" style="display: none;">
@@ -91,7 +92,8 @@
                 <i class="far fa-square" id="cbFalse" style="display: block;" onclick="headerCheckBox(false); document.getElementById('formErrorMsg').innerText = ''" ></i>
                 <i class="far fa-check-square" id="cbTrue" style="display: none;" onclick="headerCheckBox(true)"></i>
             </span>
-                J’ai lu la <a data-open="modalPPD" class="underline greyColor">politique de protection des données</a>, les <a data-open="modalML" class="underline greyColor">mentions légales </a>et en validant, j'accepte d'être contacté par email, téléphone ou tout autre moyen de communication par l’ICM. Vous pouvez vous désinscrire à tout moment des communications de l’ICM à l’aide des liens de désinscription.
+                J’ai lu la <a data-open="modalPPD" class="underline greyColor">politique de protection des données</a>, les <a data-open="modalML" class="underline greyColor">mentions légales </a>et en validant,
+                j'accepte d'être contacté par email, téléphone ou tout autre moyen de communication par l’ICM. Vous pouvez vous désinscrire à tout moment des communications de l’ICM à l’aide des liens de désinscription.
               </p>
             </div>
           </div>
@@ -449,7 +451,8 @@
           </h4>
           <p class="noHMargin textColor fs12">
             La mise en place d'un lien hypertexte vers notre site nécessite une autorisation préalable écrite. Faites votre demande à&nbsp;: contact@icm-institute.org.
-            L’ICM ne peut en aucun cas être tenu pour responsable de la mise à disposition des sites qui font l'objet d'un lien hypertexte à partir du site xxxx et
+            L’ICM ne peut en aucun cas être tenu pour responsable de la mise à disposition des sites qui font l'objet d'un lien hypertexte à partir du site
+            <a href="http://grande-enquete.icm-institute.org/fr" target="_blank">http://grande-enquete.icm-institute.org/fr</a> et
             ne peut supporter aucune responsabilité sur le contenu disponible sur ces sites ou à partir de ces sites.
             <br>
           </p>
@@ -465,7 +468,8 @@
             Directeur de la publication <br>
           </h4>
           <p class="noHMargin textColor fs12">
-            xxxx <br>
+            Jean-Louis Da Costa Responsable de la communication et du développement
+            <br>
           </p>
           <h4 class="noHMargin fs24 greyColor">
             Hébergement du site <br>
@@ -530,20 +534,22 @@
 <div id="question1" class="questionsContainer full" style="display: none;">
   <div class="grid-x align-bottom">
     <div class="cell small-4 padding30">
-      <img src="assets/logoICM.png" alt="Logo ICM" class="transparent w150">
+      <a target="_blank"  href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=LP&utm_content=SITE">
+      <img src="assets/logoICM.png" alt="Logo ICM" class="transparent w150 logo">
+      </a>
     </div>
     <div class="cell small-4" id="questionNbContainer">
       <p class="fs30 textColor text-center"><span class="fs48 orangeColor" id="questionNb"><!--1--></span> / 3</p>
     </div>
     <div class="cell small-4">
-      <a href="" target="_blank">
+      <a href="https://don.icm-institute.org/b?cid=191&utm_campaign=ENQUETE&utm_source=LP&utm_content=DON" target="_blank">
         <img  class="float-right padding30" src="assets/btnDon.png" alt="Je donne <3" style="position: absolute; top: 0; right: 0;" id="btnDonQuestion">
       </a>
     </div>
   </div>
   <div class="grid-x hPaddding50 align-center">
     <div class="cell small-12 large-7 medium-8">
-      <p class="fs42 blueColor lh140 text-center bBold" id="questionText">
+      <p class="fs42 blueColor lh140 text-center bBold title" id="questionText">
         <!--  Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;? -->
       </p>
     </div>
@@ -618,7 +624,7 @@
     <div class="cell auto">
       <div class="grid-x align-center">
         <div class="cell small-12  medium-10 large-9">
-          <p class="fs42 blueColor lh140 bBold text-center" id="answerText">
+          <p class="fs42 blueColor lh140 bBold text-center bigTitle" id="answerText">
             Comme vous, de nombreuses personnes <br class="show-for-large">
             craignent que ce ne soit pas possible.
             Pourtant, sachez que les plus éminents chercheurs de l’ICM ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.
@@ -631,17 +637,23 @@
         <div class="cell small-12 large-4 medium-8">
           <div class="grid-x align-center">
             <div class="cell">
-              <div class="margin30 cliquable" onclick="scrollWhy()" id="answerArrow">
-                <p class="text-center noHMargin fs48 orangeColor bBold">
+              <div class="cliquable" onclick="scrollWhy()" id="answerArrow">
+                <p class="show-for-small-only text-center noHMargin fs20 orangeColor bBold">
                   Pourquoi&nbsp;?
                 </p>
-                <p class="text-center textColor fs20 noHMargin">
+                <p class="show-for-medium text-center noHMargin fs48 orangeColor bBold">
+                  Pourquoi&nbsp;?
+                </p>
+                <p class="show-for-small-only text-center textColor fs14 noHMargin">
+                  Scroller ou cliquer pour voir la suite
+                </p>
+                <p class="show-for-medium text-center textColor fs20 noHMargin">
                   Scroller ou cliquer pour voir la suite
                 </p>
                 <img src="assets/donwArrow.png" alt="v" class="float-center padding30">
               </div>
               <div>
-                <p id="answerErrorMsg" class="fs20 bold redColor">
+                <p id="answerErrorMsg" class="fs20 bold redColor noHMargin">
                 </p>
               </div>
             </div>
@@ -675,19 +687,19 @@
   </div>
   <div id="why" class="answersContainer full lightBG" style="">
     <div class="grid-y align-center" style="height: 100vh;" id="whyPart">
-      <div class="cell small-8">
+      <div class="cell medium-8 small-9">
         <div class="grid-x align-center">
           <div class="cell small-12  medium-10 large-8">
-            <p class="fs38 blueColor lh140 text-center show-for-large" id="whyText">
+            <p class="fs32 blueColor lh140 text-center show-for-large semiTitle" id="whyText">
               Parce que l’ICM, situé au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de recherche de renommée internationale où tous les moyens
               techniques et humains sont réunis pour percer les mystères du cerveau. Chaque jour, 700 experts en neurosciences y travaillent main dans la main
-              en s’appuyant sur des plateformes technologiques de pointe. <span class="orangeColor"> <br>Leur unique objectif&nbsp;: parvenir à de nouvelles découvertes et les transformer au plus
+              en s’appuyant sur des plateformes technologiques de pointe. <span class="orangeColor bold"> <br><br>Leur unique objectif&nbsp;: parvenir à de nouvelles découvertes et les transformer au plus
               vite en traitements efficaces pour chaque patient&nbsp;!</span>
             </p>
-            <p class="fs28 blueColor lh140 text-center hide-for-large" id="whyText" style="margin-top: 100px">
+            <p class="blueColor lh140 text-center hide-for-large semiTitle fs28" id="whyText" style="margin-top: 30px">
               Parce que l’ICM, situé au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de recherche de renommée internationale où tous les moyens
               techniques et humains sont réunis pour percer les mystères du cerveau. Chaque jour, 700 experts en neurosciences y travaillent main dans la main
-              en s’appuyant sur des plateformes technologiques de pointe. <span class="orangeColor"><br> Leur unique objectif&nbsp;: parvenir à de nouvelles découvertes et les transformer au plus
+              en s’appuyant sur des plateformes technologiques de pointe. <span class="orangeColor bold"><br><br> Leur unique objectif&nbsp;: parvenir à de nouvelles découvertes et les transformer au plus
               vite en traitements efficaces pour chaque patient&nbsp;!</span>
             </p>
           </div>
@@ -695,10 +707,10 @@
       </div>
       <div class="cell auto">
         <div class="grid-x align-center">
-          <div class="cell small-12 large-4 medium-8">
+          <div class="cell small-10 large-4 medium-8">
             <div class="grid-x align-center">
               <div class="cell">
-                  <div class="orangeButton cliquable" id="nextQuestion" onclick="changeQuestion(true);">
+                  <div class="orangeButton cliquable noHMargin" id="nextQuestion" onclick="changeQuestion(true);">
                     <p class="text-center">
                       QUESTION SUIVANTE
                     </p>
@@ -728,7 +740,7 @@
     <div class="cell auto">
       <div class="grid-x align-center hPaddding50">
         <div class="cell small-12  medium-10 large-9">
-          <p class="bBold fs42 blueColor lh140 bBold text-center">
+          <p class="bBold fs42 blueColor lh140 bBold text-center title">
             Votre perception des maladies du cerveau
             et de la recherche nous est précieuse.
             <br><br>

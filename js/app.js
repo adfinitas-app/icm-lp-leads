@@ -84,9 +84,9 @@ function showQuestions() {
 
 
 // QUESTIONS
-var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans ?",
-    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot... ?",
-    'D’après-vous, l’ICM est-il le mieux placé <br class="show-for-large"> pour parvenir à guérir ces maladies ?'
+var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;?",
+    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
+    'D’après-vous, l’ICM est-il le mieux placé <br class="show-for-large"> pour parvenir à guérir ces maladies&nbsp;?'
 ];
 var questionBg = ["../assets/bgQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
 var questionIndex = 1;
@@ -202,10 +202,16 @@ function resetYesNoBtn() {
 // Answer
 
 function scrollWhy() {
+    var offset;
+    if (window.innerWidth > 1400)
+        offset = 30;
+    else
+        offset = 0
     var check = document.getElementById("check");
     var aTxt = document.getElementById('answerText').parentElement;
     var aArr = document.getElementById('answerArrow').parentElement;
     var wPart = document.getElementById("why");
+    var nQ = document.getElementById("nextQuestion");
     var wpos = $("#whyPart").position();
     var tpos = $("#answerText").parent().position();
     var apos = $("#answerArrow").parent().position();
@@ -221,11 +227,13 @@ function scrollWhy() {
         aTxt.style.top = parseInt(aTxt.style.top) - 10 + 'px';
         aTxt.style.transform = "scale(" + scale - 0.01 + ")";
         aArr.style.top = parseInt(aArr.style.top) - 10 + 'px';
-        if (parseInt(wPart.style.top) > check.offsetHeight - 50) {
+        if (parseInt(wPart.style.top) > check.offsetHeight - offset) {
+            console.log("wparte = " + parseInt(wPart.style.top));
+            console.log("top width = " + check.offsetHeight);
             wPart.style.top = parseInt(wPart.style.top) - 10 + 'px';
         }
     }, 8);
     setTimeout(function () {clearInterval(inter);aTxt.style.display = "none";
         aArr.style.display = "none";
-    }, 1000);
+    }, 1500);
 }
