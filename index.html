@@ -19,12 +19,14 @@
     <div class="cell small-12 large-12">
       <div class="grid-x align">
         <div class="cell small-4 large-3 padding30">
+          <a href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=LP&utm_content=SITE" target="_blank">
           <img src="assets/logoICM.png" alt="Logo ICM" class="float-left transparent w150">
+          </a>
         </div>
       </div>
       <div class="grid-x margin20 align-center">
         <div class="cell small-11 medium-8 large-8">
-          <p class="fs38 blueColor lh140 text-center noHMargin bold">
+          <p class="fs38 blueColor lh140 text-center noHMargin bBold">
             Recommanderiez-vous l’ICM aux membres de votre famille, à vos amis, à vos collègues&nbsp;?
           </p>
         </div>
@@ -104,8 +106,8 @@
         <div class="grid-x align-center">
           <div class="cell small-12 medium-8 large-8">
             <form>
-              <div class="grid-x grid-padding-x">
-                <div class="medium-2 cell">
+              <div class="grid-x" id="form">
+                <div class="large-2 medium-4 cell">
                   <label>
                     <select id="civilite">
                       <option value="" selected disabled>Civilité</option>
@@ -114,12 +116,12 @@
                     </select>
                   </label>
                 </div>
-                <div class="medium-5 cell">
+                <div class="medium-4 large-5 cell">
                   <label>
                     <input type="text" placeholder="Nom" id="nom" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
                   </label>
                 </div>
-                <div class="medium-5 cell">
+                <div class="large-5 medium-4 cell">
                   <label>
                     <input type="text" placeholder="Prénom" id="prenom" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
                   </label>
@@ -131,7 +133,8 @@
                 </div>
                 <div class="medium-6 cell">
                   <label>
-                    <input type="tel" id="phone" placeholder="Téléphone (optionel)" style="padding-left: 75px !important;">
+                    <input type="tel" id="phone" placeholder="6 12 34 56 78" style="padding-left: 80px !important;">
+                  <p id="optionel" class="blueColor fs12" style="display: none; position: absolute; top: 0; right: 0;">Optionel</p>
                   </label>
                 </div>
               </div>
@@ -567,10 +570,12 @@
     <div class="cell small-2 medium-3">
       <div class="grid-x align-bottom">
         <div class="cell small-4 padding30">
-          <img src="assets/logoICM.png" alt="Logo ICM" class="transparent w150 margin20" style="position: absolute; top: 0; left: 0;">
+          <a href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=LP&utm_content=SITE" target="_blank">
+            <img src="assets/logoICM.png" alt="Logo ICM" class="transparent w150 margin20" style="position: absolute; top: 0; left: 0;">
+          </a>
         </div>
         <div class="cell small-4 medium-offset-4">
-          <a href="" target="_blank">
+          <a href="https://don.icm-institute.org/b?cid=191&utm_campaign=ENQUETE&utm_source=LP&utm_content=DON" target="_blank">
             <img  class="float-right padding30" src="assets/btnDon.png" alt="Je donne <3" style="position: absolute; top: 0; right: 0;">
           </a>
         </div>
@@ -579,20 +584,18 @@
     <div class="cell auto">
       <div class="grid-x align-center hPaddding50">
         <div class="cell small-12  medium-10 large-9">
-          <p class="bold bBold fs48 blueColor lh140 bBold text-center">
+          <p class="bBold fs42 blueColor lh140 bBold text-center title">
             Votre note a bien été prise en compte.
-            <br>
-            <span class="orangeColor">
+            <br><br>
+            <span class="orangeColor bBold">
              L'CIM vous remercie <br class="show-for-large">
-             d'avoir participé à cette enquête.
-            </span>
+             d'avoir participé à cette enquête.</span>
           </p>
         </div>
       </div>
     </div>
   </div>
 </div>
-
   <script src="js/vendor/jquery.js"></script>
   <script src="js/vendor/what-input.js"></script>
   <script src="js/vendor/foundation.js"></script>
@@ -600,10 +603,22 @@
   <script src="js/utils.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
   <script>
+    $(document).ready(function () {
+      console.log("test");
+      var opt = document.getElementById("optionel");
+      var phone = document.getElementById("phone");
+      var rect = phone.getBoundingClientRect();
+      opt.style.display = "block";
+      opt.style.top = rect.top + 5 + 'px';
+      console.log("top = " + rect.top);
+      console.log("left = " + rect.right);
+      opt.style.left = rect.right - opt.offsetWidth - 5 + "px";
+      console.log(rect.right + "px");
+    });
     var input = document.querySelector("#phone");
     window.intlTelInput(input, {
       preferredCountries: ['FR', 'BE'],
-      //separateDialCode: true
+      separateDialCode: true
         }
     );
 
