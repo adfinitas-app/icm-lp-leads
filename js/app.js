@@ -16,7 +16,7 @@ function openForm() {
     form.style.display = "block";
     form.style.paddingLeft = "74px !important";
     formOpened = true;
-    $('#formHeaderButton').attr("onclick", "hideOverflow(); showQuestions();");
+    $('#formHeaderButton').attr("onclick", "showQuestions();");
 }
 
 function checkForm() {
@@ -76,8 +76,12 @@ function headerCheckBox(arg) {
 }
 
 function showQuestions() {
-    if (checkForm() === false)
+    if (checkForm() === false) {
         return;
+    }
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    screen = 'question1';
     document.getElementById("header").style.display = "none";
     document.getElementById("question1").style.display = "block";
 }
@@ -88,6 +92,7 @@ var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologi
     "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
     'D’après-vous, l’ICM est-il le mieux placé <br class="show-for-large"> pour parvenir à guérir ces maladies&nbsp;?'
 ];
+var scroll = 0;
 var questionBg = ["../assets/bgQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
 var questionIndex = 1;
 var questionContainer = document.getElementById("question" + questionIndex);
@@ -123,10 +128,13 @@ function setAnswer() {
     else
         answerText.innerHTML = answerTxt[1];
     answerContainer.style.display = "block";
+    screen = 'answer';
     $(document).bind('mousewheel', function(e) {
-        i++;
-        if (i === 1)
+        scroll++;
+        if (scroll === 1) {
             scrollWhy();
+            console.log("test")
+        }
     });}
 
 function hideAnswer() {
@@ -168,7 +176,12 @@ function changeQuestion(answer) {
     questionText.innerHTML = questionTexts[questionIndex - 1];
     questionNb.innerText = questionIndex;
     questionContainer.setAttribute("id", "question" + questionIndex);
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    if (questionIndex !== 1)
+        screen = "question" + questionIndex;
     questionIndex++;
+
 }
 
 function checkYesNoButtons(nb, type) {
@@ -202,11 +215,12 @@ function resetYesNoBtn() {
 // Answer
 
 function scrollWhy() {
+    scroll = 1;
     var offset;
     if (window.innerWidth > 1400)
         offset = 30;
     else
-        offset = 0
+        offset = 0;
     var check = document.getElementById("check");
     var aTxt = document.getElementById('answerText').parentElement;
     var aArr = document.getElementById('answerArrow').parentElement;
@@ -233,7 +247,10 @@ function scrollWhy() {
             wPart.style.top = parseInt(wPart.style.top) - 10 + 'px';
         }
     }, 8);
+    document.body.scrollTop = 10; // For Safari
+    document.documentElement.scrollTop = 10; // For Chrome, Firefox, IE and Opera
     setTimeout(function () {clearInterval(inter);aTxt.style.display = "none";
         aArr.style.display = "none";
     }, 1500);
+    screen = "why";
 }
