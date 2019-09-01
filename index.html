@@ -806,15 +806,12 @@
             preferredCountries: ['FR', 'BE'],
         });
     var screen = "header";
-      console.log(screen);
     var i = 0;
-      console.log(screen);
       $(document).bind('mousewheel', function(e) {
         i++;
         if (i === 1) {
           if (screen === "why")
             return;
-          console.log(screen);
           document.getElementById(screen).style.height = "100%";
           i = 0;
         }

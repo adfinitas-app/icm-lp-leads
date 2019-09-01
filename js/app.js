@@ -133,7 +133,6 @@ function setAnswer() {
         scroll++;
         if (scroll === 1) {
             scrollWhy();
-            console.log("test")
         }
     });}
 
@@ -242,8 +241,6 @@ function scrollWhy() {
         aTxt.style.transform = "scale(" + scale - 0.01 + ")";
         aArr.style.top = parseInt(aArr.style.top) - 10 + 'px';
         if (parseInt(wPart.style.top) > check.offsetHeight - offset) {
-            console.log("wparte = " + parseInt(wPart.style.top));
-            console.log("top width = " + check.offsetHeight);
             wPart.style.top = parseInt(wPart.style.top) - 10 + 'px';
         }
     }, 8);
