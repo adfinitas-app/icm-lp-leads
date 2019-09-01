@@ -604,16 +604,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
   <script>
     $(document).ready(function () {
-      console.log("test");
       var opt = document.getElementById("optionel");
       var phone = document.getElementById("phone");
       var rect = phone.getBoundingClientRect();
       opt.style.display = "block";
       opt.style.top = rect.top + 5 + 'px';
-      console.log("top = " + rect.top);
-      console.log("left = " + rect.right);
       opt.style.left = rect.right - opt.offsetWidth - 5 + "px";
-      console.log(rect.right + "px");
+
+      var urlParams = new URLSearchParams(window.location.search);
+      var mark = -1;
+      if (urlParams.has('mark') === true)
+        mark = parseInt(urlParams.get('mark'));
+      if (mark !== -1)
+        setMark(mark);
     });
     var input = document.querySelector("#phone");
     window.intlTelInput(input, {

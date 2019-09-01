@@ -82,6 +82,8 @@ function getMark() {
 }
 
 function setMark(nb) {
+    if (nb > 10)
+        return;
     var all = document.getElementsByClassName("number");
 
     if (all[nb - 1].getAttribute("selected") === "true") {
