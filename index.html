@@ -16,14 +16,14 @@
 <body>
 <div style="display: block; width: 100%; height: 100%; min-height: 100vh" id="header">
   <div class="grid-x">
+    <div class="cell small-4 large-3 padding30">
+      <a target="_blank"  href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=LP&utm_content=SITE">
+        <img src="assets/logoICM.png" alt="Logo ICM" class="float-center transparent" style="max-width: 150px">
+      </a>
+    </div>
+  </div>
+  <div class="grid-x">
     <div class="cell small-12 medium-7">
-      <div class="grid-x">
-        <div class="cell small-4 large-3 padding30">
-          <a target="_blank"  href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=LP&utm_content=SITE">
-          <img src="assets/logoICM.png" alt="Logo ICM" class="float-center transparent" style="max-width: 150px">
-          </a>
-        </div>
-      </div>
       <div class="grid-x hPaddding50">
         <div class="cell small-12 medium-11 medium-offset-1 large-10 large-offset-2">
           <p class="fs44 blueColor lh130 bBold hide-for-small-only title">
@@ -82,7 +82,7 @@
                 <div class="medium-12 cell">
                   <label>
                     <input type="tel" id="phone" placeholder="1 23 45 67 89" class="hMargin5">
-                    <p id="optionel" class="blueColor fs12" style="display: none; position: absolute; top: 0; right: 0;">Optionel</p>
+                    <p id="optionel" class="blueColor fs12" style="display: none; position: absolute; top: 0; right: 0;">Optionnel</p>
                   </label>
                 </div>
               </div>
@@ -799,7 +799,6 @@
     opt.style.display = "block";
     opt.style.top = rect.top + 3 + 'px';
     opt.style.left = rect.right - opt.offsetWidth - 3 + "px";
-
   }
     var input_phone = document.querySelector("#phone");
     var iti = intlTelInput(input_phone, {

@@ -10,14 +10,26 @@ div#formHeaderContainer>div {
 }
 
 div#formHeaderContainer {
-    padding: 20% 30px 30px 30px;
+    padding: 0 30px 30px 30px;
 }
 
 ::placeholder {
     color: #001941;
     font-family: "Muli", Arial;
 }
-
+input::placeholder {
+    color: #001941;
+    font-family: "Muli", Arial;
+}
+select::placeholder {
+    color: #001941;
+    font-family: "Muli", Arial;
+}
+[type='text'], select, [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea
+{
+    color: #001941;
+    font-family: "Muli", Arial;
+}
 .orangeButton {
     background-color: #EB6909;
     color: #fff;
