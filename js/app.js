@@ -170,7 +170,7 @@ function changeQuestion(answer) {
         hideAnswer();
     if (questionIndex === 4) {
         questionContainer.style.display = "none";
-        thanksContainer.style.display = "block";
+        thanksContainer.style.display = "flex";
         return;
     }
     if (questionIndex === 2)
