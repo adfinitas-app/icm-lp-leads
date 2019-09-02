@@ -608,8 +608,8 @@
     $(document).ready(function () {
       var urlParams = new URLSearchParams(window.location.search);
       var mark = -1;
-      if (urlParams.has('mark') === true)
-        mark = parseInt(urlParams.get('mark'));
+      if (urlParams.has('icm_mark') === true)
+        mark = parseInt(urlParams.get('icm_mark'));
       if (mark !== -1)
         setMark(mark);
     });
