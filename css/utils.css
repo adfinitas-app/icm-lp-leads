@@ -87,12 +87,16 @@ p h1 h2 h3 h4 h5 h6 {
     width: 150px;
 }
 
-.hPaddding50 {
+.hPadding50 {
     padding: 40px 0;
 }
 
 .hMargin5 {
     margin: 5px 0;
+}
+
+.hMargin50 {
+    margin: 50px 0;
 }
 
 .padding20 {

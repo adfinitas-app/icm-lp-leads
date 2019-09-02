@@ -323,7 +323,7 @@ select option {
     .largeLeftMargin10 {
         margin-left: 0 !important;
     }
-    .hPaddding50 {
+    .hPadding50 {
         padding: 20px 0 !important;
     }
     .w150 {
@@ -388,6 +388,6 @@ input {
     font-weight: 900;
 }
 
-#question2>div.hPaddding50 {
+#question2>div.hPadding50 {
     padding: 10px 0 !important;
 }
