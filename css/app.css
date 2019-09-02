@@ -1,3 +1,7 @@
+.stick {
+    position: fixed;
+}
+
 div#header {
     background-image: url("../assets/bg1.png");
     background-repeat: no-repeat;
@@ -45,11 +49,13 @@ select::placeholder {
     width: 100%;
     transform: scale(1);
     transition: ease-in-out 0.4s;
+    z-index: 100;
 }
 
 .orangeButton:hover {
     transform: scale(1.1);
     transition: ease-in-out 0.4s;
+    z-index: 100;
 }
 
 .yesNoButton {
@@ -60,21 +66,25 @@ select::placeholder {
     border-radius: 5px;
     padding: 15px;
     margin: 0 30px;
+    z-index: 100;
 }
 
 .yesNoButton:hover {
     opacity: 0.7;
     transition: ease-in-out 0.2s;
+    z-index: 100;
 }
 
 .yesNoButton[selected = true] {
     background-color: #001941;
     opacity: 1;
+    z-index: 100;
 }
 
 .yesNoButton[selected = true]:hover {
     background-color: #001941;
     opacity: 1;
+    z-index: 100;
 }
 
 .yesNoButton p {
@@ -174,10 +184,9 @@ select::placeholder {
 }
 
 .socialContainer {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    z-index: 9999;
+    right: 5px;
+    bottom: 5px;
+    z-index: 0;
 }
 
 .socialText {
@@ -304,7 +313,7 @@ select::placeholder {
         padding-left: 10px !important;
     }
     .smallPaddingTop50 {
-        padding-top: 50px !important;
+        padding-top: 150px !important;
     }
     .largeLeftMargin10 {
         margin-left: 0 !important;

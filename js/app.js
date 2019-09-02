@@ -165,12 +165,14 @@ function changeQuestion(answer) {
     }
     if (questionIndex === 2 && answer === false) {
         setAnswer();
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         return;
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
     if (questionIndex === 4) {
         questionContainer.style.display = "none";
-        thanksContainer.style.display = "flex";
+        thanksContainer.style.display = "block";
         return;
     }
     if (questionIndex === 2)
@@ -232,6 +234,7 @@ function scrollWhy() {
     var tpos = $("#answerText").parent().position();
     var apos = $("#answerArrow").parent().position();
     var scale = 1;
+    wPart.style.visibility = "visible";
     aTxt.style.position = "absolute";
     wPart.style.position = "absolute";
     aArr.style.position = "absolute";

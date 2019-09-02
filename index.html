@@ -98,7 +98,7 @@
               </p>
             </div>
           </div>
-          <div class="orangeButton cliquable" id="formHeaderButton" onclick="openForm();setOpt();">
+          <div class="orangeButton cliquable" id="formHeaderButton" onclick="openForm();setSocial();">
             <p class="text-center">
               JE RÉPONDS
             </p>
@@ -507,7 +507,7 @@
         </div>
       </div>
     </div>
-    <div class="socialContainer show-for-medium">
+    <div class="socialContainer stick show-for-medium">
       <div class="grid-x align-right">
         <a href="https://www.facebook.com/icminstitute/" target="_blank">
           <div class="cell social cliquable" onmouseover="
@@ -573,9 +573,7 @@
             </p>
           </div>
         </div>
-        <div class="orangeButton cliquable margin30" onclick="fillUserData();changeQuestion(false);resetYesNoBtn();
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera">
+        <div class="orangeButton cliquable margin30" onclick="fillUserData();changeQuestion(false);resetYesNoBtn();">
           <p class="text-center noHMargin fs22">
             VALIDER
           </p>
@@ -587,13 +585,14 @@
       </div>
     </div>
   </div>
-  <div class="socialContainer show-for-medium">
+
+  <div class="socialContainer stick show-for-medium">
     <div class="grid-x align-right">
       <a href="https://www.facebook.com/icminstitute/" target="_blank">
         <div class="cell social cliquable" onmouseover="
         Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
-          <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
-          <p class="noHMargin text-center">
+          <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden; z-index: 1">Facebook</p>
+          <p class="noHMargin text-center" style="z-index: 999">
             <i class="float-center fab fa-facebook-f noHMargin"></i>
           </p>
         </div>
@@ -602,8 +601,8 @@
     <div class="grid-x align-right">
       <a href="https://twitter.com/icm_institute" target="_blank">
         <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
-          <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
-          <p class="noHMargin text-center">
+          <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden; z-index: 1; ">Twitter</p>
+          <p class="noHMargin text-center" style="z-index: 999">
             <i class="float-center fab fa-twitter noHMargin"></i>
           </p>
         </div>
@@ -630,7 +629,7 @@
     <div class="cell auto">
       <div class="grid-x align-center-middle" style="height: 100%;">
         <div class="cell small-12  medium-10 large-9">
-          <p class="fs42 blueColor lh140 bBold text-center bigTitle" id="answerText">
+          <p class="fs42 blueColor lh120 bBold text-center bigTitle" id="answerText">
             Comme vous, de nombreuses personnes <br class="show-for-large">
             craignent que ce ne soit pas possible.
             Pourtant, sachez que les plus éminents chercheurs de l’ICM ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.
@@ -667,7 +666,7 @@
         </div>
       </div>
     </div>
-    <div class="socialContainer show-for-medium">
+    <div class="socialContainer stick show-for-medium">
       <div class="grid-x align-right">
         <a href="https://www.facebook.com/icminstitute/" target="_blank">
           <div class="cell social cliquable" onmouseover="
@@ -691,9 +690,9 @@
       </div>
     </div>
   </div>
-  <div id="why" class="answersContainer full lightBG" style="">
+  <div id="why" class="answersContainer full lightBG" style="visibility: hidden;">
     <div class="grid-y align-center" style="height: 100vh;" id="whyPart">
-      <div class="cell medium-8 small-9">
+      <div class="cell small-8 medium-8">
         <div class="grid-x align-center">
           <div class="cell small-12  medium-10 large-8">
             <p class="fs32 blueColor lh140 text-center show-for-large semiTitle" id="whyText">
@@ -730,7 +729,7 @@
   </div>
 </div>
 <div id="thanks" class="answersContainer full lightBG" style="display: none;height: 100%; min-height: 100vh">
-  <div class="grid-y" style="">
+  <div class="grid-y" style="width: 100%">
     <div class="cell small-2 medium-3 large-4">
       <div class="grid-x align-bottom">
         <div class="cell small-4 padding30">
@@ -761,7 +760,7 @@
       </div>
     </div>
   </div>
-  <div class="socialContainer show-for-medium show-for-medium">
+  <div class="socialContainer stick show-for-medium">
     <div class="grid-x align-right">
       <a href="https://www.facebook.com/icminstitute/" target="_blank">
         <div class="cell social cliquable" onmouseover="
@@ -793,7 +792,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/utils.js"></script>
 <script>
-  //window.addEventListener("resize", setOpt);
+  $(document).ready(setSocial());
+  window.addEventListener("resize", setSocial);
   /*function setOpt() {
     var opt = document.getElementById("optionnel");
     var phone = document.getElementById("phone");
@@ -803,6 +803,12 @@
     opt.style.right = rect.right + 3 + "px";
   }
   */
+  function setSocial() {
+    var c = document.getElementsByClassName("socialContainer");
+
+    for (var i = 0; i < c.length; i++)
+      c[i].style.left = window.innerWidth - 20 + "px"
+  }
   var input_phone = document.querySelector("#phone");
   var iti = intlTelInput(input_phone, {
     preferredCountries: ['FR', 'BE'],
