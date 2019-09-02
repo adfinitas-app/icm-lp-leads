@@ -96,7 +96,7 @@ var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologi
     'D’après-vous, l’ICM est-il le mieux placé <br class="show-for-large"> pour parvenir à guérir ces maladies&nbsp;?'
 ];
 var scroll = 0;
-var questionBg = ["../assets/bgQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
+var questionBg = ["../assets/bGQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
 var questionIndex = 1;
 var questionContainer = document.getElementById("question" + questionIndex);
 var answerContainer = document.getElementById("answer");

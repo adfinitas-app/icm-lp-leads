@@ -3,7 +3,7 @@
 }
 
 div#header {
-    background-image: url("../assets/bg1.png");
+    background-image: url("../assets/bG1.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -101,19 +101,19 @@ select::placeholder {
 }
 
 #question1 {
-    background-image: url("../assets/bgQ1.png");
+    background-image: url("../assets/bGQ1.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #question2 {
-    background-image: url("../assets/bgQ2.png");
+    background-image: url("../assets/bGQ2.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 #question3 {
-    background-image: url("../assets/bgQ3.png");
+    background-image: url("../assets/bGQ3.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -186,7 +186,7 @@ select::placeholder {
 .socialContainer {
     right: 5px;
     bottom: 5px;
-    z-index: 0;
+    z-index: 1;
 }
 
 .socialText {
