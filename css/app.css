@@ -26,6 +26,28 @@ div#formHeaderContainer {
     transition: ease-in-out 0.4s;
 }
 
+::placeholder {
+    color: #001941 !important;
+    font-family: "Muli", Arial;
+}
+::selection {
+    color: #001941 !important;
+    font-family: "Muli", Arial;
+}
+input::placeholder {
+    color: #001941 !important;
+    font-family: "Muli", Arial;
+}
+select {
+    color: #001941 !important;
+    font-family: "Muli", Arial;
+
+}
+select option {
+    color: #001941 !important;
+    font-family: "Muli", Arial;
+}
+
 
 .blueButton {
     background-color: #001941;

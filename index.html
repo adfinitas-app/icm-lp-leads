@@ -131,11 +131,11 @@
                     <input type="email" placeholder="E-mail" id="email" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
                   </label>
                 </div>
-                <div class="medium-6 cell">
+                <div class="medium-6 cell" style=" position: relative;">
                   <label>
                     <input type="tel" id="phone" placeholder="6 12 34 56 78" style="padding-left: 80px !important;">
-                  <p id="optionel" class="blueColor fs12" style="display: none; position: absolute; top: 0; right: 0;">Optionel</p>
                   </label>
+                  <p id="optionnel" class="blueColor fs12" style="display: block; position: absolute; top: 8px; right: 10px;">Optionnel</p>
                 </div>
               </div>
             </form>
@@ -606,13 +606,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
   <script>
     $(document).ready(function () {
-      var opt = document.getElementById("optionel");
-      var phone = document.getElementById("phone");
-      var rect = phone.getBoundingClientRect();
-      opt.style.display = "block";
-      opt.style.top = rect.top + 5 + 'px';
-      opt.style.left = rect.right - opt.offsetWidth - 5 + "px";
-
       var urlParams = new URLSearchParams(window.location.search);
       var mark = -1;
       if (urlParams.has('mark') === true)
