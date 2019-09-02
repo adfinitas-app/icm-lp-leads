@@ -20,23 +20,28 @@ div#formHeaderContainer {
 .largeLeftMargin10 {
     margin-left: 10px;
 }
-
 ::placeholder {
-    color: #001941;
+    color: #001941 !important;
     font-family: "Muli", Arial;
 }
 ::selection {
-    color: #001941;
+    color: #001941 !important;
     font-family: "Muli", Arial;
 }
 input::placeholder {
-    color: #001941;
+    color: #001941 !important;
     font-family: "Muli", Arial;
 }
-select::placeholder {
-    color: #001941;
+select {
+    color: #001941 !important;
+    font-family: "Muli", Arial;
+
+}
+select option {
+    color: #001941 !important;
     font-family: "Muli", Arial;
 }
+
 [type='text'], select, [type='password'], [type='date'], [type='datetime'], [type='datetime-local'], [type='month'], [type='week'], [type='email'], [type='number'], [type='search'], [type='tel'], [type='time'], [type='url'], [type='color'], textarea
 {
     color: #001941;
