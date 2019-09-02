@@ -4,6 +4,7 @@ $(document).foundation();
 var sending = false;
 var formOpened = false;
 var form = document.getElementById("formHeader");
+var formC = document.getElementById("formHeaderContainer");
 var cbFalse = document.getElementById("cbFalse");
 var cbTrue = document.getElementById("cbTrue");
 var checkBox = false;
@@ -16,6 +17,8 @@ function openForm() {
     form.style.display = "block";
     form.style.paddingLeft = "74px !important";
     formOpened = true;
+    console.log("lol");
+    formC.style.marginTop = "-20px";
     $('#formHeaderButton').attr("onclick", "showQuestions();");
 }
 
@@ -171,7 +174,7 @@ function changeQuestion(answer) {
         return;
     }
     if (questionIndex === 2)
-        $("#questionText").parent().addClass('large-8 medium-10');
+        $("#questionText").parent().addClass('large-9 medium-11');
     questionText.innerHTML = questionTexts[questionIndex - 1];
     questionNb.innerText = questionIndex;
     questionContainer.setAttribute("id", "question" + questionIndex);

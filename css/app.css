@@ -17,6 +17,10 @@ div#formHeaderContainer {
     color: #001941;
     font-family: "Muli", Arial;
 }
+::selection {
+    color: #001941;
+    font-family: "Muli", Arial;
+}
 input::placeholder {
     color: #001941;
     font-family: "Muli", Arial;
