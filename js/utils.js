@@ -20,3 +20,17 @@ function getData(id) {
         return input_phone.getNumber();
     return input.value;
 }
+
+function setData(id, data) {
+    var input = document.getElementById(id);
+    var re1 = /\[/;
+    var re2 = /]/;
+
+    if (!data)
+        return;
+    if (data.search(re1) === 0)
+        data = data.replace('[', '');
+    if (data.search(re2) === data.length - 1)
+        data = data.replace(']', '');
+    input.value = data;
+}

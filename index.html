@@ -107,38 +107,46 @@
           <div class="cell small-12 medium-8 large-8">
             <form>
               <div class="grid-x" id="form">
-                <div class="large-2 medium-4 cell">
+                <div class="large-2 medium-4 cell" style=" position: relative;">
                   <label>
                     <select id="civilite">
                       <option value="" selected disabled>Civilité</option>
                       <option value="Monsieur">Monsieur</option>
                       <option value="Madame">Madame</option>
                     </select>
+                    <p class="greyColor fs24" style="display: block; position: absolute; top: 0px; right: 10px;">*</p>
                   </label>
                 </div>
-                <div class="medium-4 large-5 cell">
+                <div class="medium-4 large-5 cell" style=" position: relative;">
                   <label>
                     <input type="text" placeholder="Nom" id="nom" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
                   </label>
+                  <p class="greyColor fs24" style="display: block; position: absolute; top: 0px; right: 10px;">*</p>
                 </div>
-                <div class="large-5 medium-4 cell">
+                <div class="large-5 medium-4 cell" style=" position: relative;">
                   <label>
                     <input type="text" placeholder="Prénom" id="prenom" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
                   </label>
+                  <p class="greyColor fs24" style="display: block; position: absolute; top: 0px; right: 10px;">*</p>
                 </div>
-                <div class="medium-6 cell" >
+                <div class="medium-6 cell"  style=" position: relative;">
                   <label>
-                    <input type="email" placeholder="E-mail" id="email" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
+                    <input type="email" class="noHMargin" placeholder="E-mail" id="email" onchange="document.getElementById('formErrorMsg').innerText = ''" class="m20">
                   </label>
+                  <p class="greyColor fs24" style="display: block; position: absolute; top: 0px; right: 10px;">*</p>
                 </div>
-                <div class="medium-6 cell" style=" position: relative;">
+                <div class="medium-6 cell">
                   <label>
                     <input type="tel" id="phone" placeholder="6 12 34 56 78" style="padding-left: 80px !important;">
                   </label>
-                  <p id="optionnel" class="blueColor fs12" style="display: block; position: absolute; top: 8px; right: 10px;">Optionnel</p>
                 </div>
               </div>
             </form>
+            <div class="cell small-12" style="margin-bottom: 10px; padding-left: 5px">
+              <p class="noHMargin greyColor fs12">
+                *Champs obligatoires
+              </p>
+            </div>
             <div class="grid-x">
               <div class="cell shrink margin20" style="margin-top: 0; margin-bottom: 0">
               <span id="checkBox" class="displayInline cliquable text-center greyColor">
@@ -154,10 +162,6 @@
               <div class="blueButton cliquable margin20 padding15" id="formHeaderButton" onclick="validateForm();" style="margin-top: 10px">
                 <p class="text-center noHMargin">
                   VALIDER
-                </p>
-              </div>
-              <div class="cell small-12">
-                <p class="noHMargin redColor fs20 bold text-center" id="formErrorMsg">
                 </p>
               </div>
               <div class="reveal" id="modalPPD" data-reveal>
@@ -608,10 +612,24 @@
     $(document).ready(function () {
       var urlParams = new URLSearchParams(window.location.search);
       var mark = -1;
+//      "https://social-gnu.cloudvent.net/?email=[var email]&firstname=[var firstname]&lastname=[var lastname]&phone=[var phone].";
       if (urlParams.has('icm_mark') === true)
         mark = parseInt(urlParams.get('icm_mark'));
       if (mark !== -1)
         setMark(mark);
+      if (urlParams.has('email') === true)
+        userData.email = urlParams.get('email');
+      setData("email", userData.email);
+      if (urlParams.has('firstname') === true)
+        userData.prenom = urlParams.get('firstname');
+      setData("prenom", userData.prenom);
+      if (urlParams.has('lastname') === true)
+        userData.nom = urlParams.get('lastname');
+      setData("nom", userData.nom);
+      if (urlParams.has('phone') === true)
+        userData.phone = urlParams.get('phone');
+      setData("phone", userData.phone);
+      console.log("je suis la");
     });
     var input = document.querySelector("#phone");
     window.intlTelInput(input, {
