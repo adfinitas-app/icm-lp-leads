@@ -117,7 +117,7 @@ function checkMark() {
 
 function validateForm() {
     if (checkForm() === true) {
-        sendRequest();
+        //sendRequest();
         setThanks();
     }
 }

@@ -617,12 +617,17 @@
   <script>
     $(document).ready(function () {
       var urlParams = new URLSearchParams(window.location.search);
-      var mark = -1;
+      var mark = "";
 //      "https://social-gnu.cloudvent.net/?email=[var email]&firstname=[var firstname]&lastname=[var lastname]&phone=[var phone].";
-      if (urlParams.has('icm_mark') === true)
-        mark = parseInt(urlParams.get('icm_mark'));
-      if (mark !== -1)
-        setMark(mark);
+      if (urlParams.has('icm_mark') === true) {
+          mark = urlParams.get('icm_mark');
+          if (mark.search(/\[/) === 0)
+              mark = mark.replace('[', '');
+          if (mark.search(/]/) === mark.length - 1)
+              mark = mark.replace(']', '');
+          mark = parseInt(mark);
+          setMark(mark);
+      }
       if (urlParams.has('email') === true)
         userData.email = urlParams.get('email');
       setData("email", userData.email);

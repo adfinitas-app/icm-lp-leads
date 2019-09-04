@@ -25,12 +25,13 @@ function setData(id, data) {
     var input = document.getElementById(id);
     var re1 = /\[/;
     var re2 = /]/;
+    var res = data;
 
     if (!data)
         return;
     if (data.search(re1) === 0)
-        data = data.replace('[', '');
+        res = data.replace('[', '');
     if (data.search(re2) === data.length - 1)
-        data = data.replace(']', '');
-    input.value = data;
+        res = res.replace(']', '');
+    input.value = res;
 }
