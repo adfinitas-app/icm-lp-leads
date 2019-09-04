@@ -156,16 +156,13 @@ function createCORSRequest(method, url) {
     return xhr;
 }
 function makeCorsRequest(data) {
-    var body = JSON.stringify(userData);
-    var config = {
-        "headers": {
-            "Access-Control-Allow-Origin": "https://lol.requestcatcher.com",
-            "Access-Control-Allow-Content-Type": "html/text",
-            "Access-Control-Allow-Origin": "localhost",
-            "Access-Control-Allow-Method": "POST",
-            "Content-Type": "text/json",
-            "Sec-Fetch-Mode": "cors"
-        }
-    };
-    axios.post('https://lol.requestcatcher.com', body, config);
+    var url = 'https://lol.requestcatcher.com';
+    var body = JSON.stringify(data);
+    var xhr = createCORSRequest('POST', url);
+    if (!xhr) {
+        alert('CORS not supported');
+        return;
+    }
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(body);
 }
