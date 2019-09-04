@@ -159,11 +159,13 @@ function makeCorsRequest(data) {
     var body = JSON.stringify(userData);
     var config = {
         "headers": {
-            "Access-Control-Allow-Origin": "https://social-gnu.cloudvent.net/"
+            "Access-Control-Allow-Origin": "https://lol.requestcatcher.com",
+            "Access-Control-Allow-Content-Type": "html/text",
+            "Access-Control-Allow-Origin": "localhost",
+            "Access-Control-Allow-Method": "POST",
+            "Content-Type": "text/json",
+            "Sec-Fetch-Mode": "cors"
         }
     };
-    axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-    axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'https://social-gnu.cloudvent.net/';
     axios.post('https://lol.requestcatcher.com', body, config);
 }
