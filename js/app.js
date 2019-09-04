@@ -114,7 +114,6 @@ function checkMark() {
     return false;
 }
 
-function sendRequest() {}
 
 function validateForm() {
     if (checkForm() === true) {
@@ -129,4 +128,41 @@ function setThanks() {
 
     header.style.display = "none";
     thanks.style.display = "block";
+}
+
+function sendRequest() {
+    var data = {};
+    data.reveal_lead = {};
+    data.woopra = {};
+    data.woopra.host = "prometer.io";
+    data.name = userData.nom;
+    makeCorsRequest(userData);
+}
+
+
+function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        // CORS not supported.
+        xhr = null;
+    }
+    return xhr;
+}
+function makeCorsRequest(data) {
+    var body = JSON.stringify(userData);
+    var config = {
+        "headers": {
+            "Access-Control-Allow-Origin": "http://localhost:63342"
+        }
+    };
+    axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
+    axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+    axios.post('https://lol.requestcatcher.com', body, config);
 }
