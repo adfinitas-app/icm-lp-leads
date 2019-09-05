@@ -35,3 +35,13 @@ function setData(id, data) {
         res = res.replace(']', '');
     input.value = res;
 }
+
+function getUrlParam(name){
+    var results = new RegExp('[?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results == null){
+        return null;
+    }
+    else {
+        return decodeURI(results[1]) || 0;
+    }
+}

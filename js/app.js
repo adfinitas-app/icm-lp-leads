@@ -117,7 +117,7 @@ function checkMark() {
 
 function validateForm() {
     if (checkForm() === true) {
-        //sendRequest();
+        sendRequest();
         setThanks();
     }
 }
@@ -135,7 +135,6 @@ function sendRequest() {
     data.reveal_lead = {};
     data.woopra = {};
     data.woopra.host = "prometer.io";
-    data.name = userData.nom;
     makeCorsRequest(userData);
 }
 
@@ -155,14 +154,17 @@ function createCORSRequest(method, url) {
     }
     return xhr;
 }
+
 function makeCorsRequest(data) {
-    var url = 'https://lol.requestcatcher.com';
+    var url = 'https://nps_test.requestcatcher.com/';
     var body = JSON.stringify(data);
-    var xhr = createCORSRequest('POST', url);
-    if (!xhr) {
-        alert('CORS not supported');
-        return;
-    }
-    xhr.setRequestHeader('Content-Type', 'application/json');
-    xhr.send(body);
-}
+
+     axios.post(url,
+         body,
+         {
+             headers: {
+                 "content-Type":"application/json",
+             }
+         }
+         );
+ }

@@ -612,15 +612,14 @@
   <script src="js/vendor/foundation.js"></script>
   <script src="js/app.js"></script>
   <script src="js/utils.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
   <script>
     $(document).ready(function () {
-      var urlParams = new URLSearchParams(window.location.search);
       var mark = "";
 //      "https://social-gnu.cloudvent.net/?email=[var email]&firstname=[var firstname]&lastname=[var lastname]&phone=[var phone].";
-      if (urlParams.has('icm_mark') === true) {
-          mark = urlParams.get('icm_mark');
+      if (getUrlParam('icm_mark')) {
+          mark = getUrlParam('icm_mark');
           if (mark.search(/\[/) === 0)
               mark = mark.replace('[', '');
           if (mark.search(/]/) === mark.length - 1)
@@ -628,17 +627,17 @@
           mark = parseInt(mark);
           setMark(mark);
       }
-      if (urlParams.has('email') === true)
-        userData.email = urlParams.get('email');
+      if (getUrlParam('email'))
+        userData.email = getUrlParam('email');
       setData("email", userData.email);
-      if (urlParams.has('firstname') === true)
-        userData.prenom = urlParams.get('firstname');
+      if (getUrlParam('firstname'))
+        userData.prenom = getUrlParam('firstname');
       setData("prenom", userData.prenom);
-      if (urlParams.has('lastname') === true)
-        userData.nom = urlParams.get('lastname');
+      if (getUrlParam('lastname'))
+        userData.nom = getUrlParam('lastname');
       setData("nom", userData.nom);
-      if (urlParams.has('phone') === true)
-        userData.phone = urlParams.get('phone');
+      if (getUrlParam('phone'))
+        userData.phone = getUrlParam('phone');
       setData("phone", userData.phone);
     });
     var input = document.querySelector("#phone");
