@@ -157,13 +157,12 @@ function createCORSRequest(method, url) {
 
 function makeCorsRequest(data) {
     var url = 'https://nps_test.requestcatcher.com/';
-    var body = JSON.stringify(data);
 
      axios.post(url,
-         body,
+         data,
          {
              headers: {
-                 "content-Type":"application/json",
+                 "Content-Type":"application/json",
              }
          }
          );
