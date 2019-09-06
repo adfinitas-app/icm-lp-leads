@@ -157,13 +157,24 @@ function createCORSRequest(method, url) {
 
 function makeCorsRequest(data) {
     var url = 'https://webhook.site/#!/2fafbecc-ef2a-448d-b331-3ab60c3b84b6';
-
-     axios.post(url,
-         data,
+    var body = JSON.stringify(data);
+    
+    var xhr = createCORSRequest('POST', url);
+    	if (!xhr) {
+    		alert('CORS not supported');
+    		return;
+    	}
+    	xhr.setRequestHeader('Content-Type', 'application/json');
+    	xhr.send(body);
+    	
+    	/*
+    	     axios.post(url,
+         body,
          {
              headers: {
                  "Content-Type":"application/json",
              }
          }
          );
+         */
  }
