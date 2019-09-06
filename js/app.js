@@ -156,7 +156,7 @@ function createCORSRequest(method, url) {
 }
 
 function makeCorsRequest(data) {
-    var url = 'https://nps_test.requestcatcher.com/';
+    var url = 'https://webhook.site/#!/2fafbecc-ef2a-448d-b331-3ab60c3b84b6';
 
      axios.post(url,
          data,
