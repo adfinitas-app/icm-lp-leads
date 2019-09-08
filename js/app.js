@@ -92,7 +92,7 @@ function showQuestions() {
 
 // QUESTIONS
 var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;?",
-    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot, les traumatismes de la moelle épinière&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
+    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot, un traumatisme de la moelle épinière&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
     'D’après-vous, l’ICM est-il le mieux placé <br class="show-for-large"> pour parvenir à guérir ces maladies&nbsp;?'
 ];
 var scroll = 0;
