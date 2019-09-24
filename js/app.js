@@ -158,6 +158,14 @@ function fillUserData() {
     userData.questions[questionIndex - 2] = value;
 }
 
+function putTrackingPixel() {
+    console.log("je suis la");
+    document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
+        "<img src=\"https://orixamedia.go2cloud.org/SLbOhttps://orixamedia.go2cloud.org/SLbO" +
+        "\" width=\"1\" height=\"1\" />\n" +
+        "<!-- // End Offer Conversion -->"
+}
+
 function changeQuestion(answer) {
     if (checkAnswer() === false && questionIndex > 1 && answer === false) {
         setErrorMsg();
@@ -173,6 +181,7 @@ function changeQuestion(answer) {
     if (questionIndex === 4) {
         questionContainer.style.display = "none";
         thanksContainer.style.display = "block";
+        putTrackingPixel();
         return;
     }
     if (questionIndex === 2)

@@ -2,6 +2,10 @@
     position: fixed;
 }
 
+#pixelTracking {
+    visibility: hidden;
+}
+
 div#header {
     background-image: url("../assets/bG1.png");
     background-repeat: no-repeat;
