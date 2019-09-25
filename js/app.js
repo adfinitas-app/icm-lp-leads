@@ -17,7 +17,6 @@ function openForm() {
     form.style.display = "block";
     form.style.paddingLeft = "74px !important";
     formOpened = true;
-    console.log("lol");
     formC.style.marginTop = "-20px";
     $('#formHeaderButton').attr("onclick", "showQuestions();");
 }
@@ -159,7 +158,6 @@ function fillUserData() {
 }
 
 function putTrackingPixel() {
-    console.log("je suis la");
     document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
         "<img src=\"https://orixamedia.go2cloud.org/SLbOhttps://orixamedia.go2cloud.org/SLbO" +
         "\" width=\"1\" height=\"1\" />\n" +
