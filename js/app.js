@@ -24,20 +24,13 @@ function openForm() {
 function checkForm() {
     if (sending === true)
         return;
-    var phone = getData("phone");
+    var phone = iti.getNumber();
     var civ = getData("civilite");
     var nom = getData("nom");
     var prenom = getData("prenom");
     var email = getData("email");
     var cbTrue = getData("cbTrue");
 
-//    console.log("start");
-//    console.log("phone = [" + phone + "]");
-//    console.log("civ = [" + civ + "]");
-//    console.log("nom = [" + nom + "]");
-//    console.log("prenom = [" + prenom + "]");
-//    console.log("email = [" + email + "]");
-//    console.log("cbTrue = [" + cbTrue + "]");
     if (civ && nom && prenom && email && cbTrue === true) {
         if (validateEmail(email) === false) {
             document.getElementById("formErrorMsg").innerText = "Addresse E-mail incorrecte";
@@ -51,9 +44,14 @@ function checkForm() {
         userData.civ = civ;
         userData.nom = nom;
         userData.prenom = prenom;
-        userData.phone = phone;
+        if (phone) {
+            userData.phone = phone;
+            userData.hasPhone = true;
+        } else {
+            userData.phone = "";
+            userData.hasPhone = false;
+        }
         userData.email = email;
-        console.log(userData);
         return true;
     }
     else {
@@ -179,7 +177,7 @@ function changeQuestion(answer) {
     if (questionIndex === 4) {
         questionContainer.style.display = "none";
         thanksContainer.style.display = "block";
-        putTrackingPixel();
+        validateForm();
         return;
     }
     if (questionIndex === 2)
@@ -223,44 +221,79 @@ function resetYesNoBtn() {
     all[1].setAttribute("selected", "false");
 }
 
-// Answer
+function validateForm() {
+    if (checkForm() === true) {
+        putTrackingPixel();
+        sendRequest();
+    }
+}
 
-function scrollWhy() {
-    scroll = 1;
-    var offset;
-    if (window.innerWidth > 1400)
-        offset = 30;
-    else
-        offset = 0;
-    var check = document.getElementById("check");
-    var aTxt = document.getElementById('answerText').parentElement;
-    var aArr = document.getElementById('answerArrow').parentElement;
-    var wPart = document.getElementById("why");
-    var nQ = document.getElementById("nextQuestion");
-    var wpos = $("#whyPart").position();
-    var tpos = $("#answerText").parent().position();
-    var apos = $("#answerArrow").parent().position();
-    var scale = 1;
-    wPart.style.visibility = "visible";
-    aTxt.style.position = "absolute";
-    wPart.style.position = "absolute";
-    aArr.style.position = "absolute";
-    aTxt.style.top = tpos.top + "px";
-    wPart.style.top = wpos.top + "px";
-    aArr.style.top = apos.top + "px";
-    aTxt.style.transform = "scale(" + scale - 0.01 + ")";
-    var inter = setInterval(function () {
-        aTxt.style.top = parseInt(aTxt.style.top) - 10 + 'px';
-        aTxt.style.transform = "scale(" + scale - 0.01 + ")";
-        aArr.style.top = parseInt(aArr.style.top) - 10 + 'px';
-        if (parseInt(wPart.style.top) > check.offsetHeight - offset) {
-            wPart.style.top = parseInt(wPart.style.top) - 10 + 'px';
+function sendRequest() {
+    var data = {
+        "iraiser": {
+            "email": userData.email,
+            "origin": "OTHER",
+            "originName": "QICM",
+            "originCampaign": "adfinitas_leads",
+            "originCampaignId": "1",
+            "optinEmail": "true",
+            "language": "fr_FR",
+            "gender": userData.civ === "Monsieur" ? "M" : "F",
+            "lastName": userData.nom,
+            "firstName": userData.prenom,
+            "phone": userData.phone,
+            "optinMail": "true",
+            "optinPhone": userData.hasPhone === true ? "true" : "false",
+            "segments": "QICM_2019",
+            "creationDate": Date.now().toString(),
+            "reservedFields": {
+                "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
+                "QICM_questionEntourage": userData.questions[1].toUpperCase(),
+                "QICM_ICM": userData.questions[2].toUpperCase(),
+                "MD5": md5(userData.email)
+            }
         }
-    }, 8);
-    document.body.scrollTop = 10; // For Safari
-    document.documentElement.scrollTop = 10; // For Chrome, Firefox, IE and Opera
-    setTimeout(function () {clearInterval(inter);aTxt.style.display = "none";
-        aArr.style.display = "none";
-    }, 1500);
-    screen = "why";
+    };
+  //  makeCorsRequest(userData);
+}
+
+
+function createCORSRequest(method, url) {
+    var xhr = new XMLHttpRequest();
+    if ("withCredentials" in xhr) {
+        // XHR for Chrome/Firefox/Opera/Safari.
+        xhr.open(method, url, true);
+    } else if (typeof XDomainRequest != "undefined") {
+        // XDomainRequest for IE.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+    } else {
+        // CORS not supported.
+        xhr = null;
+    }
+    return xhr;
+}
+
+function makeCorsRequest(data) {
+    //var url = 'https://adfinitas-io.herokuapp.com/api/v1/organization/cd989e97-becb-41fe-a329-889cbcba2d78/webhook/cabf136b-ca19-4383-bb37-aacb4983ea4e';
+    var body = JSON.stringify(data);
+
+    var xhr = createCORSRequest('POST', url);
+    if (!xhr) {
+        alert('CORS not supported');
+        return;
+    }
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(body);
+
+    /*
+         axios.post(url,
+     body,
+     {
+         headers: {
+             "Content-Type":"application/json",
+         }
+     }
+     );
+     */
 }
