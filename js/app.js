@@ -254,7 +254,7 @@ function sendRequest() {
             }
         }
     };
-  //  makeCorsRequest(userData);
+    makeCorsRequest(userData);
 }
 
 
