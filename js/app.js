@@ -79,6 +79,7 @@ function showQuestions() {
     if (checkForm() === false) {
         return;
     }
+    validateForm();
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     screen = 'question1';
@@ -247,14 +248,14 @@ function sendRequest() {
             "segments": "QICM_2019",
             "creationDate": Date.now().toString(),
             "reservedFields": {
-                "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
-                "QICM_questionEntourage": userData.questions[1].toUpperCase(),
-                "QICM_ICM": userData.questions[2].toUpperCase(),
+                "QICM_questionAlzheimer": "",
+                "QICM_questionEntourage": "",
+                "QICM_ICM": "",
                 "MD5": md5(userData.email)
             }
         }
     };
-    makeCorsRequest(data);
+   makeCorsRequest(data);
 }
 
 
