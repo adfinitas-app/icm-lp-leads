@@ -816,7 +816,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/utils.js"></script>
 <script>
-    $(document).ready(setSocial());
+    $(document).ready(setSocial(), fillForm());
     window.addEventListener("resize", setSocial);
     /*function setOpt() {
       var opt = document.getElementById("optionnel");
@@ -827,6 +827,20 @@
       opt.style.right = rect.right + 3 + "px";
     }
     */
+    function fillForm() {
+        if (getUrlParam('email'))
+            userData.email = getUrlParam('email');
+        setData("email", userData.email);
+        if (getUrlParam('firstname'))
+            userData.prenom = getUrlParam('firstname');
+        setData("prenom", userData.prenom);
+        if (getUrlParam('lastname'))
+            userData.nom = getUrlParam('lastname');
+        setData("nom", userData.nom);
+        if (getUrlParam('phone'))
+            userData.phone = getUrlParam('phone');
+        setData("phone", userData.phone);
+    }
     function setSocial() {
         var c = document.getElementsByClassName("socialContainer");
         var ua = window.navigator.userAgent;

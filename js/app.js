@@ -9,6 +9,7 @@ var cbFalse = document.getElementById("cbFalse");
 var cbTrue = document.getElementById("cbTrue");
 var checkBox = false;
 var userData = {};
+var first = true;
 userData.questions = ["", "", ""];
 
 function openForm() {
@@ -79,6 +80,7 @@ function showQuestions() {
     if (checkForm() === false) {
         return;
     }
+    validateForm();
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     screen = 'question1';
@@ -181,6 +183,7 @@ function changeQuestion(answer) {
         validateForm();
         questionContainer.style.display = "none";
         thanksContainer.style.display = "block";
+        questionIndex++;
         return;
     }
     if (questionIndex === 2)
@@ -224,14 +227,12 @@ function resetYesNoBtn() {
     all[1].setAttribute("selected", "false");
 }
 
-var first = true;
-
 function validateForm() {
     if (first === false) {
         putTrackingPixel();
         sendRequest(first);
     }
-    if (checkForm() === true) {
+    if (checkForm() === true && first === true) {
         sendRequest(first);
         first = false;
     }
@@ -239,15 +240,16 @@ function validateForm() {
 
 function sendRequest(first) {
     var mdEmail = md5(userData.email);
+    var data;
     if (first === true) {
-        var data = {
+        data = {
             "reveal_lead": {
-                "source": urlParams.utm_source || "DIRECT",
+                "source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") :  "DIRECT",
                 "contacts": [
                     {
                         "app_id": "icm-institute.org",
-                        "campaign": "2019-AUTRE-GRANDE-ENQUETE",
-                        "medium": urlParams.utm_medium || "ORGANIC",
+                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                        "medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC",
                         "interface": "LP-CLIENT",
                         "email": userData.email,
                         "firstname": userData.prenom,
@@ -277,9 +279,9 @@ function sendRequest(first) {
                 "ce_email": userData.email,
                 "ce_interface": "LP-CLIENT",
                 "ce_email_md5": md5(userData.email),
-                "ce_campaign_name": urlParams.utm_campaign || "2019-AUTRE-GRANDE-ENQUETE",
-                "ce_campaign_source": urlParams.utm_source || "DIRECT",
-                "ce_campaign_medium": urlParams.utm_medium || "ORGANIC"
+                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") : "DIRECT",
+                "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
             },
             "iraiser": {
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
@@ -288,9 +290,9 @@ function sendRequest(first) {
                     "MD5": mdEmail
                 }
             },
-        }
+        };
     } else {
-        var data = {
+        data = {
             "iraiser": {
                 "email": userData.email,
                 "origin": "OTHER",
@@ -306,8 +308,7 @@ function sendRequest(first) {
             }
         };
     }
-    console.log(data);
-    //makeCorsRequest(data);
+    makeCorsRequest(data);
 }
 
 function createCORSRequest(method, url) {
@@ -337,7 +338,6 @@ function makeCorsRequest(data) {
     }
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(body);
-
     /*
          axios.post(url,
      body,
