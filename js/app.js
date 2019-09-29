@@ -90,7 +90,7 @@ function showQuestions() {
 // QUESTIONS
 var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;?",
     "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot, un traumatisme de la moelle épinière&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
-    'D’après-vous, l’ICM est-il le mieux placé <br class="show-for-large"> pour parvenir à guérir ces maladies&nbsp;?'
+    'Saviez-vous que l\'Institut du Cerveau et de la Moelle épinière, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?'
 ];
 var scroll = 0;
 var questionBg = ["../assets/bGQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
@@ -132,7 +132,7 @@ function setAnswer() {
     $(document).bind('mousewheel', function(e) {
         scroll++;
         if (scroll === 1) {
-    //        scrollWhy();
+            //        scrollWhy();
         }
     });}
 
@@ -159,7 +159,10 @@ function putTrackingPixel() {
     document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
         "<img src=\"https://orixamedia.go2cloud.org/SLbOhttps://orixamedia.go2cloud.org/SLbO" +
         "\" width=\"1\" height=\"1\" />\n" +
-        "<!-- // End Offer Conversion -->"
+        "<!-- // End Offer Conversion -->" +
+        "<img height=\"1\" width=\"1\" style=\"display:none\"\n" +
+        "  src=\"https://www.facebook.com/tr?id=1089525207882561&ev=LeadOK&noscript=1\"\n" +
+        "/>"
 }
 
 function changeQuestion(answer) {
@@ -175,9 +178,9 @@ function changeQuestion(answer) {
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
     if (questionIndex === 4) {
+        validateForm();
         questionContainer.style.display = "none";
         thanksContainer.style.display = "block";
-        validateForm();
         return;
     }
     if (questionIndex === 2)
@@ -221,42 +224,91 @@ function resetYesNoBtn() {
     all[1].setAttribute("selected", "false");
 }
 
+var first = true;
+
 function validateForm() {
-    if (checkForm() === true) {
+    if (first === false) {
         putTrackingPixel();
-        sendRequest();
+        sendRequest(first);
+    }
+    if (checkForm() === true) {
+        sendRequest(first);
+        first = false;
     }
 }
 
-function sendRequest() {
-    var data = {
-        "iraiser": {
-            "email": userData.email,
-            "origin": "OTHER",
-            "originName": "QICM",
-            "originCampaign": "adfinitas_leads",
-            "originCampaignId": "1",
-            "optinEmail": "true",
-            "language": "fr_FR",
-            "gender": userData.civ === "Monsieur" ? "M" : "F",
-            "lastName": userData.nom,
-            "firstName": userData.prenom,
-            "phone": userData.phone,
-            "optinMail": "true",
-            "optinPhone": userData.hasPhone === true ? "true" : "false",
-            "segments": "QICM_2019",
-            "creationDate": Date.now().toString(),
-            "reservedFields": {
-                "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
-                "QICM_questionEntourage": userData.questions[1].toUpperCase(),
-                "QICM_ICM": userData.questions[2].toUpperCase(),
-                "MD5": md5(userData.email)
-            }
+function sendRequest(first) {
+    var mdEmail = md5(userData.email);
+    if (first === true) {
+        var data = {
+            "reveal_lead": {
+                "source": urlParams.utm_source || "DIRECT",
+                "contacts": [
+                    {
+                        "app_id": "icm-institute.org",
+                        "campaign": "2019-AUTRE-GRANDE-ENQUETE",
+                        "medium": urlParams.utm_medium || "ORGANIC",
+                        "interface": "LP-CLIENT",
+                        "email": userData.email,
+                        "firstname": userData.prenom,
+                        "lastname": userData.nom,
+                        "gender": userData.civ === "Monsieur" ? "M" : "F",
+                        "phone": userData.phone,
+                        "emailMD5": md5(userData.email)
+                    }
+                ]
+            },
+            "woopra": {
+                "host": "prometer.io",	// Nom du projet dans Woopra.
+                /* Variables de configuration de la fiche utilisateur, préfixe : "cv_" */
+                "cv_firstname": userData.prenom,
+                "cv_lastname": userData.nom,
+                "cv_name": userData.prenom + userData.nom,
+                "cv_email": userData.email,
+                "cv_civility": userData.civ === "Monsieur" ? "Monsieur" : "Madame",
+                "cv_gender": userData.civ === "Monsieur" ? "M" : "F",
+                "cv_phone": userData.phone,
+                "cv_email_md5": md5(userData.email),
+                /* Variables de l'événement, : préfixe : "ce_" */
+                "event": "adfinitas_leads",
+                "ce_phone": userData.phone,
+                "ce_app_id": "icm-institute.org",
+                "ce_gender": userData.civ === "Monsieur" ? "M" : "F",
+                "ce_email": userData.email,
+                "ce_interface": "LP-CLIENT",
+                "ce_email_md5": md5(userData.email),
+                "ce_campaign_name": urlParams.utm_campaign || "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_source": urlParams.utm_source || "DIRECT",
+                "ce_campaign_medium": urlParams.utm_medium || "ORGANIC"
+            },
+            "iraiser": {
+                "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
+                "optinPhone": userData.hasPhone,
+                "reservedFields": {
+                    "MD5": mdEmail
+                }
+            },
         }
-    };
-    makeCorsRequest(data);
+    } else {
+        var data = {
+            "iraiser": {
+                "email": userData.email,
+                "origin": "OTHER",
+                "originName": "QICM",
+                "originCampaign": "adfinitas_leads",
+                "originCampaignId": "1",
+                "optinEmail": "true",
+                "reservedFields": {
+                    "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
+                    "QICM_questionEntourage": userData.questions[1].toUpperCase(),
+                    "QICM_ICM": userData.questions[2].toUpperCase()
+                }
+            }
+        };
+    }
+    console.log(data);
+    //makeCorsRequest(data);
 }
-
 
 function createCORSRequest(method, url) {
     var xhr = new XMLHttpRequest();
