@@ -265,7 +265,7 @@ function sendRequest(first) {
                 /* Variables de configuration de la fiche utilisateur, préfixe : "cv_" */
                 "cv_firstname": userData.prenom,
                 "cv_lastname": userData.nom,
-                "cv_name": userData.prenom + userData.nom,
+                "cv_name": userData.prenom + " " + userData.nom,
                 "cv_email": userData.email,
                 "cv_civility": userData.civ === "Monsieur" ? "Monsieur" : "Madame",
                 "cv_gender": userData.civ === "Monsieur" ? "M" : "F",
