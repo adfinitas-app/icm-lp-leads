@@ -47,10 +47,10 @@ function checkForm() {
         userData.prenom = prenom;
         if (phone) {
             userData.phone = phone;
-            userData.hasPhone = true;
+            userData.hasPhone = "true";
         } else {
             userData.phone = "";
-            userData.hasPhone = false;
+            userData.hasPhone = "false";
         }
         userData.email = email;
         return true;
