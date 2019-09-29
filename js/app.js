@@ -241,6 +241,7 @@ function validateForm() {
 function sendRequest(first) {
     var mdEmail = md5(userData.email);
     var data;
+    var date = Date.now()
     if (first === true) {
         data = {
             "reveal_lead": {
@@ -298,7 +299,7 @@ function sendRequest(first) {
                 "optinMail": "true",
                 "optinPhone": userData.hasPhone,
                 "segments": "QICM_2019",
-                "creationDate": Date().now,
+                "creationDate": date.toString(),
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
                     "MD5": mdEmail
