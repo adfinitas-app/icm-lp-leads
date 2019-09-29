@@ -284,8 +284,22 @@ function sendRequest(first) {
                 "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
             },
             "iraiser": {
-                "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
+                "email": userData.email,
+                "origin": "OTHER",
+                "originName": "QICM",
+                "originCampaign": "adfinitas_leads",
+                "originCampaignId": "1",
+                "optinEmail": "true",
+                "language": "fr_FR",
+                "gender": "M",
+                "lastName": userData.nom,
+                "firstName": userData.prenom,
+                "phone": userData.phone,
+                "optinMail": "true",
                 "optinPhone": userData.hasPhone,
+                "segments": "QICM_2019",
+                "creationDate": Date().now,
+                "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
                     "MD5": mdEmail
                 }
