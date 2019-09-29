@@ -291,7 +291,7 @@ function sendRequest(first) {
                 "originCampaignId": "1",
                 "optinEmail": "true",
                 "language": "fr_FR",
-                "gender": "M",
+                "gender": userData.civ === "Monsieur" ? "M" : "F",
                 "lastName": userData.nom,
                 "firstName": userData.prenom,
                 "phone": userData.phone,
