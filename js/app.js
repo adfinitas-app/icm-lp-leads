@@ -229,10 +229,10 @@ function resetYesNoBtn() {
 
 function validateForm() {
     if (first === false) {
-        putTrackingPixel();
         sendRequest(first);
     }
     if (checkForm() === true && first === true) {
+        putTrackingPixel();
         sendRequest(first);
         first = false;
     }
