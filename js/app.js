@@ -164,7 +164,26 @@ function putTrackingPixel() {
         "<!-- // End Offer Conversion -->" +
         "<img height=\"1\" width=\"1\" style=\"display:none\"\n" +
         "  src=\"https://www.facebook.com/tr?id=1089525207882561&ev=LeadOK&noscript=1\"\n" +
-        "/>"
+        "/>";
+    document.getElementById("script1").innerHTML = "if(sessionStorage.getItem(\"idMbz\") && sessionStorage.getItem(\"maild5\") && sessionStorage.getItem(\"idcampagne\")){\n" +
+        "            (function () {\n" +
+        "                var ZTR = document.createElement('script');\n" +
+        "                ZTR.src = ((location.protocol === 'https:') ? 'https:' : 'http:') + '//prz.mesopinions.com/tracking/add?idcampagne='+sessionStorage.getItem(\"idcampagne\")+'&md5='+sessionStorage.getItem(\"maild5\")+'&idmindbaz='+sessionStorage.getItem(\"idMbz\")+'&client=icm';\n" +
+        "                var ZTRtag = document.getElementsByTagName('script')[0];\n" +
+        "                ZTRtag.parentNode.insertBefore(ZTR, ZTRtag); }())\n" +
+        "        }";
+    document.getElementById("script2").innerHTML = "function $_GE(e) {\n" +
+        "            var i = {};\n" +
+        "            return window.location.href.replace(location.hash, \"\").replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function (e, a, t) {\n" +
+        "                i[a] = void 0 !== t ? t : \"\"\n" +
+        "            }), e ? i[e] ? i[e] : null : i\n" +
+        "        }\n" +
+        "        if (!sessionStorage.getItem(\"idMbz\") && !sessionStorage.getItem(\"maild5\") && !sessionStorage.getItem(\"idcampagne\")) {\n" +
+        "            var $_GET, idMbz = ($_GET = $_GE()).idMbz,\n" +
+        "                maild5 = $_GET.maild5,\n" +
+        "                idcampagne = $_GET.idcampagne;\n" +
+        "            idMbz && maild5 && idcampagne && (sessionStorage.setItem(\"idMbz\", idMbz), sessionStorage.setItem(\"maild5\", maild5), sessionStorage.setItem(\"idcampagne\", idcampagne))\n" +
+        "        }";
 }
 
 function changeQuestion(answer) {

@@ -11,28 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/css/intlTelInput.css">
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,900|Open+Sans:300,400,800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/5adcadefca.js"></script>
-    <script async>
-        if(sessionStorage.getItem("idMbz") && sessionStorage.getItem("maild5") && sessionStorage.getItem("idcampagne")){
-            (function () {
-                var ZTR = document.createElement('script');
-                ZTR.src = ((location.protocol === 'https:') ? 'https:' : 'http:') + '//prz.mesopinions.com/tracking/add?idcampagne='+sessionStorage.getItem("idcampagne")+'&md5='+sessionStorage.getItem("maild5")+'&idmindbaz='+sessionStorage.getItem("idMbz")+'&client=icm';
-                var ZTRtag = document.getElementsByTagName('script')[0];
-                ZTRtag.parentNode.insertBefore(ZTR, ZTRtag); }())
-        }
+    <script async id="script1">
     </script>
-    <script>
-        function $_GE(e) {
-            var i = {};
-            return window.location.href.replace(location.hash, "").replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function (e, a, t) {
-                i[a] = void 0 !== t ? t : ""
-            }), e ? i[e] ? i[e] : null : i
-        }
-        if (!sessionStorage.getItem("idMbz") && !sessionStorage.getItem("maild5") && !sessionStorage.getItem("idcampagne")) {
-            var $_GET, idMbz = ($_GET = $_GE()).idMbz,
-                maild5 = $_GET.maild5,
-                idcampagne = $_GET.idcampagne;
-            idMbz && maild5 && idcampagne && (sessionStorage.setItem("idMbz", idMbz), sessionStorage.setItem("maild5", maild5), sessionStorage.setItem("idcampagne", idcampagne))
-        }
+    <script id="script2">
     </script>
 
 </head>
