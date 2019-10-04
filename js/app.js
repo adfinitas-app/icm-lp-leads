@@ -159,7 +159,7 @@ function fillUserData() {
 
 function putTrackingPixel() {
     document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
-        "<img src=\"https://orixamedia.go2cloud.org/SLbOhttps://orixamedia.go2cloud.org/SLbO" +
+        "<img src=\"https://orixamedia.go2cloud.org/SLbO" +
         "\" width=\"1\" height=\"1\" />\n" +
         "<!-- // End Offer Conversion -->" +
         "<img height=\"1\" width=\"1\" style=\"display:none\"\n" +
