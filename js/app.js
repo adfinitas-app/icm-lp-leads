@@ -172,18 +172,6 @@ function putTrackingPixel() {
         "                var ZTRtag = document.getElementsByTagName('script')[0];\n" +
         "                ZTRtag.parentNode.insertBefore(ZTR, ZTRtag); }())\n" +
         "        }";
-    document.getElementById("script2").innerHTML = "function $_GE(e) {\n" +
-        "            var i = {};\n" +
-        "            return window.location.href.replace(location.hash, \"\").replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function (e, a, t) {\n" +
-        "                i[a] = void 0 !== t ? t : \"\"\n" +
-        "            }), e ? i[e] ? i[e] : null : i\n" +
-        "        }\n" +
-        "        if (!sessionStorage.getItem(\"idMbz\") && !sessionStorage.getItem(\"maild5\") && !sessionStorage.getItem(\"idcampagne\")) {\n" +
-        "            var $_GET, idMbz = ($_GET = $_GE()).idMbz,\n" +
-        "                maild5 = $_GET.maild5,\n" +
-        "                idcampagne = $_GET.idcampagne;\n" +
-        "            idMbz && maild5 && idcampagne && (sessionStorage.setItem(\"idMbz\", idMbz), sessionStorage.setItem(\"maild5\", maild5), sessionStorage.setItem(\"idcampagne\", idcampagne))\n" +
-        "        }";
 }
 
 function changeQuestion(answer) {

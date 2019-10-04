@@ -14,6 +14,18 @@
     <script async id="script1">
     </script>
     <script id="script2">
+    function $_GE(e) {
+    var i = {};
+    return window.location.href.replace(location.hash, "").replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function (e, a, t) {
+        i[a] = void 0 !== t ? t : ""
+    }), e ? i[e] ? i[e] : null : i
+}
+if (!sessionStorage.getItem("idMbz") && !sessionStorage.getItem("maild5") && !sessionStorage.getItem("idcampagne")) {
+    var $_GET, idMbz = ($_GET = $_GE()).idMbz,
+        maild5 = $_GET.maild5,
+        idcampagne = $_GET.idcampagne;
+    idMbz && maild5 && idcampagne && (sessionStorage.setItem("idMbz", idMbz), sessionStorage.setItem("maild5", maild5), sessionStorage.setItem("idcampagne", idcampagne))
+}
     </script>
 
 </head>
