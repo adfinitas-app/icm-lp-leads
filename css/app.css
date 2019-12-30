@@ -51,6 +51,21 @@ select option {
     color: #001941;
     font-family: "Muli", Arial;
 }
+
+.blueButton {
+    background-color: #001941;
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+    transform: scale(1);
+    transition: ease-in-out 0.4s;
+}
+
+.blueButton:hover {
+    transform: scale(1.1);
+    transition: ease-in-out 0.4s;
+}
+
 .orangeButton {
     background-color: #EB6909;
     color: #fff;
@@ -133,6 +148,72 @@ select option {
 
 .reveal p {
     padding-bottom: 20px;
+}
+
+.number {
+    background-color: #fff;
+    border: #D7D7D7 3px solid;
+    padding: 10px 20px;
+    margin: 5px;
+    transition: ease-in-out 0.2s;
+}
+
+.number[selected="true"] {
+    background-color: #EB6909;
+    transition: ease-in-out 0.2s;
+    border-color: transparent;
+    color: #fff;
+}
+
+.number:hover {
+    background-color: #EB6909;
+    opacity: 0.7;
+    border-color: transparent;
+    color: #fff;
+    transition: ease-in-out 0.2s;
+}
+
+.number[selected="true"]:hover {
+    background-color: #EB6909;
+    border-color: transparent;
+    opacity: 1;
+    color: #fff;
+    transition: ease-in-out 0.2s;
+}
+
+.number[selected="true"]>p {
+    color: #fff;
+}
+
+.number:hover>p {
+    color: #fff;
+}
+
+.number[selected="true"]:hover>p {
+    color: #fff;
+}
+
+select, input {
+    min-height: 50px;
+}
+
+#form>div.cell {
+    padding: 5px;
+}
+
+#form ::-webkit-input-placeholder { /* Edge */
+    font-family: "Muli", Arial;
+    color: #001941;
+}
+
+#form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-family: "Muli", Arial;
+    color: #001941;
+}
+
+#form ::placeholder {
+    font-family: "Muli", Arial;
+    color: #001941;
 }
 
 #answer{
@@ -222,6 +303,32 @@ select option {
     padding-top: 100px;
 }
 
+.noPadLeft {
+    padding-left: 0px!important;
+}
+
+@media print, screen and (max-width: 1400px) {
+    .number>p {
+        line-height: 50px;
+    }
+
+    .number {
+        padding: 5px 10px !important;
+        margin: 5px !important;
+    }
+
+    #form ::-webkit-input-placeholder { /* Edge */
+        font-size: 16px;
+    }
+
+    #form :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        font-size: 16px;
+    }
+
+    #form ::placeholder {
+        font-size: 16px;
+    }
+}
 
 @media print, screen and (max-width: 40em) {
     #why {

@@ -111,6 +111,10 @@ p h1 h2 h3 h4 h5 h6 {
     margin: 20px;
 }
 
+.padding15 {
+    padding: 15px;
+}
+
 .padding30 {
     padding: 30px;
 }

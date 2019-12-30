@@ -9,6 +9,7 @@ var cbFalse = document.getElementById("cbFalse");
 var cbTrue = document.getElementById("cbTrue");
 var checkBox = false;
 var userData = {};
+var mark = 0;
 var first = true;
 userData.questions = ["", "", ""];
 
@@ -100,6 +101,7 @@ var questionIndex = 1;
 var questionContainer = document.getElementById("question" + questionIndex);
 var answerContainer = document.getElementById("answer");
 var thanksContainer = document.getElementById("thanks");
+var noteContainer = document.getElementById("note");
 var answerText = document.getElementById("answerText");
 var questionText = document.getElementById("questionText");
 var questionNb = document.getElementById("questionNb");
@@ -187,9 +189,8 @@ function changeQuestion(answer) {
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
     if (questionIndex === 4) {
-        validateForm();
         questionContainer.style.display = "none";
-        thanksContainer.style.display = "block";
+        noteContainer.style.display = "block";
         questionIndex++;
         return;
     }
@@ -329,6 +330,75 @@ function sendRequest(first) {
                 }
             }
         };
+        makeCorsRequest(data);
+        /*Data for the mark*/
+        data = {
+            "reveal_nps": {
+                "source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") :  "DIRECT",
+                "contacts": [
+                    {
+                        "app_id": "icm-institute.org",
+                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                        "medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC",
+                        "interface": "LP-CLIENT",
+                        "email": userData.email,
+                        "firstname": userData.prenom,
+                        "lastname": userData.nom,
+                        "gender": userData.civ === "Monsieur" ? "M" : "F",
+                        "phone": userData.phone,
+                        "emailMD5": md5(userData.email),
+                        "note": getMark()
+                    }
+                ]
+            },
+            "woopra": {
+                "host": "prometer.io",	// Nom du projet dans Woopra.
+                /* Variables de configuration de la fiche utilisateur, préfixe : "cv_" */
+                "cv_firstname": userData.prenom,
+                "cv_lastname": userData.nom,
+                "cv_name": userData.prenom + " " + userData.nom,
+                "cv_email": userData.email,
+                "cv_civility": userData.civ === "Monsieur" ? "Monsieur" : "Madame",
+                "cv_gender": userData.civ === "Monsieur" ? "M" : "F",
+                "cv_note": getMark(),
+                "cv_phone": userData.phone,
+                "cv_email_md5": md5(userData.email),
+                /* Variables de l'événement, : préfixe : "ce_" */
+                "event": "adfinitas_nps",
+                "ce_phone": userData.phone,
+                "ce_app_id": "icm-institute.org",
+                "ce_gender": userData.civ === "Monsieur" ? "M" : "F",
+                "ce_note": getMark(),
+                "ce_email": userData.email,
+                "ce_interface": "LP-CLIENT",
+                "ce_email_md5": md5(userData.email),
+                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") : "DIRECT",
+                "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
+            },
+            "iraiser": {
+                "email": userData.email,
+                "contactExternalScore": getMark(),
+                "origin": "OTHER",
+                "originName": "QICM",
+                "originCampaign": "adfinitas_leads",
+                "originCampaignId": "1",
+                "segments": "QICM_2019",
+                "language": "fr_FR",
+                "optinEmail": "true",
+                "optinMail": "true",
+                "optinPhone": userData.hasPhone,
+                "firstName": userData.prenom,
+                "lastName": userData.nom,
+                "gender": userData.civ === "Monsieur" ? "M" : "F",
+                "phone": userData.phone,
+                "creationDate": date.toString(),
+                "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
+                "reservedFields": {
+                    "MD5": mdEmail
+                }
+            },
+        };
     }
     makeCorsRequest(data);
 }
@@ -370,4 +440,58 @@ function makeCorsRequest(data) {
      }
      );
      */
+}
+
+function getMark() {
+    var all = document.getElementsByClassName("number");
+
+    for (var i = 0; i <= 9; i++) {
+        if (all[i].getAttribute("selected") === "true")
+            return (i + 1);
+    }
+    return ""
+}
+
+function checkBeforeValidate() {
+    if (checkMark() == false) {
+        document.getElementById("formErrorMsgNote").innerText = "Veuillez mettre une note";
+        return;
+    }
+    mark = getMark();
+    noteContainer.style.display = "none";
+    thanksContainer.style.display = "block";
+    validateForm();
+}
+
+function setMark(nb) {
+    if (nb > 10)
+        return;
+    var all = document.getElementsByClassName("number");
+
+    if (all[nb - 1].getAttribute("selected") === "true") {
+        all[nb - 1].setAttribute("selected", "false");
+        return;
+    }
+    for (var i = 0; i <= 9; i++) {
+        all[i].setAttribute("selected", "false");
+    }
+    all[nb - 1].setAttribute("selected", "true");
+}
+
+function resetMarks() {
+    var all = document.getElementsByClassName("number");
+
+    for (var i = 0; i <= 9; i++) {
+        all[i].setAttribute("selected", "false");
+    }
+}
+
+function checkMark() {
+    var all = document.getElementsByClassName("number");
+
+    for (var i = 0; i <= 9; i++) {
+        if (all[i].getAttribute("selected") === "true")
+            return true;
+    }
+    return false;
 }
