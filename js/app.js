@@ -33,7 +33,7 @@ function checkForm() {
     var email = getData("email");
     var cbTrue = getData("cbTrue");
 
-    if (civ && nom && prenom && email && cbTrue === true) {
+    if (civ && nom && prenom && email && cbTrue === true && (phone || phone_not_mandatory)) {
         if (validateEmail(email) === false) {
             document.getElementById("formErrorMsg").innerText = "Addresse E-mail incorrecte";
             return false;
@@ -57,7 +57,7 @@ function checkForm() {
         return true;
     }
     else {
-        if (civ && nom && prenom && email)
+        if (civ && nom && prenom && email && (phone || phone_not_mandatory))
             document.getElementById("formErrorMsg").innerText = "Veuillez cocher les conditions";
         else
             document.getElementById("formErrorMsg").innerText = "Veuillez remplir les champs";

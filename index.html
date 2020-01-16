@@ -1362,6 +1362,7 @@ if (!sessionStorage.getItem("idMbz") && !sessionStorage.getItem("maild5") && !se
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/utils.js"></script>
 <script>
+    var phone_not_mandatory = true;
     $(document).ready(setSocial(), fillForm());
     window.addEventListener("resize", setSocial);
     /*function setOpt() {
@@ -1386,6 +1387,10 @@ if (!sessionStorage.getItem("idMbz") && !sessionStorage.getItem("maild5") && !se
         if (getUrlParam('phone'))
             userData.phone = getUrlParam('phone');
         setData("phone", userData.phone);
+        if (getUrlParam('t') && getUrlParam('t') == "1") {
+            phone_not_mandatory = false;
+            document.getElementById("optionnel").style.display = "none";
+        }
     }
     function setSocial() {
         var c = document.getElementsByClassName("socialContainer");
