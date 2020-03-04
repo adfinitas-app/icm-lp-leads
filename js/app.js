@@ -79,7 +79,7 @@ function headerCheckBox(arg) {
 
 function showQuestions() {
     if (checkForm() === false) {
-    //    return;
+        return;
     }
     validateForm();
     document.body.scrollTop = 0; // For Safari
@@ -249,7 +249,7 @@ function validateForm() {
 function sendRequest(first) {
     var mdEmail = md5(userData.email);
     var data;
-    var date = Date.now()
+    var date = Date.now();
     if (first === true) {
         data = {
             "reveal_lead": {
