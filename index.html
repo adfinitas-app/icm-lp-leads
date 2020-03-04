@@ -1,0 +1,1426 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grande Enquête</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/utils.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/css/intlTelInput.css">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,900|Open+Sans:300,400,800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5adcadefca.js"></script>
+    <script async id="script1">
+    </script>
+    <script id="script2">
+        console.log("bonsoir");
+    function $_GE(e) {
+    var i = {};
+    return window.location.href.replace(location.hash, "").replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function (e, a, t) {
+        i[a] = void 0 !== t ? t : ""
+    }), e ? i[e] ? i[e] : null : i
+}
+if (!sessionStorage.getItem("idMbz") && !sessionStorage.getItem("maild5") && !sessionStorage.getItem("idcampagne")) {
+    var $_GET, idMbz = ($_GET = $_GE()).idMbz,
+        maild5 = $_GET.maild5,
+        idcampagne = $_GET.idcampagne;
+    idMbz && maild5 && idcampagne && (sessionStorage.setItem("idMbz", idMbz), sessionStorage.setItem("maild5", maild5), sessionStorage.setItem("idcampagne", idcampagne))
+}
+    </script>
+
+</head>
+<body>
+<div style="display: block; width: 100%; height: 100%; min-height: 100vh" id="header">
+    <div class="grid-x">
+        <div class="cell shrink padding30">
+            <a target="_blank"  href="https://icm-institute.org/fr/?utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP">
+                <img src="assets/ICM_rvb.png" alt="Logo ICM" class="float-center transparent w150">
+            </a>
+        </div>
+    </div>
+    <div class="grid-x">
+        <div class="cell small-12 medium-7">
+            <div class="grid-x hPadding50">
+                <div class="cell small-12 medium-11 medium-offset-1 large-10 large-offset-1">
+                    <p class="fs44 blueColor lh130 bBold hide-for-small-only title">
+                        Que pensez-vous de <br class="show-for-large">
+                        la recherche sur le cerveau&nbsp;?<br class="show-for-large">
+                        <span class="orangeColor">Votre avis nous intéresse&nbsp;!</span>
+                    </p>
+                    <p class="show-for-small-only fs28 blueColor lh140 bBold">
+                        Que pensez-vous de <br class="show-for-large">
+                        la recherche sur le cerveau&nbsp;?<br class="show-for-large">
+                        <span class="orangeColor">Votre avis nous intéresse&nbsp;!</span>
+                    </p>
+                    <p class="textColor fs22 text">
+                        À l’Institut du Cerveau, 700 experts se mobilisent chaque jour pour résoudre la grande énigme du fonctionnement de notre cerveau.
+                        Pensez-vous qu’il sera bientôt possible d’en percer les mystères et de guérir la maladie d’Alzheimer, la maladie de Parkinson, la dépression, l’épilepsie, les tumeurs cérébrales,
+                        la sclérose en plaques, les traumatismes de la moelle épinière... et toutes les pathologies qui peuvent toucher notre système nerveux&nbsp;?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="cell small-12 medium-5">
+            <div class="grid-x" id="formHeaderContainer" style="">
+                <div class="cell small-12 large-9 medium-10 large-offset-1 padding30 largeLeftMargin10" style="padding-bottom: 0 !important;">
+                    <p class="greyColor fs18 noHMargin smallText">
+                        Merci de prendre <span class="orangeColor bold">2 minutes </span><br>
+                        pour répondre à <span class="orangeColor bold">3 questions&nbsp;</span>!
+                        <br><br>
+                    </p>
+                    <div id="formHeader" style="display: none;">
+                        <form>
+                            <div class="grid-x">
+                                <div class="medium-12 cell">
+                                    <label>
+                                        <select id="civilite" class="hMargin5">
+                                            <option value="" selected disabled>Civilité</option>
+                                            <option value="Monsieur">Monsieur</option>
+                                            <option value="Madame">Madame</option>
+                                        </select>
+                                    </label>
+                                </div>
+                                <div class="medium-12 cell">
+                                    <label>
+                                        <input type="text" placeholder="Nom" id="nom" onchange="document.getElementById('formErrorMsg').innerText = ''" class="hMargin5">
+                                    </label>
+                                </div>
+                                <div class="medium-12 cell">
+                                    <label>
+                                        <input type="text" placeholder="Prénom" id="prenom" onchange="document.getElementById('formErrorMsg').innerText = ''" class="hMargin5">
+                                    </label>
+                                </div>
+                                <div class="medium-12 cell" >
+                                    <label>
+                                        <input type="email" placeholder="E-mail" id="email" onchange="document.getElementById('formErrorMsg').innerText = ''" class="hMargin5">
+                                    </label>
+                                </div>
+                                <div class="medium-12 cell" style="position: relative;">
+                                    <label>
+                                        <input type="tel" id="phone" placeholder="1 23 45 67 89" class="hMargin5">
+                                    </label>
+                                    <p id="optionnel" class="blueColor fs12" style="display: block; position: absolute; top: 2px; right: 2px;">Optionnel</p>
+                                </div>
+                            </div>
+                        </form>
+                        <div>
+                            <p class="greyColor fs14 lh110">
+              <span id="checkBox" class="displayInline cliquable">
+                <i class="far fa-square" id="cbFalse" style="display: block;" onclick="headerCheckBox(false); document.getElementById('formErrorMsg').innerText = ''" ></i>
+                <i class="far fa-check-square" id="cbTrue" style="display: none;" onclick="headerCheckBox(true)"></i>
+            </span>
+                                J’ai lu la <a data-open="modalPPD" class="underline greyColor">politique de protection des données</a>, les <a data-open="modalML" class="underline greyColor">mentions légales </a>et en validant,
+                                j'accepte d'être contacté par email, téléphone ou tout autre moyen de communication par l’ICM. Vous pouvez vous désinscrire à tout moment des communications de l’Institut du Cerveau à l’aide des liens de désinscription.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="orangeButton cliquable" id="formHeaderButton" onclick="showQuestions();openForm();setSocial();">
+                        <p class="text-center">
+                            JE RÉPONDS
+                        </p>
+                    </div>
+                    <p id="formErrorMsg" class="fs16 text-center lh110 redColor bold noHMargin"></p>
+                </div>
+                <div class="reveal" id="modalPPD" data-reveal>
+                    <h3 class="noHMargin greyColor fs30">
+                        Politique de protection des données.
+                        <br>
+                    </h3>
+                    <p class="noHMargin textColor fs12">
+                        L’Institut du Cerveau et de la Moelle épinière veille au respect de vos données personnelles en ne collectant que celles strictement nécessaires au regard des finalités pour lesquelles elles sont traitées.
+                        La présente politique s’applique à l’ensemble des données collectées par l’ICM. L’ICM s'engage à respecter, en tant que responsable de traitement,
+                        les dispositions de la Loi n°78-17 du 6 janvier 1978 modifiée et le Règlement Général sur la Protection des Données paru au journal officiel le
+                        27 avril 2016 et en vigueur depuis le 25 mai 2018.<br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        1. Donnée personnelle
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Le présent site est la propriété de l’ICM, qui en est l'auteur au sens des articles L. 111.1 et suivants du Code de la propriété intellectuelle.
+                        C'est toute information relative à une personne physique susceptible d'être identifiée, directement ou indirectement&nbsp;: (ex. nom, no d’immatriculation,
+                        n° de téléphone, photographie, date de naissance, commune de résidence, empreinte digitale...).<br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        2. Pourquoi certaines de vos données sont-elles collectées&nbsp;?
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Les données personnelles recueillies par L’ICM nous permettent de&nbsp;:
+                    </p>
+                    <ul>
+                        <li class="noHMargin textColor fs12">
+                            Vous assurer une relation donateurs, testateurs, potentiels donateurs et potentiels testateurs de qualité;
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Vous fournir des services&nbsp;: réponse aux demandes de contact, envoi de documentations ou d'informations;
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Mieux cibler nos campagnes de collecte de dons et en assurer le suivi;
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Vous offrir une navigation optimale sur le site&nbsp;: adaptation de l’affichage en fonction du terminal utilisé, stockage des préférences, etc;
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Réaliser des analyses statistiques des visites et des remplissages de formulaires sur notre site.
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Vous proposer des fonctions de partage sur les réseaux sociaux;
+                        </li>
+                    </ul>
+                    <br>
+                    <h4 class="noHMargin fs24 greyColor">
+                        3. Quelles données personnelles sont collectées&nbsp;?
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Nous collectons des données personnelles lorsque vous remplissez l’un de nos formulaires d'inscription à la newsletter, de sondage en ligne ou
+                        par le biais de cookies. Un "cookie" est un petit fichier informatique, envoyé par le serveur d’un site internet et enregistré sur votre ordinateur, tablette ou téléphone.
+                        <br>
+                    </p>
+                    <h5 class="noHMargin fs22 greyColor">
+                        Par les formulaires
+                    </h5>
+                    <p class="noHMargin textColor fs12">
+                        Lorsque vous remplissez un formulaire sur notre site, le caractère obligatoire ou facultatif des données personnelles vous est signalé par un astérisque. Il peut s’agir des données suivantes&nbsp;:
+                    </p>
+                    <ul>
+                        <li class="noHMargin textColor fs12">
+                            Nom et prénom
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Adresse postale et ville de résidence
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Numéro de téléphone et adresse e-mail
+                        </li>
+                    </ul>
+                    <h5 class="noHMargin fs22 greyColor">
+                        Par les cookies
+                    </h5>
+                    <p class="noHMargin textColor fs12">
+                        Certaines données sont collectées automatiquement lors de votre visite sur le site, par le biais de cookies.
+                        <br><br>
+                        Les cookies ont notamment pour but de collecter des informations relatives à votre navigation&nbsp;: données d’identification électronique
+                        (adresse IP, zone géographique), données d’activité sur notre site (pages visitées, paramètres de la visite, etc.). Ils sont gérés par votre navigateur internet.
+                        <br><br>
+                        4 types de cookies sont utilisés par notre site&nbsp;:
+                    </p>
+                    <ul>
+                        <li class="noHMargin textColor fs12">
+                            Des cookies internes nécessaires au site pour fonctionner de manière optimale
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Des cookies tiers de mesure d’audience et de suivi de votre activité en ligne (Google Analytics, Woopra, adfinitas)
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Des cookies tiers destinés à améliorer l’interactivité du site et son contenu multimédia (Facebook, Twitter). Ces réseaux sociaux peuvent collecter
+                            des données relatives à votre navigation sur notre site et associées aux données personnelles dont ils disposent.
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Des cookies tiers destinés à mieux cibler nos campagnes marketing (Adroll, Oath, MesOpinions, Orixa Media, TimeOne, Facebook, Bing, Google, etc...)
+                        </li>
+                    </ul>
+                    <p class="noHMargin textColor fs12">
+                        Nous vous invitons à consulter les politiques de protection de la vie privée des différents services tiers nommés ci-dessus afin de prendre connaissance
+                        des finalités d'utilisation, notamment publicitaires, des informations de navigation qu'ils peuvent recueillir grâce à ces boutons applicatifs.
+                        Ces politiques de protection doivent vous permettre d'exercer vos choix auprès de ces réseaux sociaux, notamment en paramétrant vos comptes d'utilisation de chacun de ces réseaux.
+                    </p>
+                    <table class="fs12 textColor noHMargin stack hover">
+                        <thead>
+                        <tr>
+                            <th width="150">Prestataires</th>
+                            <th width="">Politiques de confidentialité</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Adroll</td>
+                            <td>https://www.adroll.com/about/trust-center</td>
+                        </tr>
+                        <tr>
+                            <td>Google</td>
+                            <td>https://policies.google.com/technologies/ads</td>
+                        </tr>
+                        <tr>
+                            <td>Facebook</td>
+                            <td>https://www.facebook.com/policy</td>
+                        </tr>
+                        <tr>
+                            <td>AOL (part of Oath)</td>
+                            <td>https://policies.oath.com/us/en/oath/privacy/index.html</td>
+                        </tr>
+                        <tr>
+                            <td>Yahoo (part of Oath)</td>
+                            <td>https://policies.oath.com/us/en/oath/privacy/index.html</td>
+                        </tr>
+                        <tr>
+                            <td>Bidswitch</td>
+                            <td>http://www.bidswitch.com/privacy-policy/</td>
+                        </tr>
+                        <tr>
+                            <td>AppNexus</td>
+                            <td>https://www.appnexus.com/en/company/platform-privacy-policy</td>
+                        </tr>
+                        <tr>
+                            <td>LiveRamp</td>
+                            <td>https://liveramp.com/privacy/</td>
+                        </tr>
+                        <tr>
+                            <td>Open X</td>
+                            <td>https://www.openx.com/legal/privacy-policy/</td>
+                        </tr>
+                        <tr>
+                            <td>Rubicon</td>
+                            <td>https://rubiconproject.com/privacy-policy/</td>
+                        </tr>
+                        <tr>
+                            <td>Index</td>
+                            <td>https://www.index.com/privacy/</td>
+                        </tr>
+                        <tr>
+                            <td>Pubmatic</td>
+                            <td>https://pubmatic.com/legal/privacy-policy/</td>
+                        </tr>
+                        <tr>
+                            <td>Taboola</td>
+                            <td>https://www.taboola.com/privacy-policy</td>
+                        </tr>
+                        <tr>
+                            <td>Outbrain</td>
+                            <td>https://www.outbrain.com/legal/</td>
+                        </tr>
+                        <tr>
+                            <td>TripleLift</td>
+                            <td>https://triplelift.com/</td>
+                        </tr>
+                        <tr>
+                            <td>Pixalate</td>
+                            <td>http://www.pixalate.com/privacypolicy/</td>
+                        </tr>
+                        <tr>
+                            <td>adfinitas</td>
+                            <td>https://www.adfinitas.fr/mentions-legales.html</td>
+                        </tr>
+                        <tr>
+                            <td>Orixa</td>
+                            <td>https://www.orixa-media.com/politique-de-confidentialite/</td>
+                        </tr>
+                        <tr>
+                            <td>MesOpinions</td>
+                            <td>https://www.mesopinions.com/mentions-legales</td>
+                        </tr>
+                        <tr>
+                            <td>TimeOne</td>
+                            <td>https://privacy.timeonegroup.com/?utm_source=privacy_perf</td>
+                        </tr>
+                        <tr>
+                            <td>Woopra</td>
+                            <td>https://www.woopra.com/privacy</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="noHMargin textColor fs12">
+                        Ces cookies peuvent également avoir pour objectif de vous identifier, et/ou d’obtenir vos coordonnées, votre âge, vos revenus, notamment auprès de tiers,
+                        en vue d’une réactivation à votre attention, c’est-à-dire d’opérations de prospection qui vous seraient destinées par divers moyens de communication (courrier postal,
+                        email ou télémarketing par exemple).
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        4. Comment refuser les cookies ?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Vous pouvez vous opposer à l'enregistrement de cookies en configurant votre navigateur.
+                    </p>
+                    <ul>
+                        <li class="noHMargin textColor fs12">
+                            Pour Internet Explorer™&nbsp;: https://support.microsoft.com/
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Pour Microsoft Edge&nbsp;: https://support.microsoft.com/
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Pour Safari™&nbsp;: https://support.apple.com/
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Pour Chrome™&nbsp;: https://support.google.com/
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Pour Firefox™&nbsp;: https://support.mozilla.org/
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            Pour Opera™&nbsp;: http://help.opera.com/
+                        </li>
+                    </ul>
+                    <h4 class="noHMargin fs24 greyColor">
+                        5. Vos données sont-elles partagées avec d’autres sociétés&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        L’ICM ne communique les données qu’elle collecte qu’à ses services internes ainsi qu’à ses prestataires de services et leurs personnels eu égard
+                        à l’exécution des prestations qui leurs sont confiées et qu’ils doivent réaliser pour le compte de l’ICM.
+                        <br><br>
+                        Toutes les personnes ayant accès à vos données sont habilitées et tenues par une obligation de confidentialité.
+                        <br><br>
+                        Sauf opposition de votre part, l’ICM est susceptible de partager les données relatives à ses donateurs ou prospects avec des organismes du secteur caritatif et des prestataires d'enrichissement.
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        6. Combien de temps vos données seront-elles conservées&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Nous veillons à conserver vos données personnelles pendant une durée qui n’excède pas la durée nécessaire aux finalités exposées au point 2 ou conformément à ce qui est prévu par la loi applicable.
+                        <br><br>
+                        Les données collectées par les cookies sont conservées 13 mois maximum.
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        7. Sur quels fondements juridiques repose le traitement de vos données&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Les traitements de vos données collectées ont pour fondements juridiques&nbsp;:
+                    </p>
+                    <ul>
+                        <li class="noHMargin textColor fs12">
+                            l’intérêt légitime à nos activités et notre mission
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            le consentement
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            l’obligation légale selon les circonstances de la collecte des données
+                        </li>
+                    </ul>
+                    <h4 class="noHMargin fs24 greyColor">
+                        8. Comment pouvez-vous exercer vos droits&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Conformément à la règlementation générale relative à la protection des données, vous bénéficiez de droits d’accès, de rectification, d’opposition, de suppression et de portabilité de vos données.
+                        Pour exercer vos droits ou pour toute question concernant la politique de protection des données à caractère personnel de l’ICM, vous pouvez adresser une demande accompagnée d’un justificatif d’identité valide à l’attention de notre Délégué à la Protection des Données&nbsp;:
+                    </p>
+                    <ul class="noHPadding">
+                        <li class="noHMargin textColor fs12">
+                            par voie postale&nbsp;:  ICM, Hôpital Pitié-Salpêtrière, 47 bd de l’Hôpital, 75013 Paris
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            par courriel&nbsp;: <a href="mailto:contact@icm-institute.org">contact@icm-institute.org</a>
+                        </li>
+                    </ul>
+                    <p class="noHMargin textColor fs12 underline bold">
+                        Vous pouvez également nous contacter par téléphone au 01 57 27 47 56. <br>
+                        Vous avez également la possibilité de saisir l’autorité de contrôle (la CNIL) si vous n’êtes pas satisfaits du suivi que nous avons réservé à vos demandes et/ou du traitement de vos données&nbsp;:
+                    </p>
+                    <ul>
+                        <li class="noHMargin textColor fs12">
+                            par voie postale&nbsp;: 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07.
+                        </li>
+                        <li class="noHMargin textColor fs12">
+                            par téléphone&nbsp;: 01 53 73 22 22.
+                        </li>
+                    </ul>
+
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="reveal" id="modalML" data-reveal>
+                    <h3 class="noHMargin greyColor fs30">
+                        Mentions légales
+                        <br>
+                    </h3>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Droits de propriété intellectuelle
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Le présent site est la propriété de l’Institut du Cerveau et de la Moelle épinière, (ci-après « l’ICM).
+                        Les photographies, textes, slogans, dessins, images, séquences animées sonores ou non ainsi que toutes œuvres intégrées dans le
+                        site sont la propriété de l’ICM ou de tiers ayant autorisé l’ICM à les utiliser. La reproduction, sur un support papier ou informatique,
+                        du site est autorisée sous réserve qu'elle soit strictement réservée à un usage personnel, excluant tout usage à des fins publicitaires et/ou
+                        commerciales et/ou d'informations, et qu'elle soit conforme aux dispositions de l'article L122-5 du Code de la Propriété Intellectuelle.
+                        A l'exception des dispositions ci-dessus, toute reproduction, représentation, utilisation ou modification, par quelque procédé que ce soit et
+                        sur quelque support que ce soit, de tout ou partie du site, de tout ou partie des contenus qui le composent, sans l'autorisation préalable de
+                        l’ICM, est strictement interdite et constitue un délit de contrefaçon.
+                        <br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Utilisation des données personnelles
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        <a data-open="modalPPD">Notre politique de protection des données personnelles</a> vous renseigne en
+                        détail sur les finalités de notre collecte des données et des fondements juridiques sur lesquels celle-ci s'appuie.
+                        <br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Cookies
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Lors de votre visite sur notre site, nous sommes susceptibles d'implanter un cookie dans votre ordinateur. Un cookie est un petit bloc
+                        de données envoyé à votre navigateur par un serveur web et stocké sur le disque dur de votre ordinateur. Le cookie ne nous permet pas de
+                        vous identifier personnellement. De manière générale, il nous permet d'enregistrer des informations relatives à la navigation de votre
+                        ordinateur sur notre site (les pages que vous avez consultées, la date et l'heure de la consultation, etc.) que nous pourrons lire lors
+                        de vos visites ultérieures. Vous pouvez naturellement vous opposer à l'enregistrement de cookies en configurant votre navigateur à partir des
+                        "Options" ou "Préférences" de celui-ci. Vous pouvez également supprimer les cookies à tout moment et individuellement en vous rapportant au manuel d'utilisation de votre ordinateur.
+                        <br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Liens hypertextes
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        La mise en place d'un lien hypertexte vers notre site nécessite une autorisation préalable écrite de l’ICM. Faites votre demande à&nbsp;:
+                        <a href="mailto:contact@icm-institute.org">contact@icm-institute.org</a>. L’ICM ne peut en aucun cas être tenu pour responsable de la
+                        mise à disposition des sites qui font l'objet d'un lien hypertexte à partir du site de l’ICM et ne peut supporter aucune responsabilité
+                        sur le contenu disponible sur ces sites ou à partir de ces sites.
+                        <br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        L'Institut du Cerveau et de la Moelle épinière
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        fondation reconnue d’utilité publique
+                        <br>
+                        Hôpital Pitié-Salpêtrière, 47/83 boulevard de l’Hôpital <br>
+                        CS 21414 <br>
+                        75646 Paris Cedex 13 <br>
+                        Tel&nbsp;:&nbsp;+33&nbsp;(0)1&nbsp;57&nbsp;27&nbsp;40&nbsp;00 <br><br>
+                        <a href="mailto:contact@icm-institute.org">contact@icm-institute.org</a>
+                        <br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Directeur de la publication <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        Jean-Louis Da Costa Responsable de la communication et du développement
+                        <br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Hébergement du site <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        adfinitas <br>
+                        Société par actions Simplifiée au capital de 50&nbsp;000€
+                        <br>
+                        <span class="bold">Siège social </span><br>
+                        Parc d’Activités «Business Park» <br>
+                        Bâtiment A <br>
+                        87 rue du Molinel <br>
+                        59700 MARCQ EN BAROEUL <br>
+                        <span class="bold">Téléphone </span>: +33.(0)3.28.33.29.60 / Fax&nbsp;: +33.(0)3.28.04.52.41 <br>
+                        <span class="bold">SIRET </span>: 432 326 601 00056 <br>
+                        <br>
+                        <span class="bold">Etablissement secondaire </span><br>
+                        132 rue la Fayette <br>
+                        75010 Paris <br>
+                        <span class="bold">Téléphone</span>&nbsp;: +33.(0)1.55.33.53.33 / Fax&nbsp;: +33.(0)1.55.33.53.38 <br>
+                        <span class="bold">SIRET</span>&nbsp;: 432 326 601 00064 <br>
+                        Adresse e-mail&nbsp;: adfinitas@adfinitas.fr <br>
+                        <br>
+                    <h4 class="noHMargin fs24 greyColor">
+                        Réalisation du site
+                        <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                        adfinitas
+                    </p>
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="socialContainer stick show-for-medium">
+            <div class="grid-x align-right">
+                <a href="https://www.facebook.com/icminstitute/" target="_blank">
+                    <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+                        <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden; z-index: 1">Facebook</p>
+                        <p class="noHMargin text-center" style="z-index: 999">
+                            <i class="float-center fab fa-facebook-f noHMargin"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="grid-x align-right">
+                <a href="https://twitter.com/icm_institute" target="_blank">
+                    <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+                        <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden; z-index: 1; ">Twitter</p>
+                        <p class="noHMargin text-center" style="z-index: 999">
+                            <i class="float-center fab fa-twitter noHMargin"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="question1" class="questionsContainer full" style="display: none;height: 100%; min-height: 100vh">
+    <div id="pixelTracking"></div>
+    <div class="grid-x align-bottom">
+        <div class="cell small-4 padding30">
+            <a target="_blank"  href="https://icm-institute.org/fr/?utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP">
+                <img src="assets/ICM_rvb.png" alt="Logo ICM" class="transparent w150 logo">
+            </a>
+        </div>
+        <div class="cell small-4 small-offset-4">
+            <a href="https://don.icm-institute.org/b?cid=191&utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP&reserved_code_occasion=WEB_RECRULEADS_0220&reserved_code_media=20SPW02" target="_blank">
+                <img  class="float-right padding30" src="assets/btnDon.png" alt="Je donne <3" style="position: absolute; top: 0; right: 0;" id="btnDonQuestion">
+            </a>
+        </div>
+    </div>
+    <div class="grid-x align-center">
+        <div class="cell small-12 large-7 medium-8">
+            <div class="" id="questionNbContainer">
+                <p class="fs30 greyColor text-center"><span class="fs48 orangeColor" id="questionNb"><!--1--></span> / 3</p>
+            </div>
+            <p class="fs42 blueColor lh140 text-center bBold title" id="questionText">
+                <!--  Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;? -->
+            </p>
+        </div>
+    </div>
+    <div class="grid-x align-center">
+        <div class="cell small-12 large-4 medium-8">
+            <div class="grid-x align-center">
+                <div class="cell small-6 large-6">
+                    <div class="yesNoButton cliquable" selected="false" onclick="checkYesNoButtons(0, 'yes')">
+                        <p class="text-center noHMargin fs22">
+                            OUI
+                        </p>
+                    </div>
+                </div>
+                <div class="cell small-6 large-6">
+                    <div class="yesNoButton cliquable" selected="false" onclick="checkYesNoButtons(0, 'no')">
+                        <p class="text-center noHMargin fs22">
+                            NON
+                        </p>
+                    </div>
+                </div>
+                <div class="orangeButton cliquable margin30" onclick="fillUserData();changeQuestion(false);resetYesNoBtn();">
+                    <p class="text-center noHMargin fs22">
+                        VALIDER
+                    </p>
+                </div>
+                <div>
+                    <p id="errorMsg" class="fs20 bold redColor">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="socialContainer stick show-for-medium">
+        <div class="grid-x align-right">
+            <a href="https://www.facebook.com/icminstitute/" target="_blank">
+                <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+                    <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden; z-index: 1">Facebook</p>
+                    <p class="noHMargin text-center" style="z-index: 999">
+                        <i class="float-center fab fa-facebook-f noHMargin"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="grid-x align-right">
+            <a href="https://twitter.com/icm_institute" target="_blank">
+                <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+                    <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden; z-index: 1; ">Twitter</p>
+                    <p class="noHMargin text-center" style="z-index: 999">
+                        <i class="float-center fab fa-twitter noHMargin"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="answer" class="answersContainer lightBG" style="display: none;height: 100%;">
+    <div class="grid-y" style="height: 100vh">
+        <div class="cell shrink" style="min-height: 100px">
+            <div class="grid-x"  id="check">
+                <div class="cell small-4 padding30" >
+                    <a href="https://icm-institute.org/fr/?utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP" target="_blank">
+                        <img src="assets/ICM_rvb.png" alt="Logo ICM" class="transparent w150">
+                    </a>
+                </div>
+                <div class="cell small-4 small-offset-4">
+                    <a href="https://don.icm-institute.org/b?cid=191&utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP&reserved_code_occasion=WEB_RECRULEADS_0220&reserved_code_media=20SPW02" target="_blank">
+                        <img  class="float-right padding30" src="assets/btnDon.png" alt="Je donne <3" >
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="cell auto">
+            <div class="grid-x align-center-middle hMargin100" style="height: 100%;">
+                <div class="cell small-12  medium-10 large-9">
+                    <p class="fs42 blueColor lh120 bBold text-center bigTitle" id="answerText" style="height: 100%; min-height: 100%">
+                        Comme vous, de nombreuses personnes <br class="show-for-large">
+                        craignent que ce ne soit pas possible.
+                        Pourtant, sachez que les plus éminents chercheurs de l’ICM ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="cell shrink">
+            <div class="grid-x align-center">
+                <div class="cell small-12 large-4 medium-8">
+                    <div class="grid-x align-center">
+                        <div class="cell">
+                            <a href="#whyPart">
+                            <div class="cliquable" id="answerArrow">
+                                <p class="show-for-small-only text-center noHMargin fs20 orangeColor bBold pourquoi">
+                                    Pourquoi&nbsp;?
+                                </p>
+                                <p class="show-for-medium text-center noHMargin fs48 orangeColor bBold pourquoi">
+                                    Pourquoi&nbsp;?
+                                </p>
+                                <p class="show-for-small-only text-center textColor fs14 noHMargin">
+                                    Cliquer pour voir la suite
+                                </p>
+                                <p class="show-for-medium text-center textColor fs20 noHMargin">
+                                    Scroller ou cliquer pour voir la suite
+                                </p>
+                                <img src="assets/donwArrow.png" alt="v" class="float-center padding30">
+                            </div>
+                            <div>
+                                <p id="answerErrorMsg" class="fs20 bold redColor noHMargin">
+                                </p>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="socialContainer stick show-for-medium">
+            <div class="grid-x align-right">
+                <a href="https://www.facebook.com/icminstitute/" target="_blank">
+                    <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+                        <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+                        <p class="noHMargin text-center">
+                            <i class="float-center fab fa-facebook-f noHMargin"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            <div class="grid-x align-right">
+                <a href="https://twitter.com/icm_institute" target="_blank">
+                    <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+                        <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+                        <p class="noHMargin text-center">
+                            <i class="float-center fab fa-twitter noHMargin"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    <div id="why" class="lightBG" style=";">
+        <div class="grid-x align-center" id="whyPart">
+            <div class="cell small-12  medium-10 large-8">
+                <p class="fs32 blueColor lh140 text-center show-for-large semiTitle" id="whyText">
+                    Parce que l'Institut du Cerveau, situé au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de recherche de renommée internationale où tous les moyens
+                    techniques et humains sont réunis pour percer les mystères du cerveau. Chaque jour, 700 experts en neurosciences y travaillent main dans la main
+                    en s’appuyant sur des plateformes technologiques de pointe. <span class="orangeColor"> <br><br>Leur unique objectif&nbsp;: parvenir à de nouvelles découvertes et les transformer au plus
+              vite en traitements efficaces pour chaque patient&nbsp;!</span>
+                </p>
+                <p class="blueColor lh140 text-center hide-for-large semiTitle fs28" id="whyText" style="margin-top: 30px">
+                    Parce que l'Institut du Cerveau, situé au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de recherche de renommée internationale où tous les moyens
+                    techniques et humains sont réunis pour percer les mystères du cerveau. Chaque jour, 700 experts en neurosciences y travaillent main dans la main
+                    en s’appuyant sur des plateformes technologiques de pointe. <span class="orangeColor"><br><br> Leur unique objectif&nbsp;: parvenir à de nouvelles découvertes et les transformer au plus
+              vite en traitements efficaces pour chaque patient&nbsp;!</span>
+                </p>
+                <div class="grid-x align-center hMargin50">
+                    <div class="cell small-10 large-6 medium-8">
+                        <div class="grid-x align-center">
+                            <div class="cell">
+                                <div class="orangeButton cliquable noHMargin" id="nextQuestion" onclick="changeQuestion(true);showOverflow()">
+                                    <p class="text-center">
+                                        QUESTION SUIVANTE
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="note" class="answersContainer full lightBG" style="display: none; min-height: 100vh; overflow-y: scroll; height: auto;">
+    <div class="grid-x align-center">
+        <div class="cell small-12 large-12">
+          <div class="grid-x align">
+            <div class="cell small-4 large-3 padding30">
+              <a href="https://icm-institute.org/fr/?utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP" target="_blank">
+              <img src="assets/ICM_rvb.png" alt="Logo ICM" class="float-left transparent w150">
+              </a>
+            </div>
+          </div>
+          <div class="grid-x margin20 align-center">
+            <div class="cell small-11 medium-8 large-8">
+              <p class="fs30 blueColor noPadLeft lh140 text-center noHMargin bBold">
+                Merci d’avoir répondu à notre enquête.
+                <p class="fs30 orangeColor noPadLeft lh140 text-center noHMargin bBold" style="padding-top: 15px;">
+                    Une dernière question importante :<br>
+                    Recommanderiez-vous l’Institut du Cerveau aux membre de votre famille, à vos amis, à vos collègues&nbsp;?
+                </p>
+              </p>
+            </div>
+          </div>
+          <div id="mark">
+            <div class="grid-x align-center margin20">
+              <div class="cell small-12 large-2">
+                <p class="show-for-large blueColor fs16 text-right text" style="margin-top: 10px">
+                  Non, <br>
+                  pas du tout
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(1)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  1
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(2)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  2
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(3)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  3
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(4)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  4
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(5)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  5
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(6)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  6
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(7)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  7
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(8)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  8
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable" selected="false" onclick="setMark(9)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  9
+                </p>
+              </div>
+              <div class="cell large-auto small-2 number cliquable"  selected="false" onclick="setMark(10)">
+                <p class="fs24 blueColor noPadLeft noHMargin text-center">
+                  10
+                </p>
+              </div>
+              <div class="cell large-2 small-12 text fs16" style="margin-top: 10px">
+                <p class="blueColor fs16 show-for-large text-left text">
+                  Oui, <br>
+                  tout à fait
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="formHeader">
+            <div class="grid-x align-center">
+              <div class="cell small-12 medium-8 large-8">
+                <div class="grid-x">
+                  <div class="blueButton cliquable margin20 padding15" id="formHeaderButton" onclick="checkBeforeValidate();" style="margin-top: 10px">
+                    <p class="text-center noHMargin">
+                      VALIDER
+                    </p>
+                  </div>
+                  <div class="cell small-12" style="margin-bottom: 10px; padding-left: 5px">
+                    <p class="noHMargin redColor text-center fs20" id="formErrorMsgNote">
+                    </p>
+                  </div>
+    
+                  <div class="reveal" id="modalPPD" data-reveal>
+                    <h3 class="noHMargin greyColor fs30">
+                      Politique de protection des données.
+                      <br>
+                    </h3>
+                    <p class="noHMargin textColor fs12">
+                      L’ICM veille au respect de vos données personnelles en ne collectant que celles strictement nécessaires au regard des finalités pour lesquelles elles sont traitées.
+                      La présente politique s’applique à l’ensemble des données collectées par l’ICM. L’ICM s'engage à respecter, en tant que responsable de traitement,
+                      les dispositions de la Loi n°78-17 du 6 janvier 1978 modifiée et le Règlement Général sur la Protection des Données paru au journal officiel le
+                      27 avril 2016 et en vigueur depuis le 25 mai 2018.<br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                      1. Donnée personnelle
+                      <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Le présent site est la propriété de l’ICM, qui en est l'auteur au sens des articles L. 111.1 et suivants du Code de la propriété intellectuelle.
+                      C'est toute information relative à une personne physique susceptible d'être identifiée, directement ou indirectement&nbsp;: (ex. nom, no d’immatriculation,
+                      n° de téléphone, photographie, date de naissance, commune de résidence, empreinte digitale...).<br>
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                      2. Pourquoi certaines de vos données sont-elles collectées&nbsp;?
+                      <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Les données personnelles recueillies par L’ICM nous permettent de&nbsp;:
+                    </p>
+                    <ul>
+                      <li class="noHMargin textColor fs12">
+                        Vous assurer une relation donateurs, testateurs, potentiels donateurs et potentiels testateurs de qualité;
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Vous fournir des services&nbsp;: réponse aux demandes de contact, envoi de documentations ou d'informations;
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Mieux cibler nos campagnes de collecte de dons et en assurer le suivi;
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Vous offrir une navigation optimale sur le site&nbsp;: adaptation de l’affichage en fonction du terminal utilisé, stockage des préférences, etc;
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Réaliser des analyses statistiques des visites et des remplissages de formulaires sur notre site.
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Vous proposer des fonctions de partage sur les réseaux sociaux;
+                      </li>
+                    </ul>
+                    <br>
+                    <h4 class="noHMargin fs24 greyColor">
+                      3. Quelles données personnelles sont collectées&nbsp;?
+                      <br>
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Nous collectons des données personnelles lorsque vous remplissez l’un de nos formulaires d'inscription à la newsletter, de sondage en ligne ou
+                      par le biais de cookies. Un "cookie" est un petit fichier informatique, envoyé par le serveur d’un site internet et enregistré sur votre ordinateur, tablette ou téléphone.
+                      <br>
+                    </p>
+                    <h5 class="noHMargin fs22 greyColor">
+                      Par les formulaires
+                    </h5>
+                    <p class="noHMargin textColor fs12">
+                      Lorsque vous remplissez un formulaire sur notre site, le caractère obligatoire ou facultatif des données personnelles vous est signalé par un astérisque. Il peut s’agir des données suivantes&nbsp;:
+                    </p>
+                    <ul>
+                      <li class="noHMargin textColor fs12">
+                        Nom et prénom
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Adresse postale et ville de résidence
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Numéro de téléphone et adresse e-mail
+                      </li>
+                    </ul>
+                    <h5 class="noHMargin fs22 greyColor">
+                      Par les cookies
+                    </h5>
+                    <p class="noHMargin textColor fs12">
+                      Certaines données sont collectées automatiquement lors de votre visite sur le site, par le biais de cookies.
+                      <br><br>
+                      Les cookies ont notamment pour but de collecter des informations relatives à votre navigation&nbsp;: données d’identification électronique
+                      (adresse IP, zone géographique), données d’activité sur notre site (pages visitées, paramètres de la visite, etc.). Ils sont gérés par votre navigateur internet.
+                      <br><br>
+                      4 types de cookies sont utilisés par notre site&nbsp;:
+                    </p>
+                    <ul>
+                      <li class="noHMargin textColor fs12">
+                        Des cookies internes nécessaires au site pour fonctionner de manière optimale
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Des cookies tiers de mesure d’audience et de suivi de votre activité en ligne (Google Analytics, Woopra, adfinitas)
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Des cookies tiers destinés à améliorer l’interactivité du site et son contenu multimédia (Facebook, Twitter). Ces réseaux sociaux peuvent collecter
+                        des données relatives à votre navigation sur notre site et associées aux données personnelles dont ils disposent.
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Des cookies tiers destinés à mieux cibler nos campagnes marketing (Adroll, Oath, MesOpinions, Orixa Media, TimeOne, Facebook, Bing, Google, etc...)
+                      </li>
+                    </ul>
+                    <p class="noHMargin textColor fs12">
+                      Nous vous invitons à consulter les politiques de protection de la vie privée des différents services tiers nommés ci-dessus afin de prendre connaissance
+                      des finalités d'utilisation, notamment publicitaires, des informations de navigation qu'ils peuvent recueillir grâce à ces boutons applicatifs.
+                      Ces politiques de protection doivent vous permettre d'exercer vos choix auprès de ces réseaux sociaux, notamment en paramétrant vos comptes d'utilisation de chacun de ces réseaux.
+                    </p>
+                    <table class="fs12 textColor noHMargin stack hover">
+                      <thead>
+                      <tr>
+                        <th width="150">Prestataires</th>
+                        <th width="">Politiques de confidentialité</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td>Adroll</td>
+                        <td>https://www.adroll.com/about/trust-center</td>
+                      </tr>
+                      <tr>
+                        <td>Google</td>
+                        <td>https://policies.google.com/technologies/ads</td>
+                      </tr>
+                      <tr>
+                        <td>Facebook</td>
+                        <td>https://www.facebook.com/policy</td>
+                      </tr>
+                      <tr>
+                        <td>AOL (part of Oath)</td>
+                        <td>https://policies.oath.com/us/en/oath/privacy/index.html</td>
+                      </tr>
+                      <tr>
+                        <td>Yahoo (part of Oath)</td>
+                        <td>https://policies.oath.com/us/en/oath/privacy/index.html</td>
+                      </tr>
+                      <tr>
+                        <td>Bidswitch</td>
+                        <td>http://www.bidswitch.com/privacy-policy/</td>
+                      </tr>
+                      <tr>
+                        <td>AppNexus</td>
+                        <td>https://www.appnexus.com/en/company/platform-privacy-policy</td>
+                      </tr>
+                      <tr>
+                        <td>LiveRamp</td>
+                        <td>https://liveramp.com/privacy/</td>
+                      </tr>
+                      <tr>
+                        <td>Open X</td>
+                        <td>https://www.openx.com/legal/privacy-policy/</td>
+                      </tr>
+                      <tr>
+                        <td>Rubicon</td>
+                        <td>https://rubiconproject.com/privacy-policy/</td>
+                      </tr>
+                      <tr>
+                        <td>Index</td>
+                        <td>https://www.index.com/privacy/</td>
+                      </tr>
+                      <tr>
+                        <td>Pubmatic</td>
+                        <td>https://pubmatic.com/legal/privacy-policy/</td>
+                      </tr>
+                      <tr>
+                        <td>Taboola</td>
+                        <td>https://www.taboola.com/privacy-policy</td>
+                      </tr>
+                      <tr>
+                        <td>Outbrain</td>
+                        <td>https://www.outbrain.com/legal/</td>
+                      </tr>
+                      <tr>
+                        <td>TripleLift</td>
+                        <td>https://triplelift.com/</td>
+                      </tr>
+                      <tr>
+                        <td>Pixalate</td>
+                        <td>http://www.pixalate.com/privacypolicy/</td>
+                      </tr>
+                      <tr>
+                        <td>adfinitas</td>
+                        <td>https://www.adfinitas.fr/mentions-legales.html</td>
+                      </tr>
+                      <tr>
+                        <td>Orixa</td>
+                        <td>https://www.orixa-media.com/politique-de-confidentialite/</td>
+                      </tr>
+                      <tr>
+                        <td>MesOpinions</td>
+                        <td>https://www.mesopinions.com/mentions-legales</td>
+                      </tr>
+                      <tr>
+                        <td>TimeOne</td>
+                        <td>https://privacy.timeonegroup.com/?utm_source=privacy_perf</td>
+                      </tr>
+                      <tr>
+                        <td>Woopra</td>
+                        <td>https://www.woopra.com/privacy</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                    <p class="noHMargin textColor fs12">
+                      Ces cookies peuvent également avoir pour objectif de vous identifier, et/ou d’obtenir vos coordonnées, votre âge, vos revenus, notamment auprès de tiers,
+                      en vue d’une réactivation à votre attention, c’est-à-dire d’opérations de prospection qui vous seraient destinées par divers moyens de communication (courrier postal,
+                      email ou télémarketing par exemple).
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                      4. Comment refuser les cookies ?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Vous pouvez vous opposer à l'enregistrement de cookies en configurant votre navigateur.
+                    </p>
+                    <ul>
+                      <li class="noHMargin textColor fs12">
+                        Pour Internet Explorer™&nbsp;: https://support.microsoft.com/
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Pour Microsoft Edge&nbsp;: https://support.microsoft.com/
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Pour Safari™&nbsp;: https://support.apple.com/
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Pour Chrome™&nbsp;: https://support.google.com/
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Pour Firefox™&nbsp;: https://support.mozilla.org/
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        Pour Opera™&nbsp;: http://help.opera.com/
+                      </li>
+                    </ul>
+                    <h4 class="noHMargin fs24 greyColor">
+                      5. Vos données sont-elles partagées avec d’autres sociétés&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      L’ICM ne communique les données qu’elle collecte qu’à ses services internes ainsi qu’à ses prestataires de services et leurs personnels eu égard
+                      à l’exécution des prestations qui leurs sont confiées et qu’ils doivent réaliser pour le compte de l’ICM.
+                      <br><br>
+                      Toutes les personnes ayant accès à vos données sont habilitées et tenues par une obligation de confidentialité.
+                      <br><br>
+                      Sauf opposition de votre part, l’ICM est susceptible de partager les données relatives à ses donateurs ou prospects avec des organismes du secteur caritatif et des prestataires d'enrichissement.
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                      6. Combien de temps vos données seront-elles conservées&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Nous veillons à conserver vos données personnelles pendant une durée qui n’excède pas la durée nécessaire aux finalités exposées au point 2 ou conformément à ce qui est prévu par la loi applicable.
+                      <br><br>
+                      Les données collectées par les cookies sont conservées 13 mois maximum.
+                    </p>
+                    <h4 class="noHMargin fs24 greyColor">
+                      7. Sur quels fondements juridiques repose le traitement de vos données&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Les traitements de vos données collectées ont pour fondements juridiques&nbsp;:
+                    </p>
+                    <ul>
+                      <li class="noHMargin textColor fs12">
+                        l’intérêt légitime à nos activités et notre mission
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        le consentement
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        l’obligation légale selon les circonstances de la collecte des données
+                      </li>
+                    </ul>
+                    <h4 class="noHMargin fs24 greyColor">
+                      8. Comment pouvez-vous exercer vos droits&nbsp;?
+                    </h4>
+                    <p class="noHMargin textColor fs12">
+                      Conformément à la règlementation générale relative à la protection des données, vous bénéficiez de droits d’accès, de rectification, d’opposition, de suppression et de portabilité de vos données.
+                      Pour exercer vos droits ou pour toute question concernant la politique de protection des données à caractère personnel de l’ICM, vous pouvez adresser une demande accompagnée d’un justificatif d’identité valide à l’attention de notre Délégué à la Protection des Données&nbsp;:
+                    </p>
+                    <ul class="noHPadding">
+                      <li class="noHMargin textColor fs12">
+                        par voie postale&nbsp;:  ICM, Hôpital Pitié-Salpêtrière, 47 bd de l’Hôpital, 75013 Paris
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        par courriel&nbsp;: <a href="mailto:contact@icm-institute.org">contact@icm-institute.org</a>
+                      </li>
+                    </ul>
+                    <p class="noHMargin textColor fs12 underline bold">
+                      Vous pouvez également nous contacter par téléphone au 01 57 27 47 56. <br>
+                      Vous avez également la possibilité de saisir l’autorité de contrôle (la CNIL) si vous n’êtes pas satisfaits du suivi que nous avons réservé à vos demandes et/ou du traitement de vos données&nbsp;:
+                    </p>
+                    <ul>
+                      <li class="noHMargin textColor fs12">
+                        par voie postale&nbsp;: 3 Place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07.
+                      </li>
+                      <li class="noHMargin textColor fs12">
+                        par téléphone&nbsp;: 01 53 73 22 22.
+                      </li>
+                    </ul>
+    
+                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                    <div class="reveal" id="modalML" data-reveal>
+                        <h3 class="noHMargin greyColor fs30">
+                            Mentions légales
+                            <br>
+                        </h3>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Droits de propriété intellectuelle
+                            <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            Le présent site est la propriété de l’Institut du Cerveau et de la Moelle épinière, (ci-après « l’ICM).
+                            Les photographies, textes, slogans, dessins, images, séquences animées sonores ou non ainsi que toutes œuvres intégrées dans le
+                            site sont la propriété de l’ICM ou de tiers ayant autorisé l’ICM à les utiliser. La reproduction, sur un support papier ou informatique,
+                            du site est autorisée sous réserve qu'elle soit strictement réservée à un usage personnel, excluant tout usage à des fins publicitaires et/ou
+                            commerciales et/ou d'informations, et qu'elle soit conforme aux dispositions de l'article L122-5 du Code de la Propriété Intellectuelle.
+                            A l'exception des dispositions ci-dessus, toute reproduction, représentation, utilisation ou modification, par quelque procédé que ce soit et
+                            sur quelque support que ce soit, de tout ou partie du site, de tout ou partie des contenus qui le composent, sans l'autorisation préalable de
+                            l’ICM, est strictement interdite et constitue un délit de contrefaçon.
+                            <br>
+                        </p>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Utilisation des données personnelles
+                            <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                           <a data-open="modalPPD">Notre politique de protection des données personnelles</a> vous renseigne en
+                            détail sur les finalités de notre collecte des données et des fondements juridiques sur lesquels celle-ci s'appuie.
+                            <br>
+                        </p>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Cookies
+                            <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            Lors de votre visite sur notre site, nous sommes susceptibles d'implanter un cookie dans votre ordinateur. Un cookie est un petit bloc
+                            de données envoyé à votre navigateur par un serveur web et stocké sur le disque dur de votre ordinateur. Le cookie ne nous permet pas de
+                            vous identifier personnellement. De manière générale, il nous permet d'enregistrer des informations relatives à la navigation de votre
+                            ordinateur sur notre site (les pages que vous avez consultées, la date et l'heure de la consultation, etc.) que nous pourrons lire lors
+                            de vos visites ultérieures. Vous pouvez naturellement vous opposer à l'enregistrement de cookies en configurant votre navigateur à partir des
+                            "Options" ou "Préférences" de celui-ci. Vous pouvez également supprimer les cookies à tout moment et individuellement en vous rapportant au manuel d'utilisation de votre ordinateur.
+                            <br>
+                        </p>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Liens hypertextes
+                            <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            La mise en place d'un lien hypertexte vers notre site nécessite une autorisation préalable écrite de l’ICM. Faites votre demande à&nbsp;:
+                            <a href="mailto:contact@icm-institute.org">contact@icm-institute.org</a>. L’ICM ne peut en aucun cas être tenu pour responsable de la
+                            mise à disposition des sites qui font l'objet d'un lien hypertexte à partir du site de l’ICM et ne peut supporter aucune responsabilité
+                            sur le contenu disponible sur ces sites ou à partir de ces sites.
+                            <br>
+                        </p>
+                        <h4 class="noHMargin fs24 greyColor">
+                            L'Institut du Cerveau et de la Moelle épinière
+                            <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            fondation reconnue d’utilité publique
+                            <br>
+                            Hôpital Pitié-Salpêtrière, 47/83 boulevard de l’Hôpital <br>
+                            CS 21414 <br>
+                            75646 Paris Cedex 13 <br>
+                            Tel&nbsp;:&nbsp;+33&nbsp;(0)1&nbsp;57&nbsp;27&nbsp;40&nbsp;00 <br><br>
+                            <a href="mailto:contact@icm-institute.org">contact@icm-institute.org</a>
+                            <br>
+                        </p>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Directeur de la publication <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            Jean-Louis Da Costa Responsable de la communication et du développement
+                            <br>
+                        </p>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Hébergement du site <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            adfinitas <br>
+                            Société par actions Simplifiée au capital de 50&nbsp;000€
+                            <br>
+                            <span class="bold">Siège social </span><br>
+                            Parc d’Activités «Business Park» <br>
+                            Bâtiment A <br>
+                            87 rue du Molinel <br>
+                            59700 MARCQ EN BAROEUL <br>
+                            <span class="bold">Téléphone </span>: +33.(0)3.28.33.29.60 / Fax&nbsp;: +33.(0)3.28.04.52.41 <br>
+                            <span class="bold">SIRET </span>: 432 326 601 00056 <br>
+                            <br>
+                            <span class="bold">Etablissement secondaire </span><br>
+                            132 rue la Fayette <br>
+                            75010 Paris <br>
+                            <span class="bold">Téléphone</span>&nbsp;: +33.(0)1.55.33.53.33 / Fax&nbsp;: +33.(0)1.55.33.53.38 <br>
+                            <span class="bold">SIRET</span>&nbsp;: 432 326 601 00064 <br>
+                            Adresse e-mail&nbsp;: adfinitas@adfinitas.fr <br>
+                            <br>
+                        <h4 class="noHMargin fs24 greyColor">
+                            Réalisation du site
+                            <br>
+                        </h4>
+                        <p class="noHMargin textColor fs12">
+                            adfinitas
+                        </p>
+                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="grid-y" style="width: 100%; height: 100%;">
+        <div class="cell small-2 medium-3 large-4">
+            <div class="grid-x align-bottom">
+                <div class="cell small-4 padding30">
+                </div>
+                <div class="cell small-4 medium-offset-4">
+                    <a href="https://don.icm-institute.org/b?cid=191&utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP&reserved_code_occasion=WEB_RECRULEADS_0220&reserved_code_media=20SPW02" target="_blank">
+                        <img  class="float-right padding30" src="assets/btnDon.png" alt="Je donne <3" style="position: absolute; top: 0; right: 0;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="socialContainer stick show-for-medium">
+        <div class="grid-x align-right">
+            <a href="https://www.facebook.com/icminstitute/" target="_blank">
+                <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+                    <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+                    <p class="noHMargin text-center">
+                        <i class="float-center fab fa-facebook-f noHMargin"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="grid-x align-right">
+            <a href="https://twitter.com/icm_institute" target="_blank">
+                <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+                    <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+                    <p class="noHMargin text-center">
+                        <i class="float-center fab fa-twitter noHMargin"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="thanks" class="answersContainer full lightBG" style="display: none; min-height: 100vh; overflow-y: scroll; height: auto;">
+    <div class="grid-x align-center">
+        <div class="cell small-12 large-12">
+          <div class="grid-x align">
+            <div class="cell small-4 large-3 padding30">
+              <a href="https://icm-institute.org/fr/?utm_campaign=ENQUETE&utm_source=NPS&utm_content=SITE" target="_blank">
+              <img src="assets/logoICM.png" alt="Logo ICM" class="float-left transparent w150">
+              </a>
+            </div>
+          </div>
+          <div class="grid-x margin30 hPadding50 align-center">
+            <div class="cell small-11 medium-8 large-8">
+              <p class="fs38 blueColor noPadLeft lh140 text-center noHMargin bBold">
+                Votre note a bien été prise en compte.
+                <p class="fs38 orangeColor noPadLeft lh140 text-center noHMargin bBold" style="padding-top: 15px;">
+                    L'Institut du Cerveau vous remercie<br>d'avoir participé à cette enquête.
+                </p>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="grid-y" style="width: 100%; height: 100%;">
+        <div class="cell small-2 medium-3 large-4">
+            <div class="grid-x align-bottom">
+                <div class="cell small-4 padding30">
+                </div>
+                <div class="cell small-4 medium-offset-4">
+                    <a href="https://don.icm-institute.org/b?cid=191&utm_campaign=2020-AUTRE-GRANDE-ENQUETE&utm_source=LP&reserved_code_occasion=WEB_RECRULEADS_0220&reserved_code_media=20SPW02" target="_blank">
+                        <img  class="float-right padding30" src="assets/btnDon.png" alt="Je donne <3" style="position: absolute; top: 0; right: 0;">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="socialContainer stick show-for-medium">
+        <div class="grid-x align-right">
+            <a href="https://www.facebook.com/icminstitute/" target="_blank">
+                <div class="cell social cliquable" onmouseover="
+        Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('fbTxt'), function(e) {e.style.visibility = 'hidden'})" >
+                    <p class="socialText greyColor fs18 fbTxt" style="visibility: hidden;">Facebook</p>
+                    <p class="noHMargin text-center">
+                        <i class="float-center fab fa-facebook-f noHMargin"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+        <div class="grid-x align-right">
+            <a href="https://twitter.com/icm_institute" target="_blank">
+                <div class="cell social cliquable" onmouseover="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'visible'})" onmouseleave="Array.prototype.forEach.call(document.getElementsByClassName('ttTxt'), function(e) {e.style.visibility = 'hidden'})">
+                    <p  class="socialText greyColor fs18 ttTxt" style="visibility: hidden;">Twitter</p>
+                    <p class="noHMargin text-center">
+                        <i class="float-center fab fa-twitter noHMargin"></i>
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<script src="js/vendor/jquery.js"></script>
+<script src="js/vendor/what-input.js"></script>
+<script src="js/vendor/foundation.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/intlTelInput.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.2/js/utils.js"></script>
+<script>
+    var phone_not_mandatory = true;
+    $(document).ready(setSocial(), fillForm());
+    window.addEventListener("resize", setSocial);
+    /*function setOpt() {
+      var opt = document.getElementById("optionnel");
+      var phone = document.getElementById("phone");
+      var rect = phone.getBoundingClientRect();
+      opt.style.display = "block";
+      opt.style.top = rect.top + 3 + 'px';
+      opt.style.right = rect.right + 3 + "px";
+    }
+    */
+    function fillForm() {
+        if (getUrlParam('email'))
+            userData.email = getUrlParam('email');
+        setData("email", userData.email);
+        if (getUrlParam('firstname'))
+            userData.prenom = getUrlParam('firstname');
+        setData("prenom", userData.prenom);
+        if (getUrlParam('lastname'))
+            userData.nom = getUrlParam('lastname');
+        setData("nom", userData.nom);
+        if (getUrlParam('phone'))
+            userData.phone = getUrlParam('phone');
+        setData("phone", userData.phone);
+        if (getUrlParam('t') && getUrlParam('t') == "1") {
+            phone_not_mandatory = false;
+            document.getElementById("optionnel").style.display = "none";
+        }
+    }
+    function setSocial() {
+        var c = document.getElementsByClassName("socialContainer");
+        var ua = window.navigator.userAgent;
+//        var msie = ua.indexOf("MSIE ");
+
+        /* if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+             for (var i = 0; i < c.length; i++)
+                 c[i].style.left = "auto";
+         }*/
+    }
+    var input_phone = document.querySelector("#phone");
+    var iti = intlTelInput(input_phone, {
+        preferredCountries: ['FR', 'BE'],
+    });
+    var screen = "header";
+    var i = 0;
+    $(document).bind('mousewheel', function(e) {
+        i++;
+        if (i === 1) {
+            if (screen === "why")
+                return;
+            //  console.log(parseInt(window.getComputedStyle(document.getElementById(screen), null).getPropertyValue("height")));
+            //console.log(window.innerHeight);
+            //console.log("je passe");
+            //document.getElementById(screen).style.height = "100%";
+            i = 0;
+        }
+    });
+</script>
+</body>
+</html>
