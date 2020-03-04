@@ -147,9 +147,9 @@ function setAnswer() {
 
 function hideAnswer() {
     questionContainer.style.display = "block";
-    document.getElementById("otherButtons").style.display = "block";
+  /*  document.getElementById("otherButtons").style.display = "block";
     document.getElementById("yesNoButtons").style.display = "none";
-    answerContainer.style.display = "none";
+    */answerContainer.style.display = "none";
     answer2Container.style.display = "none";
 }
 
@@ -214,8 +214,8 @@ function changeQuestion(answer) {
         return;
     } else if (questionIndex === 3 && answer === true) {
         hideAnswer();
-        document.getElementById("otherButtons").style.display = "block";
-        document.getElementById("yesNoButtons").style.display = "none";
+        //document.getElementById("otherButtons").style.display = "block";
+        //document.getElementById("yesNoButtons").style.display = "none";
     }
     if (questionIndex === 5) {
         questionContainer.style.display = "none";
