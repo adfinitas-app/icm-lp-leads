@@ -114,6 +114,41 @@ select option {
 .yesNoButton p {
     opacity: 1;
 }
+
+.otherButton {
+    opacity: 0.3;
+    transition: ease-in-out 0.2s;
+    background-color: #001941;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 10px;
+    min-height: 100px;
+    z-index: 100;
+}
+
+.otherButton:hover {
+    opacity: 0.7;
+    transition: ease-in-out 0.2s;
+    z-index: 100;
+}
+
+.otherButton[selected = true] {
+    background-color: #001941;
+    opacity: 1;
+    z-index: 100;
+}
+
+.otherButton[selected = true]:hover {
+    background-color: #001941;
+    opacity: 1;
+    z-index: 100;
+}
+
+.otherButton p {
+    line-height: 20px;
+    opacity: 1;
+}
 .orangeButton p {
     color: #fff;
     font-size: 22px;
@@ -211,7 +246,6 @@ select, input {
     font-family: "Muli", Arial;
     color: #001941;
 }
-
 #form :-ms-input-placeholder { /* Internet Explorer 10-11 */
     font-family: "Muli", Arial;
     color: #001941;

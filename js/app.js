@@ -94,7 +94,7 @@ function showQuestions() {
 var questionTexts = ["Avez-vous l’espoir qu’il soit possible de guérir des pathologies neurologiques comme la maladie d’Alzheimer dans les prochaines années&nbsp;?",
     "Savez-vous qu’à l’Institut du Cerveau, un cap décisif et révolutionnaire a été franchi contre la maladie d’Alzheimer&nbsp;?",
     'Saviez-vous que l\'Institut du Cerveau, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?',
-    'Selon vous, l’Institut du Cerveau est-il le mieux placé pour parvenir à prévenir, soigner et guérir les maladies du système nerveux&nbsp;?'
+    'Selon vous, l’Institut du Cerveau est-il le mieux placé pour parvenir à prévenir, soigner et guérir les maladies du système nerveux&nbsp;?',
 ];
 var scroll = 0;
 var questionBg = ["../assets/bGQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
@@ -147,7 +147,10 @@ function setAnswer() {
 
 function hideAnswer() {
     questionContainer.style.display = "block";
+    document.getElementById("otherButtons").style.display = "block";
+    document.getElementById("yesNoButtons").style.display = "none";
     answerContainer.style.display = "none";
+    answer2Container.style.display = "none";
 }
 
 function getQAnswer() {
@@ -159,7 +162,12 @@ function getQAnswer() {
         return "oui";
 }
 
-function fillUserData() {
+function fillUserData(isOther) {
+    if (isOther) {
+        userData.question3 = {
+
+        }
+    }
     var value = getQAnswer();
     userData.questions[questionIndex - 2] = value;
 }
@@ -185,10 +193,7 @@ function setAnswer2() {
     answerText2.innerHTML = answerTxt2[0];
     questionContainer.style.display = "none";
     answer2Container.style.display = "block";
-    document.getElementById('scrollingArrow').style.display = "none";
-    document.getElementById('nextQContainer').style.display = "block";
-    document.getElementById('why').style.display = "none";
-    screen = 'answer';
+    screen = 'answer2';
 }
 
 function changeQuestion(answer) {
@@ -207,9 +212,12 @@ function changeQuestion(answer) {
     if (questionIndex === 3 && answer === false) {
         setAnswer2();
         return;
-    } else if (questionIndex === 3 && answer === true)
+    } else if (questionIndex === 3 && answer === true) {
         hideAnswer();
-    if (questionIndex === 4) {
+        document.getElementById("otherButtons").style.display = "block";
+        document.getElementById("yesNoButtons").style.display = "none";
+    }
+    if (questionIndex === 5) {
         questionContainer.style.display = "none";
         noteContainer.style.display = "block";
         questionIndex++;
@@ -226,6 +234,16 @@ function changeQuestion(answer) {
         screen = "question" + questionIndex;
     questionIndex++;
 
+}
+
+function selectResponse(index) {
+    var all = document.getElementsByClassName("otherButton");
+    document.getElementById("errorMsg").innerText = "";
+    let tmp = all[index].getAttribute("selected");
+    if (tmp === "false")
+        all[index].setAttribute("selected", "true");
+    else
+        all[index].setAttribute("selected", "false");
 }
 
 function checkYesNoButtons(nb, type) {
