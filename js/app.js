@@ -91,25 +91,30 @@ function showQuestions() {
 
 
 // QUESTIONS
-var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;?",
-    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot, un traumatisme de la moelle épinière&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
-    'Saviez-vous que l\'Institut du Cerveau, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?'
+var questionTexts = ["Avez-vous l’espoir qu’il soit possible de guérir des pathologies neurologiques comme la maladie d’Alzheimer dans les prochaines années&nbsp;?",
+    "Savez-vous qu’à l’Institut du Cerveau, un cap décisif et révolutionnaire a été franchi contre la maladie d’Alzheimer&nbsp;?",
+    'Saviez-vous que l\'Institut du Cerveau, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?',
+    'Selon vous, l’Institut du Cerveau est-il le mieux placé pour parvenir à prévenir, soigner et guérir les maladies du système nerveux&nbsp;?'
 ];
 var scroll = 0;
 var questionBg = ["../assets/bGQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
 var questionIndex = 1;
 var questionContainer = document.getElementById("question" + questionIndex);
 var answerContainer = document.getElementById("answer");
+var answer2Container = document.getElementById("answer2");
 var thanksContainer = document.getElementById("thanks");
 var noteContainer = document.getElementById("note");
 var answerText = document.getElementById("answerText");
+var answerText2 = document.getElementById("answer2Text");
 var questionText = document.getElementById("questionText");
 var questionNb = document.getElementById("questionNb");
 var errorMsg = "Veuillez choisir une réponse";
 var answerTxt = [
-    "Comme vous, les plus éminents chercheurs de l'Institut du Cerveau ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.",
-    'Comme vous, de nombreuses personnes craignent que ce ne soit pas possible. <br class="show-for-large"> Pourtant, sachez que les plus éminents chercheurs de l\'Institut du Cerveau ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.'
+    "<span class='bBold'>Nous aussi&nbsp;!</span><br> Comme vous, les plus éminents chercheurs de l’Institut du Cerveau sont déterminés à parvenir à guérir le plus tôt possible les patients atteints de la maladie d’Alzheimer comme de l’ensemble des pathologies liées au cerveau.",
+    '<span class="bBold">Comme vous, de nombreuses personnes craignent que ce ne soit pas possible.</span> <br> Pourtant, vous le savez, les plus éminents chercheurs de l’Institut du Cerveau sont déterminés à parvenir à guérir le plus tôt possible les patients atteints de la maladie d’Alzheimer comme de l’ensemble des pathologies liées au cerveau.'
 ];
+var answerTxt2 = ["Après plusieurs années de recherche, les équipes du projet Dynamo ont réussi à mettre au point un outil capable de prédire l’évolution de la maladie d’Alzheimer plusieurs années à l’avance. Le but est, à terme, de mettre cet outil à disposition des médecins pour leur permettre d’une part de diagnostiquer au plus tôt la maladie et d’autre part d’orienter le suivi et le traitement du patient en proposant des stratégies thérapeutiques ou de prévention personnalisées. <br> <span class='bold orangeColor'>Une avancée remarquable pour prendre la maladie de vitesse&nbsp;!</span>",
+"En ce moment-même, au cœur de l’Institut du Cerveau, 700 chercheurs et cliniciens, font converger leurs expertises et sont mobilisés sur l’ensemble de ces axes de recherche. <br><br> <span class='bold orangeColor'>Dans cet écosystème multidisciplinaire sans barrière, chaque découverte sur une pathologie peut accélérer les progrès sur d’autres.</span>"];
 
 $(document).ready(function() {changeQuestion()});
 
@@ -176,7 +181,18 @@ function putTrackingPixel() {
         "        }";
 }
 
+function setAnswer2() {
+    answerText2.innerHTML = answerTxt2[0];
+    questionContainer.style.display = "none";
+    answer2Container.style.display = "block";
+    document.getElementById('scrollingArrow').style.display = "none";
+    document.getElementById('nextQContainer').style.display = "block";
+    document.getElementById('why').style.display = "none";
+    screen = 'answer';
+}
+
 function changeQuestion(answer) {
+    console.log("bonsoir -> ", questionIndex, answer);
     if (checkAnswer() === false && questionIndex > 1 && answer === false) {
         setErrorMsg();
         return;
@@ -187,6 +203,11 @@ function changeQuestion(answer) {
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         return;
     } else if (questionIndex === 2 && answer === true)
+        hideAnswer();
+    if (questionIndex === 3 && answer === false) {
+        setAnswer2();
+        return;
+    } else if (questionIndex === 3 && answer === true)
         hideAnswer();
     if (questionIndex === 4) {
         questionContainer.style.display = "none";
@@ -201,7 +222,7 @@ function changeQuestion(answer) {
     questionContainer.setAttribute("id", "question" + questionIndex);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    if (questionIndex !== 1)
+    if (questionIndex !== 1 && questionIndex !== 2)
         screen = "question" + questionIndex;
     questionIndex++;
 
