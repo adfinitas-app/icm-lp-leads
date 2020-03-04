@@ -246,10 +246,11 @@ function validateForm() {
     }
 }
 
+
 function sendRequest(first) {
     var mdEmail = md5(userData.email);
     var data;
-    var date = Date.now();
+    var date = Date.now()
     if (first === true) {
         data = {
             "reveal_lead": {
@@ -315,6 +316,22 @@ function sendRequest(first) {
             },
         };
     } else {
+        data = {
+            "iraiser": {
+                "email": userData.email,
+                "origin": "OTHER",
+                "originName": "QICM",
+                "originCampaign": "adfinitas_leads",
+                "originCampaignId": "1",
+                "optinEmail": "true",
+                "reservedFields": {
+                    "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
+                    "QICM_questionEntourage": userData.questions[1].toUpperCase(),
+                    "QICM_ICM": userData.questions[2].toUpperCase()
+                }
+            }
+        };
+        makeCorsRequest(data);
         /*Data for the mark*/
         data = {
             "reveal_nps": {
@@ -384,23 +401,7 @@ function sendRequest(first) {
             },
         };
     }
-    data = {
-        "iraiser": {
-            "email": userData.email,
-            "origin": "OTHER",
-            "originName": "QICM",
-            "originCampaign": "adfinitas_leads",
-            "originCampaignId": "1",
-            "optinEmail": "true",
-            "reservedFields": {
-                "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
-                "QICM_questionEntourage": userData.questions[1].toUpperCase(),
-                "QICM_ICM": userData.questions[2].toUpperCase()
-            }
-        }
-    };
-    //makeCorsRequest(data); ****************************************************************************************************
-    //makeCorsRequest(data);
+    makeCorsRequest(data);
 }
 
 function createCORSRequest(method, url) {
@@ -429,7 +430,7 @@ function makeCorsRequest(data) {
         return;
     }
     xhr.setRequestHeader('Content-Type', 'application/json');
-   // xhr.send(body);
+    xhr.send(body);
     /*
          axios.post(url,
      body,
@@ -441,6 +442,7 @@ function makeCorsRequest(data) {
      );
      */
 }
+
 
 function getMark() {
     var all = document.getElementsByClassName("number");
