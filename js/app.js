@@ -113,7 +113,7 @@ var answerTxt = [
     "<span class='bBold'>Nous aussi&nbsp;!</span><br> Comme vous, les plus éminents chercheurs de l’Institut du Cerveau sont déterminés à parvenir à guérir le plus tôt possible les patients atteints de la maladie d’Alzheimer comme de l’ensemble des pathologies liées au cerveau.",
     '<span class="bBold">Comme vous, de nombreuses personnes craignent que ce ne soit pas possible.</span> <br> Pourtant, vous le savez, les plus éminents chercheurs de l’Institut du Cerveau sont déterminés à parvenir à guérir le plus tôt possible les patients atteints de la maladie d’Alzheimer comme de l’ensemble des pathologies liées au cerveau.'
 ];
-var answerTxt2 = ["Après plusieurs années de recherche, les équipes du projet Dynamo ont réussi à mettre au point un outil capable de prédire l’évolution de la maladie d’Alzheimer plusieurs années à l’avance. Le but est, à terme, de mettre cet outil à disposition des médecins pour leur permettre d’une part de diagnostiquer au plus tôt la maladie et d’autre part d’orienter le suivi et le traitement du patient en proposant des stratégies thérapeutiques ou de prévention personnalisées. <br> <span class='bold orangeColor'>Une avancée remarquable pour prendre la maladie de vitesse&nbsp;!</span>",
+var answerTxt2 = ["Après plusieurs années de recherche, les équipes du projet Dynamo ont réussi à mettre au point un outil capable de prédire l’évolution de la maladie d’Alzheimer plusieurs années à l’avance. <br> Le but est, à terme, de mettre cet outil à disposition des médecins pour leur permettre d’une part de diagnostiquer au plus tôt la maladie et d’autre part d’orienter le suivi et le traitement du patient en proposant des stratégies thérapeutiques ou de prévention personnalisées. <br><br> <span class='bold orangeColor'>Une avancée remarquable pour prendre la maladie de vitesse&nbsp;!</span>",
 "En ce moment-même, au cœur de l’Institut du Cerveau, 700 chercheurs et cliniciens, font converger leurs expertises et sont mobilisés sur l’ensemble de ces axes de recherche. <br><br> <span class='bold orangeColor'>Dans cet écosystème multidisciplinaire sans barrière, chaque découverte sur une pathologie peut accélérer les progrès sur d’autres.</span>"];
 
 $(document).ready(function() {changeQuestion()});
@@ -196,10 +196,11 @@ function setAnswer2() {
 
 function changeQuestion(answer) {
     console.log("bonsoir -> ", questionIndex, answer);
-    if (checkAnswer() === false && questionIndex > 1 && answer === false) {
+    if (checkAnswer() === false && questionIndex > 1 && answer === false && questionIndex !== 4) {
         setErrorMsg();
         return;
     }
+    console.log("1");
     if (questionIndex === 2 && answer === false) {
         setAnswer();
         document.body.scrollTop = 0; // For Safari
@@ -207,6 +208,7 @@ function changeQuestion(answer) {
         return;
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
+    console.log("2");
     if (questionIndex === 3 && answer === false) {
         setAnswer2();
         return;
@@ -215,12 +217,19 @@ function changeQuestion(answer) {
         document.getElementById("otherButtons").style.display = "flex";
         document.getElementById("yesNoButtons").style.display = "none";
     }
+    console.log("3");
+    if (questionIndex === 4) {
+        document.getElementById("otherButtons").style.display = "none";
+        document.getElementById("yesNoButtons").style.display = "flex";
+    }
+    console.log("4");
     if (questionIndex === 5) {
         questionContainer.style.display = "none";
         noteContainer.style.display = "block";
         questionIndex++;
         return;
     }
+    console.log("5");
     if (questionIndex === 2)
         $("#questionText").parent().addClass('large-9 medium-11');
     questionText.innerHTML = questionTexts[questionIndex - 1];
@@ -228,10 +237,11 @@ function changeQuestion(answer) {
     questionContainer.setAttribute("id", "question" + questionIndex);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    console.log("6");
     if (questionIndex !== 1 && questionIndex !== 2)
         screen = "question" + questionIndex;
+    console.log(questionIndex);
     questionIndex++;
-
 }
 
 function selectResponse(index) {
@@ -531,4 +541,18 @@ function checkMark() {
             return true;
     }
     return false;
+}
+
+function getQ3Ans() {
+    let sel = document.querySelectorAll("i.true");
+    let result = [];
+
+    for (let i = 0; i < sel.length; i++) {
+        if (sel[i].getAttribute("selected") === "true") {
+            result[i] = "yes";
+        } else {
+            result[i] = "no";
+        }
+    }
+    return (result);
 }

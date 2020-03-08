@@ -430,6 +430,9 @@ select, input {
         font-size: 36px !important;
     }
 
+    #question3 #questionText {
+        font-size: 2rem !important;
+    }
     .padding30 {
         padding: 20px !important;
     }
@@ -468,6 +471,14 @@ select, input {
         font-size: 34px !important;
     }
 
+    p.checkbox {
+        font-size: 1.2rem !important;
+    }
+
+    #question3 #questionText {
+        font-size: 2rem !important;
+    }
+
     .padding30 {
         padding: 20px !important;
     }
@@ -475,7 +486,7 @@ select, input {
         font-size: 12px !important;
     }
     .bigTitle {
-        font-size: 34px !important;
+        font-size: 30px !important;
         line-height: 115% !important;
     }
     .semiTitle {
@@ -535,9 +546,23 @@ select, input {
     #nextQuestion {
         margin-top: 10px !important;
     }
+
     #nextQuestion>p {
         font-size: 14px;
     }
+
+    p.checkbox {
+        font-size: 1rem !important;
+    }
+
+    #question3 #questionText {
+        font-size: 1.5rem !important;
+    }
+
+    #question3 .orangeButton {
+        margin-top: 25px !important;
+    }
+
 }
 
 p {
@@ -571,8 +596,6 @@ input {
 }
 
 .checkboxs {
-    max-height: 50px;
-    margin: 10px;
 }
 
 i.checkboxs {
@@ -582,4 +605,32 @@ i.checkboxs {
 p.checkbox {
     font-size: 1.3rem;
     color: #0c3d5d;
+    margin-bottom: 5px;
+}
+
+#questionNbContainer {
+    margin-top: 50px;
+}
+
+#question2 #questionNbContainer {
+    margin-top: 150px;
+}
+
+#question3 #questionNbContainer {
+    margin-top: 0px;
+}
+
+#question3 .orangeButton {
+    margin-top: 50px;
+    width: 70%;
+    margin-left: 15%;
+}
+
+#question3 #questionText {
+    font-size: 2rem;
+}
+
+#answer2Text {
+    line-height: 2rem;
+    font-size: 2rem;
 }
