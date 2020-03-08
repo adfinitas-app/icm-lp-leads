@@ -240,7 +240,7 @@ function validateForm() {
         sendRequest(first);
     }
     if (checkForm() === true && first === true) {
-        putTrackingPixel();
+        doTracking();
         sendRequest(first);
         first = false;
     }
