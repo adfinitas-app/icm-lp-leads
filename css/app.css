@@ -465,8 +465,8 @@ select, input {
         top: 0; position: absolute; width: 100%;
     }
     .w150 {
-        width: 100px !important;
-        max-width: 100px !important;
+        width: 150px !important;
+        max-width: 150px !important;
     }
     .bigTitle {
         font-size: 24px !important;

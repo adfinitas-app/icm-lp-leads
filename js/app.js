@@ -92,8 +92,8 @@ function showQuestions() {
 
 // QUESTIONS
 var questionTexts = ["Pensez-vous qu’il sera possible de guérir des pathologies comme la maladie d’Alzheimer par exemple d’ici 10 ans&nbsp;?",
-    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la sclérose en plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot, un traumatisme de la moelle épinière&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
-    'Saviez-vous que l\'Institut du Cerveau et de la Moelle épinière, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?'
+    "Des personnes de votre entourage sont-elles touchées par une pathologie du système nerveux comme la maladie d’Alzheimer, la maladie de Parkinson, la Sclérose en Plaques, l’épilepsie, une tumeur cérébrale, un AVC, la maladie de Charcot, un traumatisme de la moelle épinière&nbsp;.&nbsp;.&nbsp;.&nbsp;?",
+    'Saviez-vous que l\'Institut du Cerveau, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?'
 ];
 var scroll = 0;
 var questionBg = ["../assets/bGQ1.png", "../assets/bgQ2.png", "../assets/bgQ3.png"];
@@ -107,8 +107,8 @@ var questionText = document.getElementById("questionText");
 var questionNb = document.getElementById("questionNb");
 var errorMsg = "Veuillez choisir une réponse";
 var answerTxt = [
-    "Comme vous, les plus éminents chercheurs de l'Institut du Cerveau et de la Moelle épinière ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.",
-    'Comme vous, de nombreuses personnes craignent que ce ne soit pas possible. <br class="show-for-large"> Pourtant, sachez que les plus éminents chercheurs de l\'Institut du Cerveau et de la Moelle épinière ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.'
+    "Comme vous, les plus éminents chercheurs de l'Institut du Cerveau ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.",
+    'Comme vous, de nombreuses personnes craignent que ce ne soit pas possible. <br class="show-for-large"> Pourtant, sachez que les plus éminents chercheurs de l\'Institut du Cerveau ont de grands espoirs quant à la guérison de ces maladies ainsi que de l’ensemble des maladies du cerveau dans un futur proche.'
 ];
 
 $(document).ready(function() {changeQuestion()});
@@ -246,11 +246,10 @@ function validateForm() {
     }
 }
 
-
 function sendRequest(first) {
     var mdEmail = md5(userData.email);
     var data;
-    var date = Date.now()
+    var date = Date.now();
     if (first === true) {
         data = {
             "reveal_lead": {
@@ -258,7 +257,7 @@ function sendRequest(first) {
                 "contacts": [
                     {
                         "app_id": "icm-institute.org",
-                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                         "medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC",
                         "interface": "LP-CLIENT",
                         "email": userData.email,
@@ -289,7 +288,7 @@ function sendRequest(first) {
                 "ce_email": userData.email,
                 "ce_interface": "LP-CLIENT",
                 "ce_email_md5": md5(userData.email),
-                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                 "ce_campaign_source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") : "DIRECT",
                 "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
             },
@@ -307,7 +306,7 @@ function sendRequest(first) {
                 "phone": userData.phone,
                 "optinMail": "true",
                 "optinPhone": userData.hasPhone,
-                "segments": "QICM_2019",
+                "segments": "QICM_2020",
                 "creationDate": date.toString(),
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
@@ -339,7 +338,7 @@ function sendRequest(first) {
                 "contacts": [
                     {
                         "app_id": "icm-institute.org",
-                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                         "medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC",
                         "interface": "LP-CLIENT",
                         "email": userData.email,
@@ -373,7 +372,7 @@ function sendRequest(first) {
                 "ce_email": userData.email,
                 "ce_interface": "LP-CLIENT",
                 "ce_email_md5": md5(userData.email),
-                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                 "ce_campaign_source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") : "DIRECT",
                 "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
             },
@@ -384,7 +383,7 @@ function sendRequest(first) {
                 "originName": "QICM",
                 "originCampaign": "adfinitas_leads",
                 "originCampaignId": "1",
-                "segments": "QICM_2019",
+                "segments": "QICM_2020",
                 "language": "fr_FR",
                 "optinEmail": "true",
                 "optinMail": "true",
@@ -401,7 +400,7 @@ function sendRequest(first) {
             },
         };
     }
-    makeCorsRequest(data);
+   makeCorsRequest(data);
 }
 
 function createCORSRequest(method, url) {
@@ -442,7 +441,6 @@ function makeCorsRequest(data) {
      );
      */
 }
-
 
 function getMark() {
     var all = document.getElementsByClassName("number");
