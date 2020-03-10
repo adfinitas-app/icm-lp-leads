@@ -237,11 +237,11 @@ function resetYesNoBtn() {
 
 function validateForm() {
     if (first === false) {
-        //sendRequest(first);
+        sendRequest(first);
     }
     if (checkForm() === true && first === true) {
-        //doTracking();
-        //sendRequest(first);
+        doTracking();
+        sendRequest(first);
         first = false;
     }
 }
@@ -330,7 +330,7 @@ function sendRequest(first) {
                 }
             }
         };
-        //makeCorsRequest(data);  ***************************************************************************************************************
+        makeCorsRequest(data);
         /*Data for the mark*/
         data = {
             "reveal_nps": {
@@ -400,7 +400,7 @@ function sendRequest(first) {
             },
         };
     }
-   // makeCorsRequest(data); ***************************************************************************************************************
+   makeCorsRequest(data);
 }
 
 function createCORSRequest(method, url) {
