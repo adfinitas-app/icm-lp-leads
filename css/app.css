@@ -563,6 +563,10 @@ select, input {
         margin-top: 25px !important;
     }
 
+    #answer2Text {
+        margin-top: 30px !important;
+    }
+
 }
 
 p {
