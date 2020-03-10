@@ -257,7 +257,7 @@ function sendRequest(first) {
                 "contacts": [
                     {
                         "app_id": "icm-institute.org",
-                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                         "medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC",
                         "interface": "LP-CLIENT",
                         "email": userData.email,
@@ -288,7 +288,7 @@ function sendRequest(first) {
                 "ce_email": userData.email,
                 "ce_interface": "LP-CLIENT",
                 "ce_email_md5": md5(userData.email),
-                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                 "ce_campaign_source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") : "DIRECT",
                 "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
             },
@@ -306,7 +306,7 @@ function sendRequest(first) {
                 "phone": userData.phone,
                 "optinMail": "true",
                 "optinPhone": userData.hasPhone,
-                "segments": "QICM_2019",
+                "segments": "QICM_2020",
                 "creationDate": date.toString(),
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
@@ -338,7 +338,7 @@ function sendRequest(first) {
                 "contacts": [
                     {
                         "app_id": "icm-institute.org",
-                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                        "campaign": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                         "medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC",
                         "interface": "LP-CLIENT",
                         "email": userData.email,
@@ -372,7 +372,7 @@ function sendRequest(first) {
                 "ce_email": userData.email,
                 "ce_interface": "LP-CLIENT",
                 "ce_email_md5": md5(userData.email),
-                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2019-AUTRE-GRANDE-ENQUETE",
+                "ce_campaign_name": getUrlParam("utm_campaign") !== null ? getUrlParam("utm_campaign") : "2020-AUTRE-GRANDE-ENQUETE",
                 "ce_campaign_source": getUrlParam("utm_source") !== null ? getUrlParam("utm_source") : "DIRECT",
                 "ce_campaign_medium": getUrlParam("utm_medium") !== null ? getUrlParam("utm_medium") : "ORGANIC"
             },
@@ -383,7 +383,7 @@ function sendRequest(first) {
                 "originName": "QICM",
                 "originCampaign": "adfinitas_leads",
                 "originCampaignId": "1",
-                "segments": "QICM_2019",
+                "segments": "QICM_2020",
                 "language": "fr_FR",
                 "optinEmail": "true",
                 "optinMail": "true",
