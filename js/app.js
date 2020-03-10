@@ -13,16 +13,6 @@ var mark = 0;
 var first = true;
 userData.questions = ["", "", ""];
 
-function openForm() {
-    if (formOpened === true)
-        return;
-    form.style.display = "block";
-    form.style.paddingLeft = "74px !important";
-    formOpened = true;
-    formC.style.marginTop = "-20px";
-    $('#formHeaderButton').attr("onclick", "showQuestions();");
-}
-
 function checkForm() {
     if (sending === true)
         return;
