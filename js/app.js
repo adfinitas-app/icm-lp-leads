@@ -94,7 +94,7 @@ function showQuestions() {
 // QUESTIONS
 var questionTexts = ["Avez-vous l’espoir qu’il soit possible de guérir des pathologies neurologiques comme la maladie d’Alzheimer dans les prochaines années&nbsp;?",
     "Savez-vous qu’à l’Institut du Cerveau, un cap décisif et révolutionnaire a été franchi contre la maladie d’Alzheimer&nbsp;?",
-    'Saviez-vous que l\'Institut du Cerveau, qui réunit patients, médecins et chercheurs au cœur de l’Hôpital de la Pitié-Salpêtrière, est un centre de renommée mondiale en mesure de faire progresser la recherche sur les maladies qui s’attaquent au cerveau&nbsp;?',
+    'Pour quels axes de recherche pensez-vous qu’il est essentiel d’accélérer les&nbsp;découvertes&nbsp;?',
     'Selon vous, l’Institut du Cerveau est-il le mieux placé pour parvenir à prévenir, soigner et guérir les maladies du système nerveux&nbsp;?',
 ];
 var scroll = 0;
