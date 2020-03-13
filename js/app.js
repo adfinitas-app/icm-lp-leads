@@ -161,19 +161,8 @@ function fillUserData() {
 
 function putTrackingPixel() {
     document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
-        "<img src=\"https://orixamedia.go2cloud.org/SLbO" +
-        "\" width=\"1\" height=\"1\" />\n" +
-        "<!-- // End Offer Conversion -->" +
-        "<img height=\"1\" width=\"1\" style=\"display:none\"\n" +
-        "  src=\"https://www.facebook.com/tr?id=1089525207882561&ev=LeadOK&noscript=1\"\n" +
-        "/>";
-    document.getElementById("script1").innerHTML = "if(sessionStorage.getItem(\"idMbz\") && sessionStorage.getItem(\"maild5\") && sessionStorage.getItem(\"idcampagne\")){\n" +
-        "            (function () {\n" +
-        "                var ZTR = document.createElement('script');\n" +
-        "                ZTR.src = ((location.protocol === 'https:') ? 'https:' : 'http:') + '//prz.mesopinions.com/tracking/add?idcampagne='+sessionStorage.getItem(\"idcampagne\")+'&md5='+sessionStorage.getItem(\"maild5\")+'&idmindbaz='+sessionStorage.getItem(\"idMbz\")+'&client=icm';\n" +
-        "                var ZTRtag = document.getElementsByTagName('script')[0];\n" +
-        "                ZTRtag.parentNode.insertBefore(ZTR, ZTRtag); }())\n" +
-        "        }";
+        "<img src=\"https://orixamedia.go2cloud.org/SLbO\" width=\"1\" height=\"1\" />\n" +
+        "<!-- // End Offer Conversion -->";
 }
 
 function changeQuestion(answer) {
