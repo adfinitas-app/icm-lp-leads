@@ -161,13 +161,11 @@ function getQAnswer() {
         return "oui";
 }
 
-function fillUserData(isOther) {
-    if (isOther) {
-        userData.question3 = {
-
-        }
-    }
+function fillUserData() {
     var value = getQAnswer();
+    if (questionIndex === 4) {
+        value = getQ3Ans();
+    }
     userData.questions[questionIndex - 2] = value;
 }
 
@@ -196,12 +194,10 @@ function setAnswer2() {
 }
 
 function changeQuestion(answer) {
-    console.log("bonsoir -> ", questionIndex, answer);
     if (checkAnswer() === false && questionIndex > 1 && answer === false && questionIndex !== 4) {
         setErrorMsg();
         return;
     }
-    console.log("1");
     if (questionIndex === 2 && answer === false) {
         setAnswer();
         document.body.scrollTop = 0; // For Safari
@@ -209,7 +205,6 @@ function changeQuestion(answer) {
         return;
     } else if (questionIndex === 2 && answer === true)
         hideAnswer();
-    console.log("2");
     if (questionIndex === 3 && answer === false) {
         setAnswer2();
         return;
@@ -218,19 +213,16 @@ function changeQuestion(answer) {
         document.getElementById("otherButtons").style.display = "flex";
         document.getElementById("yesNoButtons").style.display = "none";
     }
-    console.log("3");
     if (questionIndex === 4) {
         document.getElementById("otherButtons").style.display = "none";
         document.getElementById("yesNoButtons").style.display = "flex";
     }
-    console.log("4");
     if (questionIndex === 5) {
         questionContainer.style.display = "none";
         noteContainer.style.display = "block";
         questionIndex++;
         return;
     }
-    console.log("5");
     if (questionIndex === 2)
         $("#questionText").parent().addClass('large-9 medium-11');
     questionText.innerHTML = questionTexts[questionIndex - 1];
@@ -238,10 +230,8 @@ function changeQuestion(answer) {
     questionContainer.setAttribute("id", "question" + questionIndex);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    console.log("6");
     if (questionIndex !== 1 && questionIndex !== 2)
         screen = "question" + questionIndex;
-    console.log(questionIndex);
     questionIndex++;
 }
 
@@ -285,11 +275,11 @@ function resetYesNoBtn() {
 
 function validateForm() {
     if (first === false) {
-        //sendRequest(first);
+        sendRequest(first);
     }
     if (checkForm() === true && first === true) {
         //putTrackingPixel();
-        //sendRequest(first);
+        sendRequest(first);
         first = false;
     }
 }
@@ -329,7 +319,7 @@ function sendRequest(first) {
                 "cv_phone": userData.phone,
                 "cv_email_md5": md5(userData.email),
                 /* Variables de l'événement, : préfixe : "ce_" */
-                "event": "adfinitas_leads",
+                "event": "adfinitas_donateurs",
                 "ce_phone": userData.phone,
                 "ce_app_id": "icm-institute.org",
                 "ce_gender": userData.civ === "Monsieur" ? "M" : "F",
@@ -344,7 +334,7 @@ function sendRequest(first) {
                 "email": userData.email,
                 "origin": "OTHER",
                 "originName": "QICM",
-                "originCampaign": "adfinitas_leads",
+                "originCampaign": "adfinitas_donateurs",
                 "originCampaignId": "1",
                 "optinEmail": "true",
                 "language": "fr_FR",
@@ -368,17 +358,17 @@ function sendRequest(first) {
                 "email": userData.email,
                 "origin": "OTHER",
                 "originName": "QICM",
-                "originCampaign": "adfinitas_leads",
+                "originCampaign": "adfinitas_donateurs",
                 "originCampaignId": "1",
                 "optinEmail": "true",
                 "reservedFields": {
-                    "QICM_questionAlzheimer": userData.questions[0].toUpperCase(),
-                    "QICM_questionEntourage": userData.questions[1].toUpperCase(),
-                    "QICM_ICM": userData.questions[2].toUpperCase()
+                    "QICM_questionAlzheimer": `${userData.questions[0].toUpperCase()}, ${userData.questions[1].toUpperCase()}`,
+                    "QICM_questionPathologie": userData.questions[2].toUpperCase(),
+                    "QICM_ICM": userData.questions[3].toUpperCase()
                 }
             }
         };
-        //makeCorsRequest(data);  ***************************************************************************************************************
+        makeCorsRequest(data);
         /*Data for the mark*/
         data = {
             "reveal_nps": {
@@ -429,7 +419,7 @@ function sendRequest(first) {
                 "contactExternalScore": getMark(),
                 "origin": "OTHER",
                 "originName": "QICM",
-                "originCampaign": "adfinitas_leads",
+                "originCampaign": "adfinitas_donateurs",
                 "originCampaignId": "1",
                 "segments": "QICM_2019",
                 "language": "fr_FR",
@@ -448,7 +438,7 @@ function sendRequest(first) {
             },
         };
     }
-   // makeCorsRequest(data); ***************************************************************************************************************
+   makeCorsRequest(data);
 }
 
 function createCORSRequest(method, url) {
@@ -545,14 +535,14 @@ function checkMark() {
 }
 
 function getQ3Ans() {
-    let sel = document.querySelectorAll("i.true");
-    let result = [];
+    let sel = document.querySelectorAll("p.checkbox");
+    let result = "";
 
     for (let i = 0; i < sel.length; i++) {
         if (sel[i].getAttribute("selected") === "true") {
-            result[i] = "yes";
-        } else {
-            result[i] = "no";
+            if (result[result.length - 1] !== ',' && result !== "")
+                result += ',';
+            result += `${i + 1}`;
         }
     }
     return (result);
