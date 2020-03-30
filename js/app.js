@@ -163,6 +163,17 @@ function putTrackingPixel() {
     document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
         "<img src=\"https://orixamedia.go2cloud.org/SLbO\" width=\"1\" height=\"1\" />\n" +
         "<!-- // End Offer Conversion -->";
+        
+    /* Adroll segment pixel */
+    var ADR_ADV_EID = 'GO4S6WRUMBCPTPLVUJZDVV',
+    ADR_PIXEL_EID = '2EGFROYM55G7LHBSA37IU7',
+    ADR_SEG_ID = '9d4e2df8',
+    adr_px = document.createElement('img');
+    adr_px.setAttribute('width', '0');
+    adr_px.setAttribute('height', '0');
+    adr_px.setAttribute('style', 'border-style:none;display:none;');
+    adr_px.setAttribute('src', 'https://d.adroll.com/ipixel/'+ADR_ADV_EID+'/'+ADR_PIXEL_EID+'?name='+ADR_SEG_ID);
+    document.getElementsByTagName('body')[0].appendChild(adr_px);
 }
 
 function changeQuestion(answer) {
