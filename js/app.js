@@ -335,7 +335,7 @@ function sendRequest(first) {
                 "origin": "OTHER",
                 "originName": "QICM",
                 "originCampaign": "adfinitas_donateurs",
-                "originCampaignId": "1",
+                "originCampaignId": "2",
                 "optinEmail": "true",
                 "language": "fr_FR",
                 "gender": userData.civ === "Monsieur" ? "M" : "F",
@@ -344,7 +344,7 @@ function sendRequest(first) {
                 "phone": userData.phone,
                 "optinMail": "true",
                 "optinPhone": userData.hasPhone,
-                "segments": "QICM_2019",
+                "segments": "QICM-FID_2020",
                 "creationDate": date.toString(),
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
@@ -353,18 +353,19 @@ function sendRequest(first) {
             },
         };
     } else {
+        console.log(userData.questions);
         data = {
             "iraiser": {
                 "email": userData.email,
                 "origin": "OTHER",
                 "originName": "QICM",
                 "originCampaign": "adfinitas_donateurs",
-                "originCampaignId": "1",
+                "originCampaignId": "2",
                 "optinEmail": "true",
                 "reservedFields": {
                     "QICM_questionAlzheimer": `${userData.questions[0].toUpperCase()}, ${userData.questions[1].toUpperCase()}`,
                     "QICM_questionPathologie": userData.questions[2].toUpperCase(),
-                    "QICM_ICM": userData.questions[3].toUpperCase()
+                    "QICM_ICM": userData.questions[3].toUpperCase(),
                 }
             }
         };
@@ -420,8 +421,8 @@ function sendRequest(first) {
                 "origin": "OTHER",
                 "originName": "QICM",
                 "originCampaign": "adfinitas_donateurs",
-                "originCampaignId": "1",
-                "segments": "QICM_2019",
+                "originCampaignId": "2",
+                "segments": "QICM-FID_2020",
                 "language": "fr_FR",
                 "optinEmail": "true",
                 "optinMail": "true",
