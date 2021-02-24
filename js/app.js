@@ -163,7 +163,7 @@ function putTrackingPixel() {
     document.getElementById("pixelTracking").innerHTML = "<!-- Offer Conversion: ICM - Enquête -->\n" +
         "<img src=\"https://orixamedia.go2cloud.org/SLbO\" width=\"1\" height=\"1\" />\n" +
         "<!-- // End Offer Conversion -->";
-        
+
     /* Adroll segment pixel */
     var ADR_ADV_EID = 'GO4S6WRUMBCPTPLVUJZDVV',
     ADR_PIXEL_EID = '2EGFROYM55G7LHBSA37IU7',
@@ -307,7 +307,7 @@ function sendRequest(first) {
                 "phone": userData.phone,
                 "optinMail": "true",
                 "optinPhone": userData.hasPhone,
-                "segments": "QICM_2020",
+                "segments": "QICM_2021",
                 "creationDate": date.toString(),
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
@@ -384,7 +384,7 @@ function sendRequest(first) {
                 "originName": "QICM",
                 "originCampaign": "adfinitas_leads",
                 "originCampaignId": "1",
-                "segments": "QICM_2020",
+                "segments": "QICM_2021",
                 "language": "fr_FR",
                 "optinEmail": "true",
                 "optinMail": "true",
