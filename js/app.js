@@ -344,7 +344,7 @@ function sendRequest(first) {
                 "phone": userData.phone,
                 "optinMail": "true",
                 "optinPhone": userData.hasPhone,
-                "segments": "QICM-FID_2020",
+                "segments": "QICM-FID_2021",
                 "creationDate": date.toString(),
                 "civility": userData.civ === "Monsieur" ? "Mr" : "Miss",
                 "reservedFields": {
@@ -422,7 +422,7 @@ function sendRequest(first) {
                 "originName": "QICM",
                 "originCampaign": "adfinitas_donateurs",
                 "originCampaignId": "2",
-                "segments": "QICM-FID_2020",
+                "segments": "QICM-FID_2021",
                 "language": "fr_FR",
                 "optinEmail": "true",
                 "optinMail": "true",
